@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X, Heart, ShoppingCart } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCart } from '../contexts/CartContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { toggleCart, getTotalItems } = useCart();
 
   const navItems = [
     { name: 'Home', path: '/' },
@@ -14,7 +16,6 @@ const Navbar = () => {
     { name: 'Shop', path: '/shop' },
     { name: 'Testimonials', path: '/testimonials' },
     { name: 'Podcast', path: '/podcast' },
-   
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -28,7 +29,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center space-x-2"
           >
-            <Heart className="h-8 w-8 text-pink-500" />
+            <img src='logo.png' alt='logo_image' className='w-15'/>
             <span className="font-poppins font-bold text-xl text-gray-800">Head2Heart</span>
           </motion.div>
 
@@ -53,6 +54,17 @@ const Navbar = () => {
             >
               Book Now
             </Link>
+            <button
+              onClick={toggleCart}
+              className="relative p-2 text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              <ShoppingCart className="h-6 w-6 cursor-pointer" />
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -95,6 +107,23 @@ const Navbar = () => {
                 >
                   Book Now
                 </Link>
+                <button
+                  onClick={() => {
+                    toggleCart();
+                    setIsOpen(false);
+                  }}
+                  className="flex items-center justify-between px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
+                >
+                  <div className="flex items-center space-x-2">
+                    <ShoppingCart className="h-5 w-5 " />
+                    <span>Cart</span>
+                  </div>
+                  {getTotalItems() > 0 && (
+                    <span className="bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                      {getTotalItems()}
+                    </span>
+                  )}
+                </button>
               </div>
             </motion.div>
           )}

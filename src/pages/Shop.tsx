@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingCart, Star, Filter } from 'lucide-react';
+import { ShoppingCart, Star, Filter, CreditCard } from 'lucide-react';
+import { useCart } from '../contexts/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [cart, setCart] = useState<{ [key: string]: number }>({});
+  const { addItem, getTotalItems } = useCart();
+  const navigate = useNavigate();
 
   const categories = ['all', 'books', 'courses', 'journals', 'accessories'];
 
@@ -75,15 +78,19 @@ const Shop = () => {
     ? products 
     : products.filter(product => product.category === selectedCategory);
 
-  const addToCart = (productId: string) => {
-    setCart(prev => ({
-      ...prev,
-      [productId]: (prev[productId] || 0) + 1
-    }));
+  const handleAddToCart = (product: typeof products[0]) => {
+    addItem({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.image,
+      category: product.category,
+    });
   };
 
-  const getTotalItems = () => {
-    return Object.values(cart).reduce((sum, quantity) => sum + quantity, 0);
+  const handleBuyNow = (product: typeof products[0]) => {
+    handleAddToCart(product);
+    navigate('/checkout');
   };
 
   return (
@@ -181,22 +188,23 @@ const Shop = () => {
                   <span className="text-2xl font-bold text-blue-600">
                     ${product.price}
                   </span>
-                  <button
-                    onClick={() => addToCart(product.id)}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 flex items-center space-x-2"
-                  >
-                    <ShoppingCart className="h-4 w-4" />
-                    <span>Add to Cart</span>
-                  </button>
-                </div>
-                
-                {cart[product.id] && (
-                  <div className="mt-3 text-center">
-                    <span className="text-green-600 font-medium">
-                      {cart[product.id]} item(s) in cart
-                    </span>
+                  <div className="flex space-x-2">
+                    <button
+                      onClick={() => handleAddToCart(product)}
+                      className="bg-gray-100 text-gray-700 px-4 py-2 cursor-pointer rounded-full hover:bg-gray-200 transition-all duration-200 flex items-center space-x-1"
+                    >
+                      <ShoppingCart className="h-4 w-4" />
+                      <span>Add</span>
+                    </button>
+                    <button
+                      onClick={() => handleBuyNow(product)}
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 cursor-pointer text-white px-4 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 flex items-center space-x-1"
+                    >
+                      <CreditCard className="h-4 w-4" />
+                      <span>Buy</span>
+                    </button>
                   </div>
-                )}
+                </div>
               </div>
             </motion.div>
           ))}
