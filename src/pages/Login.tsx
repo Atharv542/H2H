@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Heart, Mail, Lock, ArrowRight, AlertCircle } from 'lucide-react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase';
-
+import toast from "react-hot-toast";
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +21,7 @@ const Login = () => {
       // Firebase login
       await signInWithEmailAndPassword(auth, email, password);
       setLoading(false);
+      toast.success('Logged in successfully!')
       navigate('/'); // ✅ Redirect on success
     } catch (err) {
       console.error(err);

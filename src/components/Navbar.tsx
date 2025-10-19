@@ -4,6 +4,7 @@ import { Menu, X, Heart, User, LogOut } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { auth } from "../firebase"; // import your auth
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,7 +58,8 @@ const Navbar = () => {
   const handleLogout = async () => {
     await signOut(auth);
     setShowUserMenu(false);
-    navigate("/"); // optional redirect after logout
+    toast.success("Logged out successfully!")
+    navigate("/login"); // optional redirect after logout
   };
 
   return (

@@ -5,6 +5,7 @@ import { Heart, Mail, Lock, User, ArrowRight, AlertCircle, CheckCircle } from 'l
 import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import toast from "react-hot-toast";
 
 const Signup = () => {
   const [fullName, setFullName] = useState('');
@@ -46,6 +47,7 @@ const Signup = () => {
       });
 
       setLoading(false);
+      toast.success('Account created successfully! ')
       navigate('/login'); // Redirect to home or dashboard
     } catch (err: any) {
       console.error(err);
