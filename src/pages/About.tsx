@@ -1,49 +1,55 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Heart, Users, Target } from 'lucide-react';
+import { Award, Heart,  Handshake, ShieldCheck, Lightbulb } from 'lucide-react';
 
 const About = () => {
   const values = [
     {
+      icon: ShieldCheck,
+      title: 'Honesty and Transparency',
+      description:
+        'We maintain openness and honesty in every interaction, ensuring our clients feel supported with genuine feedback and authentic communication.',
+    },
+    {
+      icon: Handshake,
+      title: 'Respect',
+      description:
+        'We value every individual’s perspective and journey, treating everyone with dignity, empathy, and kindness.',
+    },
+    {
+      icon: Lightbulb,
+      title: 'Bold',
+      description:
+        'We encourage courage — the willingness to step out of comfort zones, embrace change, and pursue growth with confidence.',
+    },
+    {
       icon: Heart,
-      title: 'Authenticity',
-      description: 'We believe in the power of being genuine and true to yourself in every aspect of life.',
-    },
-    {
-      icon: Users,
-      title: 'Connection',
-      description: 'Building meaningful relationships and fostering deep connections with ourselves and others.',
-    },
-    {
-      icon: Target,
-      title: 'Growth',
-      description: 'Committed to continuous learning and helping others reach their highest potential.',
+      title: 'Compassion',
+      description:
+        'We approach every coaching journey with empathy and understanding, helping individuals heal, grow, and find balance.',
     },
     {
       icon: Award,
-      title: 'Excellence',
-      description: 'Delivering exceptional coaching experiences that create lasting positive change.',
+      title: 'Integrity',
+      description:
+        'We uphold the highest ethical standards, ensuring our coaching practices are rooted in trust, accountability, and sincerity.',
     },
   ];
 
-  const team = [
+ const team = [
     {
-      name: 'Sanchin Kaintura',
+      name: 'Sachin Kaintura',
       role: 'Founder & Lead Coach',
-      image: 'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'With over 10 years of experience in life coaching, Sarah has helped hundreds of clients transform their lives.',
+      image:
+        'Sachin.png',
+      bio: 'Hi, I’m Sachin Kaintura a husband, proud father, and Personal Development & Mindfulness Certified Coach expertise in NLP. My journey began in Mumbai and took me to New Zealand, where I built a life through resilience, hard work, and a commitment to growth. For over 20 years, I worked in hospitality and leadership roles, but something always felt missing. In 2019, I discovered the power of mindfulness and personal development a turning point that helped me overcome stress, procrastination, limiting beliefs, and imposter syndrome. Today, I help individuals break free from self-doubt, gain clarity, and create balance in their personal and professional lives. My mission is simple, to guide you in cultivating mindfulness, unlocking your potential, and living with purpose.',
     },
     {
       name: 'Sandeep Sharma',
       role: 'Senior Life Coach',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Specializing in career transitions and personal development, Michael brings 8 years of coaching expertise.',
-    },
-    {
-      name: 'Shaila',
-      role: 'Wellness Coach',
-      image: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400',
-      bio: 'Emma focuses on holistic wellness and work-life balance, helping clients create sustainable lifestyle changes.',
+      image:
+        'Sandeep.png',
+      bio: 'Hi, my name is Sandeep Sharma, and I am very grateful for the life, family and friends that I have today. I was born in a middle-class family in New Delhi, India. My early life was no different than many of us. I grew up in a not so abundant financial household, but it was filled with my fair share of fun and challenges.  Seeing the people around me, just like everyone else, I started dreaming of making it big in life, having money, a house, car and all the luxuries that one can think of but had no idea how to attain them. Life has been smooth and rough at different intervals and constantly running after these dreams made me feel stuck, empty, unhappy and isolated with no guidance. I was always trying to accomplish something, trying out everything and achieving nothing. I felt like I was stuck in a loop. As I grew older, I realised I was not born in this world to be unhappy and that something needs to change so I can lead a happy life and not constantly live in worry, fear and anxiety about money, dreams, net worth, etc… ',
     },
   ];
 
@@ -81,19 +87,10 @@ const About = () => {
               when strategies align with values, and when the mind and heart work together in harmony.
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              Our mission is to provide compassionate, evidence-based coaching that empowers 
-              individuals to create meaningful change in their lives while staying true to their authentic selves.
+              We change lives from within by empowering and transforming emotional and physical wellbeing through purpose driven guidance.<br/>Why - Because we care.
+
             </p>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-4 bg-blue-50 rounded-lg">
-                <div className="text-3xl font-bold text-blue-600 mb-2">10+</div>
-                <div className="text-gray-600">Years Experience</div>
-              </div>
-              <div className="text-center p-4 bg-purple-50 rounded-lg">
-                <div className="text-3xl font-bold text-purple-600 mb-2">500+</div>
-                <div className="text-gray-600">Lives Transformed</div>
-              </div>
-            </div>
+            
           </div>
           <div className="relative">
             <img
@@ -134,7 +131,7 @@ const About = () => {
         </motion.div>
 
         {/* Team Section */}
-        <motion.div
+<motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
@@ -142,13 +139,13 @@ const About = () => {
           <h2 className="font-poppins text-4xl font-bold text-center text-gray-900 mb-12">
             Meet Our Team
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {team.map((member, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {team.map((member) => (
               <div
                 key={member.name}
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="h-64 overflow-hidden">
+                <div className="h-[500px] overflow-hidden">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -156,11 +153,13 @@ const About = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="font-poppins text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="font-poppins text-xl font-semibold text-gray-900 mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-blue-600 font-medium mb-3">{member.role}</p>
-                  <p className="text-gray-600">{member.bio}</p>
+                  
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {member.bio}
+                  </p>
                 </div>
               </div>
             ))}

@@ -1,84 +1,105 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ShoppingCart, Star, Filter, CreditCard } from 'lucide-react';
-import { useCart } from '../contexts/CartContext';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ShoppingCart, Star, Filter, CreditCard } from "lucide-react";
+import { useCart } from "../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import CartSidebar from "../components/CartSidebar";
+import toast from "react-hot-toast";
 
 const Shop = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const { addItem, getTotalItems } = useCart();
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const { addItem, getTotalItems, openCart } = useCart();
   const navigate = useNavigate();
 
-  const categories = ['all', 'books', 'courses', 'journals', 'accessories'];
+  const categories = ["all", "books", "courses", "journals", "accessories"];
 
   const products = [
     {
-      id: '1',
-      title: 'Transform Your Life Workbook',
-      category: 'books',
+      id: "1",
+      title: "Transform Your Life Workbook",
+      category: "books",
       price: 29.99,
       rating: 4.8,
       reviews: 124,
-      image: 'https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'A comprehensive workbook with exercises and prompts for personal transformation.',
+      image:
+        "https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400",
+      description:
+        "A comprehensive workbook with exercises and prompts for personal transformation.",
     },
     {
-      id: '2',
-      title: 'Mindfulness Meditation Course',
-      category: 'courses',
-      price: 197.00,
+      id: "2",
+      title: "Mindfulness Meditation Course",
+      category: "courses",
+      price: 197.0,
       rating: 4.9,
       reviews: 89,
-      image: 'https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'A 8-week online course teaching mindfulness and meditation techniques.',
+      image:
+        "https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=400",
+      description:
+        "An 8-week online course teaching mindfulness and meditation techniques.",
     },
     {
-      id: '3',
-      title: 'Daily Reflection Journal',
-      category: 'journals',
+      id: "3",
+      title: "Daily Reflection Journal",
+      category: "journals",
       price: 24.99,
       rating: 4.7,
       reviews: 203,
-      image: 'https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Beautiful journal with guided prompts for daily reflection and gratitude.',
+      image:
+        "https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=400",
+      description:
+        "Beautiful journal with guided prompts for daily reflection and gratitude.",
     },
     {
-      id: '4',
-      title: 'Goal Setting Planner',
-      category: 'journals',
+      id: "4",
+      title: "Goal Setting Planner",
+      category: "journals",
       price: 34.99,
       rating: 4.6,
       reviews: 156,
-      image: 'https://images.pexels.com/photos/1493955/pexels-photo-1493955.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Strategic planner designed to help you set and achieve meaningful goals.',
+      image:
+        "https://images.pexels.com/photos/1493955/pexels-photo-1493955.jpeg?auto=compress&cs=tinysrgb&w=400",
+      description:
+        "Strategic planner designed to help you set and achieve meaningful goals.",
     },
     {
-      id: '5',
-      title: 'Life Coaching Certification',
-      category: 'courses',
-      price: 1299.00,
+      id: "5",
+      title: "Life Coaching Certification",
+      category: "courses",
+      price: 1299.0,
       rating: 5.0,
       reviews: 45,
-      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: 'Complete certification program to become a professional life coach.',
+      image:
+        "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
+      description:
+        "Complete certification program to become a professional life coach.",
     },
     {
-      id: '6',
-      title: 'Affirmation Cards Set',
-      category: 'accessories',
+      id: "6",
+      title: "Affirmation Cards Set",
+      category: "accessories",
       price: 19.99,
       rating: 4.5,
       reviews: 78,
-      image: 'https://images.pexels.com/photos/4226219/pexels-photo-4226219.jpeg?auto=compress&cs=tinysrgb&w=400',
-      description: '50 beautifully designed cards with powerful affirmations for daily inspiration.',
+      image:
+        "https://images.pexels.com/photos/4226219/pexels-photo-4226219.jpeg?auto=compress&cs=tinysrgb&w=400",
+      description:
+        "50 beautifully designed cards with powerful affirmations for daily inspiration.",
     },
   ];
 
-  const filteredProducts = selectedCategory === 'all' 
-    ? products 
-    : products.filter(product => product.category === selectedCategory);
+  const filteredProducts =
+    selectedCategory === "all"
+      ? products
+      : products.filter((p) => p.category === selectedCategory);
 
-  const handleAddToCart = (product: typeof products[0]) => {
+  const handleAddToCart = (product) => {
+    if (!auth.currentUser) {
+      navigate("/login");
+      return;
+    }
+
     addItem({
       id: product.id,
       title: product.title,
@@ -86,37 +107,30 @@ const Shop = () => {
       image: product.image,
       category: product.category,
     });
+
+    toast.success(`${product.title} added to cart! 🛒`, {
+      duration: 3000,
+      style: { fontSize: "14px", borderRadius: "10px" },
+    });
   };
 
-  const handleBuyNow = (product: typeof products[0]) => {
+  const handleBuyNow = (product) => {
+    if (!auth.currentUser) {
+      navigate("/login");
+      return;
+    }
     handleAddToCart(product);
-    navigate('/checkout');
+    navigate("/checkout");
   };
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        {/* ✅ Sticky Filter Bar */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <h1 className="font-poppins text-5xl font-bold text-gray-900 mb-6">
-            Shop
-          </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover our collection of books, courses, journals, and tools designed 
-            to support your personal growth journey.
-          </p>
-        </motion.div>
-
-        {/* Filter Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="flex flex-wrap items-center justify-between mb-8 p-6 bg-white rounded-2xl shadow-lg"
+          className="flex flex-wrap items-center justify-between mb-8 p-6 bg-white rounded-2xl shadow-lg  top-20 z-40 backdrop-blur-md bg-opacity-95"
         >
           <div className="flex items-center space-x-4 mb-4 md:mb-0">
             <Filter className="h-5 w-5 text-gray-600" />
@@ -128,8 +142,8 @@ const Shop = () => {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     selectedCategory === category
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
                 >
                   {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -138,7 +152,11 @@ const Shop = () => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-2">
+          {/* 🛒 Cart Icon */}
+          <div
+            className="flex items-center space-x-2 cursor-pointer"
+            onClick={openCart}
+          >
             <ShoppingCart className="h-5 w-5 text-gray-600" />
             <span className="font-medium text-gray-900">
               Cart ({getTotalItems()})
@@ -146,7 +164,7 @@ const Shop = () => {
           </div>
         </motion.div>
 
-        {/* Products Grid */}
+        {/* 🛍️ Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product, index) => (
             <motion.div
@@ -175,15 +193,15 @@ const Shop = () => {
                     </span>
                   </div>
                 </div>
-                
+
                 <h3 className="font-poppins text-xl font-semibold text-gray-900 mb-3">
                   {product.title}
                 </h3>
-                
+
                 <p className="text-gray-600 mb-4 text-sm">
                   {product.description}
                 </p>
-                
+
                 <div className="flex items-center justify-between">
                   <span className="text-2xl font-bold text-blue-600">
                     ${product.price}
@@ -191,7 +209,7 @@ const Shop = () => {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => handleAddToCart(product)}
-                      className="bg-gray-100 text-gray-700 px-4 py-2 cursor-pointer rounded-full hover:bg-gray-200 transition-all duration-200 flex items-center space-x-1"
+                      className="bg-gray-100 cursor-pointer text-gray-700 px-4 py-2 rounded-full hover:bg-gray-200 transition-all duration-200 flex items-center space-x-1"
                     >
                       <ShoppingCart className="h-4 w-4" />
                       <span>Add</span>
@@ -210,37 +228,11 @@ const Shop = () => {
           ))}
         </div>
 
-        {/* Empty State */}
-        {filteredProducts.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-12"
-          >
-            <p className="text-gray-600 text-lg">
-              No products found in this category.
-            </p>
-          </motion.div>
-        )}
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="mt-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-center"
-        >
-          <h2 className="font-poppins text-4xl font-bold text-white mb-4">
-            Need Something Custom?
-          </h2>
-          <p className="text-xl text-blue-100 mb-6">
-            We can create personalized coaching materials tailored to your specific needs.
-          </p>
-          <button className="bg-white text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors">
-            Contact Us
-          </button>
-        </motion.div>
+       
       </div>
+
+      {/* 🛍️ Cart Sidebar */}
+      <CartSidebar />
     </div>
   );
 };

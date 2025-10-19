@@ -32,7 +32,7 @@ const Checkout = () => {
     e.preventDefault();
     // Simulate payment processing
     setTimeout(() => {
-      setStep(3);
+      setStep(2);
       clearCart();
     }, 2000);
   };
@@ -75,7 +75,7 @@ const Checkout = () => {
             Checkout
           </h1>
           <div className="flex items-center justify-center space-x-4">
-            {[1, 2, 3].map((stepNumber) => (
+            {[1, 2].map((stepNumber) => (
               <div key={stepNumber} className="flex items-center">
                 <div
                   className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
@@ -86,7 +86,7 @@ const Checkout = () => {
                 >
                   {step > stepNumber ? <CheckCircle className="h-4 w-4" /> : stepNumber}
                 </div>
-                {stepNumber < 3 && (
+                {stepNumber < 2 && (
                   <div
                     className={`w-12 h-1 mx-2 ${
                       step > stepNumber ? 'bg-blue-600' : 'bg-gray-300'
@@ -97,13 +97,13 @@ const Checkout = () => {
             ))}
           </div>
           <div className="flex justify-center space-x-8 mt-2 text-sm text-gray-600">
-            <span className={step >= 1 ? 'text-blue-600 font-medium' : ''}>Information</span>
+            
             <span className={step >= 2 ? 'text-blue-600 font-medium' : ''}>Payment</span>
             <span className={step >= 3 ? 'text-blue-600 font-medium' : ''}>Complete</span>
           </div>
         </motion.div>
 
-        {step < 3 && (
+        {step < 2 && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Form Section */}
             <motion.div
@@ -111,7 +111,7 @@ const Checkout = () => {
               animate={{ opacity: 1, x: 0 }}
               className="bg-white rounded-2xl shadow-lg p-8"
             >
-              {step === 1 && (
+              {/*step === 1 && (
                 <>
                   <h2 className="font-poppins text-2xl font-semibold text-gray-900 mb-6">
                     Contact & Shipping Information
@@ -232,9 +232,9 @@ const Checkout = () => {
                     </button>
                   </form>
                 </>
-              )}
+              )*/}
 
-              {step === 2 && (
+              {step === 1 && (
                 <>
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="font-poppins text-2xl font-semibold text-gray-900">
@@ -382,7 +382,7 @@ const Checkout = () => {
           </div>
         )}
 
-        {step === 3 && (
+        {step === 2 && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}

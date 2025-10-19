@@ -17,6 +17,11 @@ import Podcast from './pages/Podcast';
 import Booking from './pages/Booking';
 import Checkout from './pages/Checkout';
 import Terms from './pages/Terms';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import ScrollToTop from './ScrollToTop';
+import EmailPopupLearn from './pages/EmailPopLearnMore';
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -24,7 +29,9 @@ function App() {
   return (
     <CartProvider>
       <Router>
+       <ScrollToTop/>
         <div className="min-h-screen bg-gray-50">
+        
           <Navbar />
           <AnimatePresence mode="wait">
             <Routes>
@@ -34,7 +41,12 @@ function App() {
               <Route path="/shop" element={<Shop />} />
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/podcast" element={<Podcast />} />
-              
+              <Route path="/email" element={<EmailPopupLearn />} />
+        
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        
+        
               <Route path="/booking" element={<Booking />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/terms" element={<Terms />} />
@@ -45,7 +57,9 @@ function App() {
           <CartSidebar />
           <EmailPopup isVisible={showPopup} onClose={closePopup} />
         </div>
+       
       </Router>
+       <Toaster />
     </CartProvider>
   );
 }
