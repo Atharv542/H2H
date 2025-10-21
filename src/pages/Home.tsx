@@ -1,9 +1,16 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion, useInView } from 'framer-motion';
-import { ArrowRight, Heart, Target, Lightbulb, Users, Sparkles } from 'lucide-react';
-import { auth } from '../firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import React, { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { motion, useInView } from "framer-motion";
+import {
+  ArrowRight,
+  Heart,
+  Target,
+  Lightbulb,
+  Users,
+  Sparkles,
+} from "lucide-react";
+import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Home = () => {
   const [user, setUser] = useState<any>(null);
@@ -14,70 +21,117 @@ const Home = () => {
     });
     return () => unsubscribe();
   }, []);
-  const sections = [
-    {
-      icon: Heart,
-      title: 'Connect With Your Inner Self',
-      description: 'Discover the power of aligning your thoughts and emotions. Our holistic approach helps you build a deeper connection between your mind and heart, creating lasting transformation from within.',
-      image: 'https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=800',
-      reverse: false,
-    },
-    {
-      icon: Target,
-      title: 'Achieve Your Life Goals',
-      description: 'Transform your dreams into reality with personalized coaching strategies. We work together to identify your goals, overcome obstacles, and create actionable plans that lead to meaningful success.',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-      reverse: true,
-    },
-    {
-      icon: Lightbulb,
-      title: 'Unlock Your True Potential',
-      description: 'Break through limiting beliefs and discover the limitless possibilities within you. Our proven methodologies help you tap into your strengths and develop the confidence to pursue your passions.',
-      image: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=800',
-      reverse: false,
-    },
-    {
-      icon: Users,
-      title: 'Build Meaningful Relationships',
-      description: 'Strengthen your connections with others by first understanding yourself. Learn communication techniques and emotional intelligence skills that transform your personal and professional relationships.',
-      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
-      reverse: true,
-    },
-    {
-      icon: Sparkles,
-      title: 'Create Lasting Change',
-      description: 'Experience sustainable transformation that goes beyond temporary fixes. Our comprehensive approach ensures you develop habits, mindsets, and practices that support your growth for years to come.',
-      image: 'https://images.pexels.com/photos/3760607/pexels-photo-3760607.jpeg?auto=compress&cs=tinysrgb&w=800',
-      reverse: false,
-    },
-  ];
+  
 
   const services = [
     {
-      title: 'Purpose Coaching',
-      description: 'Discover your true calling and create a life aligned with your deepest values and passions.',
-      image: 'https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&w=400',
+      title: "Purpose Coaching",
+      description:
+        "Discover your true calling and create a life aligned with your deepest values and passions.",
+      image:
+        "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&w=400",
+      link: "/purpose-coaching",
     },
     {
-      title: 'Mindfulness Coaching',
-      description: 'Cultivate inner peace and present-moment awareness.',
-      image: 'https://images.pexels.com/photos/3820360/pexels-photo-3820360.jpeg?auto=compress&cs=tinysrgb&w=400',
+      title: "Mindfulness Coaching",
+      description: "Cultivate inner peace and present-moment awareness.",
+      image:
+        "https://images.pexels.com/photos/3820360/pexels-photo-3820360.jpeg?auto=compress&cs=tinysrgb&w=400",
+      link: "/mindfulness-coaching",
     },
     {
-      title: 'Personal Development Coaching',
-      description: 'Unlock your full potential with personalized strategies for sustainable growth and success.',
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400',
+      title: "Personal Development Coaching",
+      description:
+        "Unlock your full potential with personalized strategies for sustainable growth and success.",
+      image:
+        "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
+      link: "/clarity-coaching",
     },
   ];
 
   return (
     <div className="min-h-screen">
-      {/* Feature Sections */}
-      <div className="bg-gradient-to-br from-blue-50 to-purple-50">
-        {sections.map((section, index) => (
-          <FeatureSection key={index} section={section} index={index} />
-        ))}
-      </div>
+       <section className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Text Content */}
+            <div className="space-y-8 z-10">
+              <div className="inline-block">
+                <span className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-full shadow-lg">
+                  Transform Your Life Today
+                </span>
+              </div>
+
+              <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl text-gray-900 leading-tight">
+                Discover Your
+                <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  True Potential
+                </span>
+              </h1>
+
+              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-xl">
+                Unlock the power within you through personalized coaching that creates lasting transformation and meaningful growth.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Link to={user ? "/booking" : "/login"}>
+                <button className="group cursor-pointer inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-lg">
+                  <span>Start Your Journey</span>
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </Link>
+
+              <Link to='/email'>
+                  <button className="inline-flex cursor-pointer items-center ml-5 md:ml-0 justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border-2 border-gray-200 hover:border-gray-300">
+                  <span>Learn More</span>
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+              </Link>
+              </div>
+
+              {/* Trust Indicators */}
+              <div className="flex items-center space-x-8 pt-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-gray-900">500+</div>
+                  <div className="text-sm text-gray-600">Happy Clients</div>
+                </div>
+                <div className="h-12 w-px bg-gray-300"></div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-gray-900">10+</div>
+                  <div className="text-sm text-gray-600">Years Experience</div>
+                </div>
+                <div className="h-12 w-px bg-gray-300"></div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-gray-900">98%</div>
+                  <div className="text-sm text-gray-600">Success Rate</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - Hero Image */}
+            <div className="relative lg:h-[600px] h-[400px]">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-600 rounded-3xl transform rotate-3 opacity-20"></div>
+              <div className="absolute inset-0 bg-gradient-to-tl from-pink-400 to-blue-600 rounded-3xl transform -rotate-3 opacity-20"></div>
+
+              <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                  alt="Coaching transformation"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
+              </div>
+
+              {/* Floating Elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full blur-2xl opacity-60 animate-pulse"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full blur-2xl opacity-60 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Services Preview */}
       <section id="services" className="py-20 bg-white scroll-mt-16">
@@ -88,7 +142,8 @@ const Home = () => {
                 How We Can Help You
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Discover our comprehensive range of services designed to support your personal growth and transformation.
+                Discover our comprehensive range of services designed to support
+                your personal growth and transformation.
               </p>
             </div>
           </AnimatedSection>
@@ -108,11 +163,16 @@ const Home = () => {
                     <h3 className="text-xl font-bold text-gray-900 mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
-                    <button className="text-blue-600 hover:text-blue-700 font-semibold flex items-center space-x-2 transition-colors group">
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {service.description}
+                    </p>
+                    <Link
+                      to={service.link}
+                      className="text-blue-600 hover:text-blue-700 font-semibold flex items-center space-x-2 transition-colors group"
+                    >
                       <span>Learn More</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </AnimatedSection>
@@ -121,47 +181,44 @@ const Home = () => {
         </div>
       </section>
 
-     {/* CTA Section */}
-<section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
-  <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,...')] opacity-10"></div>
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-    <AnimatedSection>
-      <h2 className="font-bold text-4xl md:text-5xl text-white mb-6">
-        Ready to Start Your Transformation?
-      </h2>
-      <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-        Book your free consultation today and take the first step towards a better you.
-      </p>
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,...')] opacity-10"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <AnimatedSection>
+            <h2 className="font-bold text-4xl md:text-5xl text-white mb-6">
+              Ready to Start Your Transformation?
+            </h2>
+            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+              Book your free consultation today and take the first step towards
+              a better you.
+            </p>
 
-      <div className="flex flex-col md:flex-row md:ml-40 items-center gap-4">
-        {/* Book Free Consultation */}
-        <Link
-          to={user ? "/booking" : "/login"}
-          className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
-        >
-          <span>Book Free Consultation</span>
-          <ArrowRight className="h-5 w-5" />
-        </Link>
+            <div className="flex flex-col  items-center gap-4">
+              {/* Book Free Consultation */}
+              <Link
+                to={user ? "/booking" : "/login"}
+                className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
+              >
+                <span>Book Free Consultation</span>
+                <ArrowRight className="h-5 w-5" />
+              </Link>
 
-        {/* Learn More */}
-        <Link
-          to="/email"
-          className="inline-flex items-center space-x-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold   transition-all duration-200 transform hover:scale-105"
-        >
-          <span>Learn More</span>
-          <ArrowRight className="h-5 w-5" />
-        </Link>
-      </div>
-    </AnimatedSection>
-  </div>
-</section>
+              
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
     </div>
   );
 };
 
-const FeatureSection: React.FC<{ section: any; index: number }> = ({ section, index }) => {
+const FeatureSection: React.FC<{ section: any; index: number }> = ({
+  section,
+  index,
+}) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const Icon = section.icon;
 
@@ -170,14 +227,18 @@ const FeatureSection: React.FC<{ section: any; index: number }> = ({ section, in
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center ${
-            section.reverse ? 'lg:grid-flow-dense' : ''
+            section.reverse ? "lg:grid-flow-dense" : ""
           }`}
         >
           <motion.div
             initial={{ opacity: 0, x: section.reverse ? 50 : -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: section.reverse ? 50 : -50 }}
+            animate={
+              isInView
+                ? { opacity: 1, x: 0 }
+                : { opacity: 0, x: section.reverse ? 50 : -50 }
+            }
             transition={{ duration: 0.8, delay: 0.2 }}
-            className={section.reverse ? 'lg:col-start-2' : ''}
+            className={section.reverse ? "lg:col-start-2" : ""}
           >
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-slate-700 rounded-xl flex items-center justify-center shadow-lg">
@@ -195,9 +256,13 @@ const FeatureSection: React.FC<{ section: any; index: number }> = ({ section, in
 
           <motion.div
             initial={{ opacity: 0, x: section.reverse ? -50 : 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: section.reverse ? -50 : 50 }}
+            animate={
+              isInView
+                ? { opacity: 1, x: 0 }
+                : { opacity: 0, x: section.reverse ? -50 : 50 }
+            }
             transition={{ duration: 0.8, delay: 0.4 }}
-            className={section.reverse ? 'lg:col-start-1 lg:row-start-1' : ''}
+            className={section.reverse ? "lg:col-start-1 lg:row-start-1" : ""}
           >
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-slate-700 rounded-3xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
@@ -214,12 +279,12 @@ const FeatureSection: React.FC<{ section: any; index: number }> = ({ section, in
   );
 };
 
-const AnimatedSection: React.FC<{ children: React.ReactNode; delay?: number }> = ({
-  children,
-  delay = 0,
-}) => {
+const AnimatedSection: React.FC<{
+  children: React.ReactNode;
+  delay?: number;
+}> = ({ children, delay = 0 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <motion.div

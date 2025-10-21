@@ -22,6 +22,9 @@ import Signup from './pages/Signup';
 import ScrollToTop from './ScrollToTop';
 import EmailPopupLearn from './pages/EmailPopLearnMore';
 import { Toaster } from "react-hot-toast";
+import PurposeCoaching from './pages/PurposeCoaching';
+import MindfulnessCoaching from './pages/MindfulnessCoaching';
+import ClarityCoaching from './pages/ClarityCoaching';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -42,6 +45,9 @@ function App() {
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/podcast" element={<Podcast />} />
               <Route path="/email" element={<EmailPopupLearn />} />
+              <Route path="/clarity-coaching" element={<ClarityCoaching />} />
+              <Route path="/mindfulness-coaching" element={<MindfulnessCoaching />} />
+              <Route path="/purpose-coaching" element={<PurposeCoaching />} />
         
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -51,6 +57,7 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Terms />} />
+              
             </Routes>
           </AnimatePresence>
           <Footer />
