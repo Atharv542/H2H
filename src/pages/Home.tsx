@@ -88,12 +88,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-     {/* Feature Sections */}
-      <div className="bg-gradient-to-br from-blue-50 to-slate-50">
-        {sections.map((section, index) => (
-          <FeatureSection key={index} section={section} index={index} />
-        ))}
-      </div>
+     
        <section className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
@@ -175,6 +170,13 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Feature Sections */}
+      <div className="bg-gradient-to-br from-blue-50 to-slate-50">
+        {sections.map((section, index) => (
+          <FeatureSection key={index} section={section} index={index} />
+        ))}
+      </div>
 
       {/* Services Preview */}
       <section id="services" className="py-20 bg-white scroll-mt-16">
