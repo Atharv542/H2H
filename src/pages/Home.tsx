@@ -22,7 +22,44 @@ const Home = () => {
     return () => unsubscribe();
   }, []);
   
+  const sections = [
+    {
+      icon: Heart,
+      title: 'Connect With Your Inner Self',
+      description: 'Discover the power of aligning your thoughts and emotions. Our holistic approach helps you build a deeper connection between your mind and heart, creating lasting transformation from within.',
+      image: 'https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=800',
+      reverse: false,
+    },
+    {
+      icon: Target,
+      title: 'Achieve Your Life Goals',
+      description: 'Transform your dreams into reality with personalized coaching strategies. We work together to identify your goals, overcome obstacles, and create actionable plans that lead to meaningful success.',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+      reverse: true,
+    },
+    {
+      icon: Lightbulb,
+      title: 'Unlock Your True Potential',
+      description: 'Break through limiting beliefs and discover the limitless possibilities within you. Our proven methodologies help you tap into your strengths and develop the confidence to pursue your passions.',
+      image: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=800',
+      reverse: false,
+    },
+    {
+      icon: Users,
+      title: 'Build Meaningful Relationships',
+      description: 'Strengthen your connections with others by first understanding yourself. Learn communication techniques and emotional intelligence skills that transform your personal and professional relationships.',
+      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
+      reverse: true,
+    },
+    {
+      icon: Sparkles,
+      title: 'Create Lasting Change',
+      description: 'Experience sustainable transformation that goes beyond temporary fixes. Our comprehensive approach ensures you develop habits, mindsets, and practices that support your growth for years to come.',
+      image: 'https://images.pexels.com/photos/3760607/pexels-photo-3760607.jpeg?auto=compress&cs=tinysrgb&w=800',
+      reverse: false,
+    },
 
+  ];
   const services = [
     {
       title: "Purpose Coaching",
@@ -51,6 +88,12 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+     {/* Feature Sections */}
+      <div className="bg-gradient-to-br from-blue-50 to-slate-50">
+        {sections.map((section, index) => (
+          <FeatureSection key={index} section={section} index={index} />
+        ))}
+      </div>
        <section className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
