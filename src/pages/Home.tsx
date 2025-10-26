@@ -89,87 +89,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
      
-       <section className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Text Content */}
-            <div className="space-y-8 z-10">
-              <div className="inline-block">
-                <span className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-full shadow-lg">
-                  Transform Your Life Today
-                </span>
-              </div>
-
-              <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl text-gray-900 leading-tight">
-                Discover Your
-                <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  True Potential
-                </span>
-              </h1>
-
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-xl">
-                Unlock the power within you through personalized coaching that creates lasting transformation and meaningful growth.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Link to={user ? "/booking" : "/login"}>
-                <button className="group cursor-pointer inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 shadow-lg">
-                  <span>Start Your Journey</span>
-                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </Link>
-
-              <Link to='/email'>
-                  <button className="inline-flex cursor-pointer items-center ml-5 md:ml-0 justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border-2 border-gray-200 hover:border-gray-300">
-                  <span>Learn More</span>
-                  <ArrowRight className="h-5 w-5" />
-                </button>
-              </Link>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="flex items-center space-x-8 pt-8">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">500+</div>
-                  <div className="text-sm text-gray-600">Happy Clients</div>
-                </div>
-                <div className="h-12 w-px bg-gray-300"></div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">10+</div>
-                  <div className="text-sm text-gray-600">Years Experience</div>
-                </div>
-                <div className="h-12 w-px bg-gray-300"></div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-900">98%</div>
-                  <div className="text-sm text-gray-600">Success Rate</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side - Hero Image */}
-            <div className="relative lg:h-[600px] h-[400px]">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-600 rounded-3xl transform rotate-3 opacity-20"></div>
-              <div className="absolute inset-0 bg-gradient-to-tl from-pink-400 to-blue-600 rounded-3xl transform -rotate-3 opacity-20"></div>
-
-              <div className="relative h-full rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                  alt="Coaching transformation"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
-              </div>
-
-              {/* Floating Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full blur-2xl opacity-60 animate-pulse"></div>
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full blur-2xl opacity-60 animate-pulse" style={{ animationDelay: '1s' }}></div>
-            </div>
-          </div>
-        </div>
-      </section>
+       
 
       {/* Feature Sections */}
       <div className="bg-gradient-to-br from-blue-50 to-slate-50">
@@ -239,7 +159,7 @@ const Home = () => {
               a better you.
             </p>
 
-            <div className="flex flex-col  items-center gap-4">
+            <div className="flex flex-col md:flex-row md:justify-center  items-center gap-4">
               {/* Book Free Consultation */}
               <Link
                 to={user ? "/booking" : "/login"}
@@ -247,6 +167,12 @@ const Home = () => {
               >
                 <span>Book Free Consultation</span>
                 <ArrowRight className="h-5 w-5" />
+              </Link>
+              <Link to='/email'>
+                  <button className="inline-flex cursor-pointer items-center ml-5 md:ml-0 justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border-2 border-gray-200 hover:border-gray-300">
+                  <span>Download Free E-Book</span>
+                  <ArrowRight className="h-5 w-5" />
+                </button>
               </Link>
 
               

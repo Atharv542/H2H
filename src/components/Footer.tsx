@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaTiktok } from "react-icons/fa";
 import {
   Heart,
   Facebook,
@@ -39,18 +40,16 @@ const Footer = () => {
 
             {/* Social Icons */}
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61583086640267" target='_blank' className="text-gray-300 hover:text-blue-400 transition-colors">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-pink-400 transition-colors">
+              <a href="https://www.instagram.com/headtwoheart/" target='_blank' className="text-gray-300 hover:text-pink-400 transition-colors">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-blue-400 transition-colors">
-                <Twitter className="h-5 w-5" />
+              <a href="https://www.tiktok.com/@head2heartlimited?lang=en" target='_blank' className="text-gray-300 hover:text-blue-400 transition-colors">
+               <FaTiktok className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-300 hover:text-red-400 transition-colors">
-                <Youtube className="h-5 w-5" />
-              </a>
+              
             </div>
           </div>
 

@@ -123,9 +123,7 @@ const ClarityCoaching = () => {
               Find Focus, Ease, and Balance in a Busy World
             </p>
 
-            <p className="text-lg text-blue-50 mb-10 max-w-2xl mx-auto leading-relaxed">
-              By: Sachin Kaintura & Sandeep Sharma
-            </p>
+            
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
