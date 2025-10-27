@@ -72,7 +72,10 @@ const Navbar = () => {
             className="flex items-center space-x-2"
           >
             <Heart className="h-8 w-8 text-rose-500" />
-            <span className="font-bold text-xl text-gray-800">Head2Heart</span>
+            <Link to="/">
+              <span className="font-bold text-xl cursor-pointer text-gray-800">Head2Heart</span>
+            </Link>
+            
           </motion.div>
 
           {/* Desktop Navigation */}
