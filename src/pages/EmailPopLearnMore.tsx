@@ -45,7 +45,7 @@ const EmailPopupLearnPage = () => {
                 Free Life Transformation Workbook!
               </h2>
               <p className="text-white/90 text-sm">
-                Get your complimentary 25-page workbook with exercises and prompts to kickstart your transformation journey
+                Get your complimentary workbook with exercises to kickstart your journey!
               </p>
             </div>
 
@@ -63,15 +63,15 @@ const EmailPopupLearnPage = () => {
                   <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                     <Mail className="h-4 w-4 text-blue-600" />
                   </div>
-                  <span className="text-sm text-gray-600">Weekly inspiration emails</span>
+                  <span className="text-sm text-gray-600">No spam and promotional emails</span>
                 </div>
 
-                <div className="flex items-center space-x-3">
+                {/*<div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
                     <Gift className="h-4 w-4 text-purple-600" />
                   </div>
                   <span className="text-sm text-gray-600">Exclusive coaching tips</span>
-                </div>
+                </div>*/}
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">

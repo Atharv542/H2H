@@ -13,12 +13,15 @@ interface QuestionnaireModalProps {
 const ageRanges = ['20-30', '30-40', '40-50', '50-60', '60+'];
 
 const helpTopics = [
-  { id: 'emotional', label: 'Emotional and Mental Wellbeing' },
-  { id: 'relationships', label: 'Relationships' },
-  { id: 'identity', label: 'Identity' },
-  { id: 'personal-growth', label: 'Personal Growth and Development' },
-  { id: 'life-purpose', label: 'Life Purpose' },
-  { id: 'meditation', label: 'Meditation and Mindfulness' },
+  { id: 'emotional', label: 'Creating positive habits' },
+  { id: 'relationships', label: 'Becoming Anxiety & Stress free' },
+  { id: 'identity', label: 'Build confidence' },
+  { id: 'personal-growth', label: 'Creating positive mindset' },
+  { id: 'life-purpose', label: 'Emotional Intelligence' },
+  { id: 'meditation', label: 'Create new beliefs' },
+  { id: 'meditation', label: 'Find your purpose' },
+  { id: 'meditation', label: 'Mindfulness & Inner peace' },
+  { id: 'meditation', label: 'Create meaningful relationships' },
 ];
 
 const dynamicQuestions: Record<string, string[]> = {
@@ -89,18 +92,12 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
     return questions;
   };
 
-  const handleResponseChange = (key: string, value: string) => {
-    setResponses((prev) => ({ ...prev, [key]: value }));
-  };
-
   const handleSubmit = async () => {
     setLoading(true);
     try {
       await addDoc(collection(db, 'user_questionnaires'), {
         user_email: userEmail,
         age_range: ageRange,
-        help_topics: selectedTopics,
-        responses: responses,
         created_at: new Date(),
       });
 
@@ -115,7 +112,6 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
   };
 
   const questions = getQuestionsForSelectedTopics();
-  const allQuestionsAnswered = questions.every((q) => responses[q.key]?.trim());
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-blue-50/95 via-white/95 to-slate-50/95 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -153,7 +149,7 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
               <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-2xl p-6 border border-blue-100">
                 <label className="block text-xl font-bold text-gray-900 mb-2 flex items-center space-x-2">
                   <span className="text-2xl">🎂</span>
-                  <span>What is your age range?</span>
+                  <span>Please select your age group</span>
                 </label>
                 <p className="text-sm text-gray-600 mb-5">
                   This helps us tailor our guidance to your life stage
@@ -179,7 +175,7 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
               <div className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6 border border-slate-100">
                 <label className="block text-xl font-bold text-gray-900 mb-2 flex items-center space-x-2">
                   <Heart className="h-6 w-6 text-rose-500" />
-                  <span>What can we help you with?</span>
+                  <span>What are you seeking help with?</span>
                 </label>
                 <p className="text-sm text-gray-600 mb-5">
                   Select all areas where you'd like support (multiple selections encouraged)
@@ -211,57 +207,17 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
               </div>
 
               <button
-                onClick={handleNext}
+                onClick={handleSubmit}
                 disabled={!ageRange || selectedTopics.length === 0}
                 className="w-full cursor-pointer bg-gradient-to-r from-blue-600 to-slate-700 text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center space-x-3 shadow-lg"
               >
-                <span>Continue to Next Step</span>
+                <span>Thanks for your response!</span>
                 <ArrowRight className="h-6 w-6" />
               </button>
             </div>
           )}
 
-          {step === 2 && (
-            <div className="space-y-6">
-              {getQuestionsForSelectedTopics().map((q, index) => (
-                <div
-                  key={q.key}
-                  className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-6 border border-slate-200"
-                >
-                  <label className="block text-lg font-bold text-gray-900 mb-4 flex items-start space-x-2">
-                    <span className="flex-shrink-0 w-8 h-8 bg-gradient-to-br from-blue-600 to-slate-700 text-white rounded-lg flex items-center justify-center font-bold text-sm">
-                      {index + 1}
-                    </span>
-                    <span className="flex-1 pt-0.5">{q.question}</span>
-                  </label>
-                  <textarea
-                    value={responses[q.key] || ''}
-                    onChange={(e) => handleResponseChange(q.key, e.target.value)}
-                    rows={4}
-                    className="w-full px-5 py-4 border-2 border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none bg-white shadow-sm hover:shadow-md"
-                    placeholder="Take your time to share your thoughts and feelings..."
-                  />
-                </div>
-              ))}
-
-              <div className="flex space-x-4 pt-4">
-                <button
-                  onClick={() => setStep(1)}
-                  className="flex-1 bg-gradient-to-r from-gray-100 to-gray-200 text-gray-700 py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:from-gray-200 hover:to-gray-300 hover:shadow-lg flex items-center justify-center space-x-2 border-2 border-gray-300"
-                >
-                  <ArrowLeft className="h-5 w-5" />
-                  <span>Back</span>
-                </button>
-                <button
-                  onClick={handleSubmit}
-                  disabled={!allQuestionsAnswered || loading}
-                  className="flex-1 cursor-pointer bg-gradient-to-r from-blue-600 to-slate-700 text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg"
-                >
-                  {loading ? 'Saving Your Journey...' : 'Complete & Start Your Journey'}
-                </button>
-              </div>
-            </div>
-          )}
+          
         </div>
       </div>
     </div>

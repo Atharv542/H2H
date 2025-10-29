@@ -368,30 +368,18 @@ const Terms = () => {
                 }
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="flex items-center justify-center space-x-3 p-4 bg-white rounded-xl shadow-sm">
-                  <Mail className="h-5 w-5 text-blue-600" />
+              <div className="grid  gap-4">
+                <div className="flex items-center justify-center  space-x-3 p-4 bg-white rounded-xl shadow-sm">
+                  <Mail className="h-6 w-6 text-blue-600" />
                   <div>
-                    <p className="font-medium text-gray-900">Email</p>
-                    <p className="text-sm text-gray-600">legal@head2heart.com</p>
+                  
+                    <p className="text-md -mt-1 text-gray-600">legal@head2heart.com</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-center space-x-3 p-4 bg-white rounded-xl shadow-sm">
-                  <Phone className="h-5 w-5 text-blue-600" />
-                  <div>
-                    <p className="font-medium text-gray-900">Phone</p>
-                    <p className="text-sm text-gray-600">+1 (555) 123-4567</p>
-                  </div>
-                </div>
                 
-                <div className="flex items-center justify-center space-x-3 p-4 bg-white rounded-xl shadow-sm">
-                  <MapPin className="h-5 w-5 text-blue-600" />
-                  <div>
-                    <p className="font-medium text-gray-900">Address</p>
-                    <p className="text-sm text-gray-600">123 Wellness Ave, NY</p>
-                  </div>
-                </div>
+                
+
               </div>
             </div>
           </div>

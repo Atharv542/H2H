@@ -108,14 +108,14 @@ const Footer = () => {
                 <Mail className="h-4 w-4 text-gray-400" />
                 <span className="text-gray-300">hello@head2heart.com</span>
               </div>
-              <div className="flex items-center space-x-2">
+              {/*<div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-gray-400" />
                 <span className="text-gray-300">+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-2">
+              </div>}
+              {<div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-gray-400" />
                 <span className="text-gray-300">New York, NY</span>
-              </div>
+              </div>*/}
             </div>
           </motion.div>
         </motion.div>

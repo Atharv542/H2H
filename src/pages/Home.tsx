@@ -21,45 +21,55 @@ const Home = () => {
     });
     return () => unsubscribe();
   }, []);
-  
+
   const sections = [
     {
       icon: Heart,
-      title: 'Connect With Your Inner Self',
-      description: 'Discover the power of aligning your thoughts and emotions. Our holistic approach helps you build a deeper connection between your mind and heart, creating lasting transformation from within.',
-      image: 'https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: "Connect With Your Inner Self",
+      description:
+        "Discover the power of aligning your thoughts and emotions. Our holistic approach helps you build a deeper connection between your mind and heart, creating lasting transformation from within.",
+      image:
+        "https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=800",
       reverse: false,
     },
     {
       icon: Target,
-      title: 'Achieve Your Life Goals',
-      description: 'Transform your dreams into reality with personalized coaching strategies. We work together to identify your goals, overcome obstacles, and create actionable plans that lead to meaningful success.',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: "Achieve Your Life Goals",
+      description:
+        "Transform your dreams into reality with personalized coaching strategies. We work together to identify your goals, overcome obstacles, and create actionable plans that lead to meaningful success.",
+      image:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800",
       reverse: true,
     },
     {
       icon: Lightbulb,
-      title: 'Unlock Your True Potential',
-      description: 'Break through limiting beliefs and discover the limitless possibilities within you. Our proven methodologies help you tap into your strengths and develop the confidence to pursue your passions.',
-      image: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: "Unlock Your True Potential",
+      description:
+        "Break through limiting beliefs and discover the limitless possibilities within you. Our proven methodologies help you tap into your strengths and develop the confidence to pursue your passions.",
+      image:
+        "https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=800",
       reverse: false,
     },
     {
       icon: Users,
-      title: 'Build Meaningful Relationships',
-      description: 'Strengthen your connections with others by first understanding yourself. Learn communication techniques and emotional intelligence skills that transform your personal and professional relationships.',
-      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: "Build Meaningful Relationships",
+      description:
+        "Strengthen your connections with others by first understanding yourself. Learn communication techniques and emotional intelligence skills that transform your personal and professional relationships.",
+      image:
+        "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
       reverse: true,
     },
     {
       icon: Sparkles,
-      title: 'Create Lasting Change',
-      description: 'Experience sustainable transformation that goes beyond temporary fixes. Our comprehensive approach ensures you develop habits, mindsets, and practices that support your growth for years to come.',
-      image: 'https://images.pexels.com/photos/3760607/pexels-photo-3760607.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: "Create Lasting Change",
+      description:
+        "Experience sustainable transformation that goes beyond temporary fixes. Our comprehensive approach ensures you develop habits, mindsets, and practices that support your growth for years to come.",
+      image:
+        "https://images.pexels.com/photos/3760607/pexels-photo-3760607.jpeg?auto=compress&cs=tinysrgb&w=800",
       reverse: false,
     },
-
   ];
+
   const services = [
     {
       title: "Purpose Coaching",
@@ -88,9 +98,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
-     
-       
-
       {/* Feature Sections */}
       <div className="bg-gradient-to-br from-blue-50 to-slate-50">
         {sections.map((section, index) => (
@@ -159,23 +166,21 @@ const Home = () => {
               a better you.
             </p>
 
-            <div className="flex flex-col md:flex-row md:justify-center  items-center gap-4">
+            <div className="flex flex-col md:flex-row md:justify-center items-center gap-4">
               {/* Book Free Consultation */}
               <Link
                 to={user ? "/booking" : "/login"}
                 className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
               >
-                <span>Book Free Consultation</span>
+                <span>Start your Journey</span>
                 <ArrowRight className="h-5 w-5" />
               </Link>
-              <Link to='/email'>
-                  <button className="inline-flex cursor-pointer items-center ml-5 md:ml-0 justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border-2 border-gray-200 hover:border-gray-300">
+              <Link to="/email">
+                <button className="inline-flex cursor-pointer items-center ml-5 md:ml-0 justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border-2 border-gray-200 hover:border-gray-300">
                   <span>Download Free E-Book</span>
                   <ArrowRight className="h-5 w-5" />
                 </button>
               </Link>
-
-              
             </div>
           </AnimatedSection>
         </div>
@@ -184,6 +189,7 @@ const Home = () => {
   );
 };
 
+// ✅ Updated FeatureSection Component
 const FeatureSection: React.FC<{ section: any; index: number }> = ({
   section,
   index,
@@ -201,6 +207,7 @@ const FeatureSection: React.FC<{ section: any; index: number }> = ({
             section.reverse ? "lg:grid-flow-dense" : ""
           }`}
         >
+          {/* Text Section */}
           <motion.div
             initial={{ opacity: 0, x: section.reverse ? 50 : -50 }}
             animate={
@@ -211,20 +218,23 @@ const FeatureSection: React.FC<{ section: any; index: number }> = ({
             transition={{ duration: 0.8, delay: 0.2 }}
             className={section.reverse ? "lg:col-start-2" : ""}
           >
-            <div className="flex items-center space-x-3 mb-6">
+            {/* Icon + Title beside each other */}
+            <div className="flex items-center space-x-4 mb-4">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-slate-700 rounded-xl flex items-center justify-center shadow-lg">
                 <Icon className="h-6 w-6 text-white" />
               </div>
-              <div className="h-1 w-12 bg-gradient-to-r from-blue-600 to-slate-700 rounded-full"></div>
+              <h2 className="font-bold text-3xl md:text-4xl text-gray-900 leading-tight">
+                {section.title}
+              </h2>
             </div>
-            <h2 className="font-bold text-3xl md:text-4xl text-gray-900 mb-6 leading-tight">
-              {section.title}
-            </h2>
+
+            {/* Description below */}
             <p className="text-lg text-gray-600 leading-relaxed">
               {section.description}
             </p>
           </motion.div>
 
+          {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, x: section.reverse ? -50 : 50 }}
             animate={
@@ -250,6 +260,7 @@ const FeatureSection: React.FC<{ section: any; index: number }> = ({
   );
 };
 
+// Animation Wrapper
 const AnimatedSection: React.FC<{
   children: React.ReactNode;
   delay?: number;
