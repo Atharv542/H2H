@@ -92,12 +92,15 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
     return questions;
   };
 
+ 
+
   const handleSubmit = async () => {
     setLoading(true);
     try {
       await addDoc(collection(db, 'user_questionnaires'), {
         user_email: userEmail,
         age_range: ageRange,
+        help_topics: selectedTopics,
         created_at: new Date(),
       });
 
@@ -183,7 +186,7 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                 <div className="space-y-3">
                   {helpTopics.map((topic) => (
                     <label
-                      key={topic.id}
+                      key={topic.label}
                       className={`flex items-center space-x-4 p-5 rounded-xl border-2 cursor-pointer transition-all duration-300 transform hover:scale-[1.02] ${
                         selectedTopics.includes(topic.id)
                           ? 'border-blue-600 bg-gradient-to-r from-blue-50 to-blue-100 shadow-md'
@@ -192,12 +195,12 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                     >
                       <input
                         type="checkbox"
-                        checked={selectedTopics.includes(topic.id)}
-                        onChange={() => handleTopicToggle(topic.id)}
+                        checked={selectedTopics.includes(topic.label)}
+                        onChange={() => handleTopicToggle(topic.label)}
                         className="h-6 w-6 text-blue-600 rounded-lg border-2 border-gray-300 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer"
                       />
                       <span className={`text-base font-semibold flex-1 ${
-                        selectedTopics.includes(topic.id) ? 'text-blue-900' : 'text-gray-700'
+                        selectedTopics.includes(topic.label) ? 'text-blue-900' : 'text-gray-700'
                       }`}>
                         {topic.label}
                       </span>
