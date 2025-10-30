@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Heart, Mail, Lock, User, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react';
 import { auth, db } from '../firebase';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile,sendEmailVerification  } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import toast from "react-hot-toast";
 
@@ -45,10 +45,12 @@ const Signup = () => {
         phoneNumber,
         createdAt: serverTimestamp(),
       });
+ // 4️⃣ Send email verification
+      await sendEmailVerification(user);
 
+      toast.success('Account created! Please check your inbox to verify your email.',{duration:4000});
       setLoading(false);
-      toast.success('Account created successfully! ')
-      navigate('/login'); // Redirect to home or dashboard
+      navigate('/login');
     } catch (err: any) {
       console.error(err);
       setError(err.message);
@@ -124,7 +126,9 @@ const Signup = () => {
               {!loading && <ArrowRight className="h-5 w-5" />}
             </button>
           </form>
-
+            <p className="text-xs text-gray-500 text-center mt-6 italic">
+              Tip: If you don’t see any verification email, check your <strong>Spam</strong> or <strong>Promotions</strong> folder and mark it as “Not Spam”.
+            </p>
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Already have an account?{' '}

@@ -40,7 +40,12 @@ const handleSubmit = async (e: React.FormEvent) => {
   try {
     // Firebase login
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
+     const user = userCredential.user;
+    if (!user.emailVerified) {
+        setLoading(false);
+        toast.error("Please verify your email before logging in!");
+        return;
+      }
     // Check if questionnaire is completed
     const completed = await checkQuestionnaireCompleted(email);
     setLoading(false);
@@ -163,7 +168,9 @@ const handleSubmit = async (e: React.FormEvent) => {
               {!loading && <ArrowRight className="h-5 w-5" />}
             </button>
           </form>
-
+             <p className="text-xs text-gray-500 text-center mt-6 italic">
+              Tip: If you don’t see any verification email, check your <strong>Spam</strong> or <strong>Promotions</strong> folder and mark it as “Not Spam”.
+            </p>
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Don't have an account?{' '}
