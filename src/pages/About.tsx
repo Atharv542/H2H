@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Heart,  Handshake, ShieldCheck, Lightbulb } from 'lucide-react';
+import { Award, Heart,  Handshake, ShieldCheck, Lightbulb,Eye } from 'lucide-react';
 
 const About = () => {
   const values = [
     {
       icon: ShieldCheck,
-      title: 'Honesty and Transparency',
+      title: 'Honesty',
       description:
         'We maintain openness and honesty in every interaction, ensuring our clients feel supported with genuine feedback and authentic communication.',
     },
@@ -20,7 +20,7 @@ const About = () => {
       icon: Lightbulb,
       title: 'Bold',
       description:
-        'We encourage courage — the willingness to step out of comfort zones, embrace change, and pursue growth with confidence.',
+        'We encourage stepping out of comfort zones, embrace change, and pursue growth with confidence',
     },
     {
       icon: Heart,
@@ -33,6 +33,12 @@ const About = () => {
       title: 'Integrity',
       description:
         'We uphold the highest ethical standards, ensuring our coaching practices are rooted in trust, accountability, and sincerity.',
+    },
+    {
+       icon: Eye,
+      title: 'Transparency',
+      description:
+        'We believe in open communication, honest feedback, and clear guidance for every learner.',
     },
   ];
 
@@ -49,7 +55,7 @@ const About = () => {
       role: 'Senior Life Coach',
       image:
         'Sandeep.png',
-      bio: 'Hi, my name is Sandeep Sharma, and I am very grateful for the life, family and friends that I have today. I was born in a middle-class family in New Delhi, India. My early life was no different than many of us. I grew up in a not so abundant financial household, but it was filled with my fair share of fun and challenges.  Seeing the people around me, just like everyone else, I started dreaming of making it big in life, having money, a house, car and all the luxuries that one can think of but had no idea how to attain them. Life has been smooth and rough at different intervals and constantly running after these dreams made me feel stuck, empty, unhappy and isolated with no guidance. I was always trying to accomplish something, trying out everything and achieving nothing. I felt like I was stuck in a loop. As I grew older, I realised I was not born in this world to be unhappy and that something needs to change so I can lead a happy life and not constantly live in worry, fear and anxiety about money, dreams, net worth, etc… ',
+      bio: 'Hi, my name is Sandeep Sharma. I’m truly thankful for the life I live today, and for the family and friends who surround me.  I was born into a middle-class household in New Delhi, India, where my childhood was joyful despite financial limitations. Like many, I aspired to a life of success—dreaming of wealth, a beautiful home, and luxuries of life — but had no clear roadmap to get there. Years of chasing these ambitions left me feeling stuck, anxious, and unfulfilled. No matter what I achieved, it never felt like enough. Eventually, I had a powerful realization: I wasn’t meant to live in fear, frustration, or emptiness. That moment became a turning point, prompting me to redefine my purpose, values, beliefs, and mindset. I came to see life as a journey made up of meaningful experiences, and that true happiness comes from embracing the present—not just pursuing a distant goal. I believe that if we’re not grateful for what we have today, we’ll never feel truly satisfied with what we gain tomorrow. Now, I live with intention and presence, enjoying the path I’m on. I support others who feel the way I once did—helping them cultivate an abundant mindset and guiding them toward their goals with clarity and purpose.',
     },
   ];
 
@@ -66,8 +72,7 @@ const About = () => {
             About Head2Heart
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're passionate about helping people bridge the gap between where they are 
-            and where they want to be, connecting both heart and mind in the process.
+       We're passionate about helping people bridge the gap between where they are and where they want to be, connecting both head and heart in the process.
           </p>
         </motion.div>
 
@@ -83,11 +88,11 @@ const About = () => {
               Our Mission
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              At Head2Heart, we believe that true transformation happens when logic meets emotion, 
-              when strategies align with values, and when the mind and heart work together in harmony.
+              At Head2Heart, we believe that true transformation happens when logic meets emotion, when strategies align with values, and when the mind and heart work together in harmony.
+
             </p>
             <p className="text-lg text-gray-600 mb-6">
-              We change lives from within by empowering and transforming emotional and physical wellbeing through purpose driven guidance.<br/>Why - Because we care.
+              We change lives from within by empowering and transforming mental, emotional and physical wellbeing through purpose driven guidance.<br/>Why - Because we care.
 
             </p>
             
@@ -112,7 +117,7 @@ const About = () => {
           <h2 className="font-poppins text-4xl font-bold text-center text-gray-900 mb-12">
             Our Core Values
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <div
                 key={value.title}
@@ -178,13 +183,11 @@ const About = () => {
               Our Story
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              Head2Heart was born from the belief that lasting change requires both intellectual understanding 
-              and emotional intelligence. Founded in 2014, we've grown from a single coach's practice to a 
-              comprehensive coaching organization that serves clients worldwide.
+            Head2Heart was founded on the belief that true and lasting transformation comes from integrating intellectual insight with emotional intelligence. While we've been supporting individuals in various ways for years, we officially came together as an organization in April 2025—with a shared vision to help people reconnect with themselves through a holistic blend of mindfulness, emotional awareness, and practical growth tools. We have a vision to reach people globally.
+
             </p>
             <p className="text-lg text-gray-600">
-              Every day, we're honored to witness the incredible transformations that happen when people 
-              align their thoughts with their feelings, their goals with their values, and their head with their heart.
+             At our core, we understand the universal human desire to be seen, heard, guided, and transformed. And throughout this journey, we’ve been deeply humbled and inspired by the profound changes we’ve witnessed. There’s a kind of magic that unfolds when people align their thoughts with their emotions, their goals with their values, and their minds with their hearts.
             </p>
           </div>
         </motion.div>

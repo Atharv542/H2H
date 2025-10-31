@@ -232,6 +232,38 @@ const PurposeCoaching = () => {
         </div>
       </section>
 
+      {/* Who It's For */}
+      <section className="py-20 bg-blue-50 border-t-2 border-purple-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <h2 className="font-bold text-4xl text-gray-900 mb-4">
+                Who is It For
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {[
+                'Professionals seeking direction or meaning in their career',
+                'Individuals feeling disconnected or unfulfilled',
+                'Anyone looking to live with more clarity, purpose, and peace'
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white p-6 rounded-xl shadow-md text-center"
+                >
+                  <p className="text-gray-700 leading-relaxed">{item}</p>
+                </motion.div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* 8-Week Journey */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -328,7 +360,7 @@ const PurposeCoaching = () => {
                 className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-3xl shadow-xl text-white"
               >
                 <div className="flex items-center space-x-2 mb-4">
-                  <DollarSign className="h-6 w-6" />
+                  
                   <h3 className="font-bold text-2xl">1:1 Coaching Program</h3>
                 </div>
                 <p className="text-blue-100 mb-6">8 weeks of personalized coaching</p>
@@ -409,37 +441,7 @@ const PurposeCoaching = () => {
         </div>
       </section>
 
-      {/* Who It's For */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                Who It's For
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {[
-                'Professionals seeking direction or meaning in their career',
-                'Individuals feeling disconnected or unfulfilled',
-                'Anyone looking to live with more clarity, purpose, and peace'
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-md text-center"
-                >
-                  <p className="text-gray-700 leading-relaxed">{item}</p>
-                </motion.div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">

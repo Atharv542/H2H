@@ -66,7 +66,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
  const handleQuestionnaireComplete = () => {
     toast.success('Welcome! Your profile has been set up successfully.');
-    navigate('/');
+    navigate('/booking');
   };
   return (
     <>

@@ -214,7 +214,7 @@ const QuestionnaireModal: React.FC<QuestionnaireModalProps> = ({
                 disabled={!ageRange || selectedTopics.length === 0}
                 className="w-full cursor-pointer bg-gradient-to-r from-blue-600 to-slate-700 text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center space-x-3 shadow-lg"
               >
-                <span>Thanks for your response!</span>
+                <span>Continue</span>
                 <ArrowRight className="h-6 w-6" />
               </button>
             </div>
