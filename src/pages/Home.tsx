@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
 import {
   ArrowRight,
@@ -11,10 +11,12 @@ import {
 } from "lucide-react";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Home = () => {
   const [user, setUser] = useState<any>(null);
-
+  const navigate= useNavigate();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -96,6 +98,25 @@ const Home = () => {
     },
   ];
 
+  const handleStartJourney = async () => {
+  if (!user) {
+    navigate("/login");
+    return;
+  }
+
+  // Check if user has booked free session
+  const ref = doc(db, "user_sessions", user.uid);
+  const snap = await getDoc(ref);
+
+  if (snap.exists() && snap.data().hasBookedFreeSession === true) {
+    // Already booked → Go to service booking page
+    navigate("/serviceBook");
+  } else {
+    // Not booked yet → Go to free booking page
+    navigate("/booking");
+  }
+};
+
   return (
     <div className="min-h-screen">
       {/* Feature Sections */}
@@ -168,13 +189,13 @@ const Home = () => {
 
             <div className="flex flex-col md:flex-row md:justify-center items-center gap-4">
               {/* Book Free Consultation */}
-              <Link
-                to={user ? "/booking" : "/login"}
-                className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
-              >
-                <span>Start your Journey</span>
-                <ArrowRight className="h-5 w-5" />
-              </Link>
+              <button
+  onClick={handleStartJourney}
+  className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
+>
+  <span>Start your Journey</span>
+  <ArrowRight className="h-5 w-5" />
+</button>
               <Link to="/email">
                 <button className="inline-flex cursor-pointer items-center ml-5 md:ml-0 justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border-2 border-gray-200 hover:border-gray-300">
                   <span>Download Free E-Book</span>

@@ -25,6 +25,7 @@ import { Toaster } from "react-hot-toast";
 import PurposeCoaching from './pages/PurposeCoaching';
 import MindfulnessCoaching from './pages/MindfulnessCoaching';
 import ClarityCoaching from './pages/ClarityCoaching';
+import ServicesBooking from './pages/ServicesBooking';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -43,7 +44,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/testimonials" element={<Testimonials />} />
-              <Route path="/podcast" element={<Podcast />} />
+              {/*<Route path="/podcast" element={<Podcast />} />*/}
               <Route path="/email" element={<EmailPopupLearn />} />
               <Route path="/clarity-coaching" element={<ClarityCoaching />} />
               <Route path="/mindfulness-coaching" element={<MindfulnessCoaching />} />
@@ -57,6 +58,7 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Terms />} />
+              <Route path="/serviceBook" element={<ServicesBooking />} />
               
             </Routes>
           </AnimatePresence>

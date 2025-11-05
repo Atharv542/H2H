@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Clock, CheckCircle, Video, Users, Target, Sparkles } from "lucide-react";
-
+import { auth } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 const Booking = () => {
   const [step, setStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState("");
@@ -44,6 +46,29 @@ const Booking = () => {
       description: "Zero pressure, just conversation",
     },
   ];
+
+  const handleConfirmBooking = async () => {
+  try {
+    const user = auth.currentUser;
+    if (!user) {
+      alert("Please login first.");
+      return;
+    }
+
+    await setDoc(doc(db, "user_sessions", user.uid), {
+      hasBookedFreeSession: true,
+      selectedDate: selectedDate,
+      selectedTime: selectedTime,
+      bookedAt: new Date(),
+    });
+
+    setStep(3); // move to success screen
+  } catch (error) {
+    console.error("Error saving booking:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
+
 
   return (
     <div className="min-h-screen py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
@@ -306,12 +331,12 @@ const Booking = () => {
                   Back
                 </button>
                 <button
-                  onClick={() => setStep(3)}
-                  disabled={!selectedDate || !selectedTime}
-                  className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-12 py-3 rounded-full hover:from-blue-700 hover:to-cyan-700 transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg disabled:shadow-none font-semibold"
-                >
-                  Confirm Booking
-                </button>
+  onClick={handleConfirmBooking}
+  disabled={!selectedDate || !selectedTime}
+  className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-12 py-3 rounded-full hover:from-blue-700 hover:to-cyan-700 transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none shadow-lg disabled:shadow-none font-semibold"
+>
+  Confirm Booking
+</button>
               </div>
             </motion.div>
           )}

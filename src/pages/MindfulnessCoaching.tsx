@@ -130,7 +130,7 @@ const MindfulnessCoaching = () => {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                to={user ? "/booking" : "/login"}
+                to={user ? "/serviceBook" : "/login"}
                 className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
               >
                 <Calendar className="h-5 w-5" />
@@ -382,7 +382,7 @@ const MindfulnessCoaching = () => {
                   </li>
                 </ul>
                 <Link
-                  to={user ? "/booking" : "/login"}
+                  to={user ? "/serviceBook" : "/login"}
                   className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
                 >
                   Get Started
@@ -426,7 +426,7 @@ const MindfulnessCoaching = () => {
                   </li>
                 </ul>
                 <Link
-                  to={user ? "/booking" : "/login"}
+                  to={user ? "/serviceBook" : "/login"}
                   className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
                 >
                   Book Team Session
@@ -467,7 +467,7 @@ const MindfulnessCoaching = () => {
                   </li>
                 </ul>
                 <Link
-                  to={user ? "/booking" : "/login"}
+                  to={user ? "/serviceBook" : "/login"}
                   className="block w-full bg-blue-600 text-white text-center px-6 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-200"
                 >
                   Request Quote
@@ -492,7 +492,7 @@ const MindfulnessCoaching = () => {
               Book your free consultation and discover mindful performance.
             </p>
             <Link
-              to={user ? "/booking" : "/login"}
+              to={user ? "/serviceBook" : "/login"}
               className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
             >
               <Calendar className="h-5 w-5" />
