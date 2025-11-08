@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
   const priceMap = {
     service1: "price_1SRDX1FuxMozvr1p0IhLIZ3r",
-    service2: "price_1SRDX1FuxMozvr1p0IhLIZ3r",
+    service2: "price_1SRDcdFuxMozvr1pbUtalbfZ",
     service3: "price_1SRDe8FuxMozvr1pUIcHJRCU",
     team4: "price_1SRDgfFuxMozvr1pPFR8zYA2",
     team5: "price_1SRDh4FuxMozvr1psu6bFykj",
