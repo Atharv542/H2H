@@ -393,17 +393,24 @@ const ClarityCoaching = () => {
   onClick={async () => {
     if (!user) return window.location.href = "/login";
 
-    const res = await fetch("/api/create-checkout-session", { method: "POST" });
-const data = await res.json();
-if (data.id) {
-  window.location.href = `https://checkout.stripe.com/pay/${data.id}`;
-}
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ item: "service1" }), // <- add this
+    });
 
+    const data = await res.json();
+    if (data.url) { // <- your API now returns `url` not `id`
+      window.location.href = data.url;
+    }
   }}
   className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
 >
   Get Started
 </button>
+
 
               </motion.div>
 
