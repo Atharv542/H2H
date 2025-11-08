@@ -7,17 +7,8 @@ export default async function handler(req, res) {
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-  // Parse JSON body manually
-  let body = {};
-  try {
-    body = JSON.parse(req.body);
-  } catch (err) {
-    return res.status(400).json({ error: "Invalid JSON" });
-  }
+  const { item } = req.body; // no JSON.parse
 
-  const { item } = body;
-
-  // Map your items to Stripe Price IDs
   const priceMap = {
     service1: "prod_TNzdOfZanNxLZo",
     service2: "prod_TNzb0qWNTveL6V",
@@ -37,17 +28,12 @@ export default async function handler(req, res) {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
-      line_items: [
-        {
-          price: priceId,
-          quantity: 1,
-        },
-      ],
-      //success_url: `${process.env.PUBLIC_URL}/success`,
-      //cancel_url: `${process.env.PUBLIC_URL}/cancel`,
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: "http://localhost:3000/success", // temporary placeholder
+      cancel_url: "http://localhost:3000/cancel",   // temporary placeholder
     });
 
-    return res.json({ url: session.url });
+    return res.status(200).json({ url: session.url });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
