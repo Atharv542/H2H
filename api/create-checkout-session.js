@@ -7,9 +7,17 @@ export default async function handler(req, res) {
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-  const { item } = req.body; // item coming from frontend
+  // Parse JSON body manually
+  let body = {};
+  try {
+    body = JSON.parse(req.body);
+  } catch (err) {
+    return res.status(400).json({ error: "Invalid JSON" });
+  }
 
-  // Map your 6 items to Stripe Price IDs
+  const { item } = body;
+
+  // Map your items to Stripe Price IDs
   const priceMap = {
     service1: "prod_TNzdOfZanNxLZo",
     service2: "prod_TNzb0qWNTveL6V",
