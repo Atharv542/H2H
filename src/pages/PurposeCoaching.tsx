@@ -97,6 +97,36 @@ const PurposeCoaching = () => {
     'Post-program action plan for continued growth'
   ];
 
+  const handleCheckout = async (item: string) => {
+  if (!user) {
+    // Redirect to login if not signed in
+    window.location.href = "/login";
+    return;
+  }
+
+  try {
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ item }), // item: "service1" or "team"
+    });
+
+    const data = await res.json();
+
+    if (data.url) {
+      // Redirect to Stripe Checkout
+      window.location.href = data.url;
+    } else {
+      console.error("No URL returned from API", data);
+    }
+  } catch (err) {
+    console.error("Stripe checkout error:", err);
+  }
+};
+
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -386,12 +416,12 @@ const PurposeCoaching = () => {
                     <span>Post-program roadmap</span>
                   </li>
                 </ul>
-                <Link
-                  to={user ? "/serviceBook" : "/login"}
-                  className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
-                >
-                  Get Started
-                </Link>
+                <button
+  onClick={() => handleCheckout("service1")}
+  className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
+>
+  Get Started
+</button>
               </motion.div>
 
               <motion.div
@@ -429,12 +459,12 @@ const PurposeCoaching = () => {
                     <span>Reflection tools</span>
                   </li>
                 </ul>
-                <Link
-                  to={user ? "/booking" : "/login"}
-                  className="block w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
-                >
-                  Contact Us
-                </Link>
+                <button
+  onClick={() => handleCheckout("team1")}
+  className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
+>
+  Book Team Session
+</button>
               </motion.div>
             </div>
           </AnimatedSection>

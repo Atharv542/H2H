@@ -95,6 +95,34 @@ const MindfulnessCoaching = () => {
     'Reflection workbook + weekly progress tracker',
     'Post-program follow-up session (30 min)'
   ];
+  const handleCheckout = async (item: string) => {
+  if (!user) {
+    // Redirect to login if not signed in
+    window.location.href = "/login";
+    return;
+  }
+
+  try {
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ item }), // item: "service1" or "team"
+    });
+
+    const data = await res.json();
+
+    if (data.url) {
+      // Redirect to Stripe Checkout
+      window.location.href = data.url;
+    } else {
+      console.error("No URL returned from API", data);
+    }
+  } catch (err) {
+    console.error("Stripe checkout error:", err);
+  }
+};
 
   return (
     <div className="min-h-screen bg-white">
@@ -381,12 +409,12 @@ const MindfulnessCoaching = () => {
                     <span>All resources included</span>
                   </li>
                 </ul>
-                <Link
-                  to={user ? "/serviceBook" : "/login"}
-                  className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
-                >
-                  Get Started
-                </Link>
+                <button
+  onClick={() => handleCheckout("service2")}
+  className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
+>
+  Get Started
+</button>
               </motion.div>
 
               <motion.div
@@ -425,12 +453,12 @@ const MindfulnessCoaching = () => {
                     <span>Group materials</span>
                   </li>
                 </ul>
-                <Link
-                  to={user ? "/serviceBook" : "/login"}
-                  className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
-                >
-                  Book Team Session
-                </Link>
+                <button
+  onClick={() => handleCheckout("team2")}
+  className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
+>
+  Book Team Session
+</button>
               </motion.div>
 
               <motion.div

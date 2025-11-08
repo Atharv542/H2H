@@ -400,7 +400,7 @@ const ClarityCoaching = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ item: "service1" }), // pass the selected item
+        body: JSON.stringify({ item: "service3" }), // pass the selected item
       });
 
       const data = await res.json();
