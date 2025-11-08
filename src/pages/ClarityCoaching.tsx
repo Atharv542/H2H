@@ -388,10 +388,7 @@ const ClarityCoaching = () => {
                     <CheckCircle2 className="h-5 w-5" />
                     <span>Payment plans available</span>
                   </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle2 className="h-5 w-5" />
-                    <span>Complete end to end support</span>
-                  </li>
+                  
                 </ul>
               <button
   onClick={async () => {
@@ -419,7 +416,7 @@ const ClarityCoaching = () => {
       console.error("Error creating checkout session", err);
     }
   }}
-  className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
+  className="block w-full mt-14 cursor-pointer bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
 >
   Get Started
 </button>
@@ -467,7 +464,7 @@ const ClarityCoaching = () => {
                   </li>
                 </ul>
                 <Link
-                  to={user ? "/serviceBook" : "/login"}
+                  to={user ? "/contact" : "/login"}
                   className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
                 >
                   Request Quote

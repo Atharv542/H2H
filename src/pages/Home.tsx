@@ -109,8 +109,19 @@ const Home = () => {
   const snap = await getDoc(ref);
 
   if (snap.exists() && snap.data().hasBookedFreeSession === true) {
-    // Already booked → Go to service booking page
-    navigate("/serviceBook");
+    // Already booked → Smooth scroll to Services section
+    if (window.location.pathname === "/") {
+      document
+        .getElementById("services")
+        ?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        document
+          .getElementById("services")
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 100); // slight delay to wait for DOM
+    }
   } else {
     // Not booked yet → Go to free booking page
     navigate("/booking");
@@ -191,7 +202,7 @@ const Home = () => {
               {/* Book Free Consultation */}
               <button
   onClick={handleStartJourney}
-  className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
+  className="inline-flex cursor-pointer items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
 >
   <span>Start your Journey</span>
   <ArrowRight className="h-5 w-5" />

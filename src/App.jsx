@@ -26,6 +26,7 @@ import PurposeCoaching from './pages/PurposeCoaching';
 import MindfulnessCoaching from './pages/MindfulnessCoaching';
 import ClarityCoaching from './pages/ClarityCoaching';
 import ServicesBooking from './pages/ServicesBooking';
+import ContactForm from './pages/Contact';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -59,6 +60,7 @@ function App() {
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Terms />} />
               <Route path="/serviceBook" element={<ServicesBooking />} />
+              <Route path="/contact" element={<ContactForm />} />
               
             </Routes>
           </AnimatePresence>
