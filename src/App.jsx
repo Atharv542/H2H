@@ -8,7 +8,7 @@ import CartSidebar from './components/CartSidebar';
 import { CartProvider } from './contexts/CartContext';
 import { useEmailPopup } from './hooks/useEmailPopup';
 import Home from './pages/Home';
-import Services from './pages/Services';
+
 import About from './pages/About';
 import Shop from './pages/Shop';
 import Testimonials from './pages/Testimonials';
@@ -25,7 +25,7 @@ import { Toaster } from "react-hot-toast";
 import PurposeCoaching from './pages/PurposeCoaching';
 import MindfulnessCoaching from './pages/MindfulnessCoaching';
 import ClarityCoaching from './pages/ClarityCoaching';
-import ServicesBooking from './pages/ServicesBooking';
+
 import ContactForm from './pages/Contact';
 
 function App() {
@@ -41,7 +41,7 @@ function App() {
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
+             
               <Route path="/about" element={<About />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/testimonials" element={<Testimonials />} />
@@ -59,7 +59,7 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Terms />} />
-              <Route path="/serviceBook" element={<ServicesBooking />} />
+              
               <Route path="/contact" element={<ContactForm />} />
               
             </Routes>
