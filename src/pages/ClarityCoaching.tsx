@@ -389,27 +389,37 @@ const ClarityCoaching = () => {
                     <span>Payment plans available</span>
                   </li>
                 </ul>
-               <button
+              <button
   onClick={async () => {
-    if (!user) return window.location.href = "/login";
+    if (!user) return window.location.href = "/login"; // redirect if not logged in
 
-    const res = await fetch("/api/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ item: "service1" }), // <- add this
-    });
+    try {
+      // This is where you call your API
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ item: "service1" }), // pass the selected item
+      });
 
-    const data = await res.json();
-    if (data.url) { // <- your API now returns `url` not `id`
-      window.location.href = data.url;
+      const data = await res.json();
+
+      if (data.url) {
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
+      } else {
+        console.error("No URL returned from API", data);
+      }
+    } catch (err) {
+      console.error("Error creating checkout session", err);
     }
   }}
   className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
 >
   Get Started
 </button>
+
 
 
               </motion.div>
