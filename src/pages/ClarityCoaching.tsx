@@ -389,12 +389,22 @@ const ClarityCoaching = () => {
                     <span>Payment plans available</span>
                   </li>
                 </ul>
-                <Link
-                  to={user ? "/serviceBook" : "/login"}
-                  className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
-                >
-                  Get Started
-                </Link>
+               <button
+  onClick={async () => {
+    if (!user) return window.location.href = "/login";
+
+    const res = await fetch("/api/create-checkout-session", { method: "POST" });
+const data = await res.json();
+if (data.id) {
+  window.location.href = `https://checkout.stripe.com/pay/${data.id}`;
+}
+
+  }}
+  className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200"
+>
+  Get Started
+</button>
+
               </motion.div>
 
               <motion.div
