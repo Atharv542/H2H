@@ -43,8 +43,8 @@ export default async function handler(req, res) {
           quantity: 1,
         },
       ],
-      success_url: `${process.env.PUBLIC_URL}/success`,
-      cancel_url: `${process.env.PUBLIC_URL}/cancel`,
+      //success_url: `${process.env.PUBLIC_URL}/success`,
+      //cancel_url: `${process.env.PUBLIC_URL}/cancel`,
     });
 
     return res.json({ url: session.url });
