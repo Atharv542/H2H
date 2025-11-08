@@ -460,7 +460,7 @@ const PurposeCoaching = () => {
                   </li>
                 </ul>
                 <button
-  onClick={() => handleCheckout("team1")}
+  onClick={() => handleCheckout("team4")}
   className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
 >
   Book Team Session

@@ -454,7 +454,7 @@ const MindfulnessCoaching = () => {
                   </li>
                 </ul>
                 <button
-  onClick={() => handleCheckout("team2")}
+  onClick={() => handleCheckout("team5")}
   className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
 >
   Book Team Session
