@@ -388,6 +388,10 @@ const ClarityCoaching = () => {
                     <CheckCircle2 className="h-5 w-5" />
                     <span>Payment plans available</span>
                   </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle2 className="h-5 w-5" />
+                    <span>Complete end to end support</span>
+                  </li>
                 </ul>
               <button
   onClick={async () => {

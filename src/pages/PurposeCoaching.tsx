@@ -415,6 +415,10 @@ const PurposeCoaching = () => {
                     <CheckCircle2 className="h-5 w-5" />
                     <span>Post-program roadmap</span>
                   </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle2 className="h-5 w-5" />
+                    <span>Complete end to end support</span>
+                  </li>
                 </ul>
                 <button
   onClick={() => handleCheckout("service1")}

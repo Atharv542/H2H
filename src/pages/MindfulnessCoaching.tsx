@@ -408,6 +408,10 @@ const MindfulnessCoaching = () => {
                     <CheckCircle2 className="h-5 w-5" />
                     <span>All resources included</span>
                   </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle2 className="h-5 w-5" />
+                    <span>Full end to end support</span>
+                  </li>
                 </ul>
                 <button
   onClick={() => handleCheckout("service2")}
@@ -437,7 +441,7 @@ const MindfulnessCoaching = () => {
                 <div className="mb-6">
                   <span className="text-5xl font-bold text-gray-900">$499</span>
                   <span className="text-gray-600 ml-2">NZD</span>
-                  <p className="text-sm text-gray-500 mt-2">Up to 12 participants</p>
+                  <p className="text-sm text-gray-500 mt-2">Per Person(upto 12 person)</p>
                 </div>
                 <ul className="space-y-3 mb-8 text-gray-700">
                   <li className="flex items-center space-x-2">
