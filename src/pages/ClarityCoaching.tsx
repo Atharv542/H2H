@@ -126,13 +126,7 @@ const ClarityCoaching = () => {
             
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                to={user ? "/serviceBook" : "/login"}
-                className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
-              >
-                <Calendar className="h-5 w-5" />
-                <span>Book Free Consultation</span>
-              </Link>
+              
 
               <a
                 href="#investment"
@@ -231,37 +225,7 @@ const ClarityCoaching = () => {
           </AnimatedSection>
         </div>
       </section>
-      {/* Who It's For */}
-      <section className="py-20 bg-blue-50 border-t-2 border-purple-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                Who is It For
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {[
-                'Busy professionals experiencing stress or burnout',
-                'Individuals seeking emotional balance and focus',
-                'Anyone ready to live with greater mindfulness, calm, and clarity'
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-md text-center"
-                >
-                  <p className="text-gray-700 leading-relaxed">{item}</p>
-                </motion.div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      
 
       {/* 8-Week Journey */}
       <section className="py-20 bg-white">
@@ -297,6 +261,38 @@ const ClarityCoaching = () => {
                       <p className="text-gray-600 leading-relaxed">{item.description}</p>
                     </div>
                   </div>
+                </motion.div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Who It's For */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <h2 className="font-bold text-4xl text-gray-900 mb-4">
+                Who is It For
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {[
+                'Busy professionals experiencing stress or burnout',
+                'Individuals seeking emotional balance and focus',
+                'Anyone ready to live with greater mindfulness, calm, and clarity'
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white p-6 rounded-xl shadow-md text-center"
+                >
+                  <p className="text-gray-700 leading-relaxed">{item}</p>
                 </motion.div>
               ))}
             </div>
@@ -485,15 +481,9 @@ const ClarityCoaching = () => {
               Ready to Find Your Clarity?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Book your free consultation and start your journey to calm confidence.
+              Book your session and start your journey to calm confidence.
             </p>
-            <Link
-              to={user ? "/serviceBook" : "/login"}
-              className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
-            >
-              <Calendar className="h-5 w-5" />
-              <span>Book Free Consultation</span>
-            </Link>
+          
           </AnimatedSection>
         </div>
       </section>

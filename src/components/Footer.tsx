@@ -101,7 +101,7 @@ const Footer = () => {
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-gray-600" />
-                <span className="text-gray-700">hello@head2heart.com</span>
+                <span className="text-gray-700">info@head2heart.co.nz</span>
               </div>
             </div>
           </motion.div>
