@@ -22,7 +22,7 @@ const Testimonials = () => {
     {
       name: 'Lindsay Young',
       role: 'Pennsylvania, United States',
-      image: 'nopp.jpg',
+      image: 'young.jpg',
       rating: 5,
       text: 'I have nothing but rave reviews for this gentleman and am so very grateful and blessed to have had the ability to interact with him! I became acquainted with Sachin Kaintura via the JCSC program. As he took me on as a coachee, the time spent in sessions with him, he not only maintained but also continued to unravel the beautiful intention and compassion that he possesses in aiding me to look within. Sachin has this patience that exudes peacefully in conversation. I must admit I had a fear of bearing it all to a stranger. But Sachin acquires this understated gentleness which is displayed through his interactions and speech. It was a seamless transition into working with him as well as looking forward to our time. It wasn\'t until working with him and receiving feedback that I genuinely believed/saw that I was making worthy progress and able to do so. I would work with him again and again and look forward to possible future endeavors!',
     
