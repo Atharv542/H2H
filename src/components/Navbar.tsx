@@ -71,7 +71,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center space-x-2"
           >
-            <img src="Logo4.png" className="w-19 h-19 mt-1"/>
+            <img src="Logo6.png" className="w-15 h-15 mt-1"/>
             <Link to="/">
               <span className="font-bold text-xl cursor-pointer text-gray-800">Head2Heart</span>
             </Link>
