@@ -87,14 +87,15 @@ const ClarityCoaching = () => {
   ];
 
   const included = [
-    '8 × 60-minute 1:1 weekly coaching sessions',
-    'Personal clarity assessment + goal mapping',
-    'Guided mindfulness and relaxation techniques',
-    'Emotional intelligence & stress-response toolkit',
-    'Reflection workbook + weekly habit tracker',
-    'Mid-program review + accountability check-in',
-    'Post-program summary & growth roadmap',
-    'Between-session voice/text support'
+    '8 × 60-minute  weekly training sessions',
+    'On Purpose Inner Peace Master Workbook',
+    'Awareness Workbook',
+    'Purpose & Values Workbook',
+    'Vision Future Alignment Workbook',
+    'Mindfulness Inner Connection Workbook',
+    'Releasing Limiting Beliefs Workbook',
+    'Alignment Action Integration Workbook',
+    'Post-program follow-up session (30 min)'
   ];
 
   return (
@@ -116,26 +117,9 @@ const ClarityCoaching = () => {
             </div>
 
             <h1 className="font-bold text-5xl md:text-6xl text-white mb-6 leading-tight">
-              Clarity & Calm
+              Clarity & Focus
             </h1>
 
-            <p className="text-2xl text-blue-100 mb-4 max-w-3xl mx-auto">
-              Find Focus, Ease, and Balance in a Busy World
-            </p>
-
-            
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              
-
-              <a
-                href="#investment"
-                className="inline-flex items-center space-x-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all duration-200"
-              >
-                <span>View Pricing</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -280,9 +264,13 @@ const ClarityCoaching = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {[
-                'Busy professionals experiencing stress or burnout',
-                'Individuals seeking emotional balance and focus',
-                'Anyone ready to live with greater mindfulness, calm, and clarity'
+                'Individuals seeeking focus and clarity',
+                'Individuals seeking to build emotional intelligence & resilience',
+                'Individuals feeling self doubt, loneliness and isolation and seeking control of their lives',
+                'Individuals feeling stuck in fear seeking to be free of fear',
+                'Individuals suffering from Procrastination and wants to be more active',
+                'Individuals feeling lack of confidence and wants to feel confident',
+                'Individuals dealing with grief and trauma and seeking to feel alive again'
               ].map((item, index) => (
                 <motion.div
                   key={index}

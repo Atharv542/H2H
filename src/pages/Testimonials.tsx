@@ -37,12 +37,6 @@ const Testimonials = () => {
     },
   ];
 
-  const videoTestimonials = [
-    'Review.mp4',
-    'testimonial2.mp4',
-    'video3.mp4',
-    'video5.mp4',
-  ];
 
   const stats = [
     { number: '98%', label: 'Client Satisfaction Rate' },
@@ -87,30 +81,7 @@ const Testimonials = () => {
           <TestimonialCarousel testimonials={testimonials} />
         </div>
 
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 md:p-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">
-            Video Testimonials
-          </h2>
-
-          <p className="text-center text-gray-600 mb-12 text-lg">
-            Watch real clients share their transformation stories
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {videoTestimonials.map((video, index) => (
-              <div key={index} className="w-full">
-                <div className="rounded-2xl overflow-hidden shadow-xl bg-black aspect-[9/16] hover:shadow-2xl hover:scale-105 transition-all duration-300">
-                  <video
-                    src={video}
-                    controls
-                    className="w-full h-full object-cover"
-                    preload="metadata"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      
 
       
       </div>

@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { auth } from "../firebase"; // import your auth
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import toast from "react-hot-toast";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,6 +64,37 @@ const Navbar = () => {
     navigate("/login"); // optional redirect after logout
   };
 
+  
+    const handleStartJourney = async () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+  
+    // Check if user has booked free session
+    const ref = doc(db, "user_sessions", user.uid);
+    const snap = await getDoc(ref);
+  
+    if (snap.exists() && snap.data().hasBookedFreeSession === true) {
+      // Already booked → Smooth scroll to Services section
+      if (window.location.pathname === "/") {
+        document
+          .getElementById("services")
+          ?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        navigate("/");
+        setTimeout(() => {
+          document
+            .getElementById("services")
+            ?.scrollIntoView({ behavior: "smooth" });
+        }, 100); // slight delay to wait for DOM
+      }
+    } else {
+      // Not booked yet → Go to free booking page
+      navigate("/booking");
+    }
+  };
+
   return (
     <nav className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,7 +106,7 @@ const Navbar = () => {
           >
             <img src="Logo6.png" className="w-15 h-15 mt-1"/>
             <Link to="/">
-              <span className="font-bold text-xl cursor-pointer text-gray-800">Head2Heart</span>
+              <span className="font-bold text-xl cursor-pointer text-gray-800 -mx-2">Head2Heart</span>
             </Link>
             
           </motion.div>
@@ -95,12 +128,12 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <Link
-              to={user ? "/booking" : "/login"}
+            <button
+               onClick={handleStartJourney}
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full transition-all duration-200 transform hover:scale-105"
             >
               Book Now
-            </Link>
+            </button>
 
             {user ? (
               <div className="relative">
@@ -166,12 +199,12 @@ const Navbar = () => {
                   </Link>
                 ))}
 
-                <Link
-                  to={user ? "/booking" : "/login"}
+                <button
+                   onClick={handleStartJourney}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full transition-all duration-200 transform hover:scale-105"
                 >
                   Book Now
-                </Link>
+                </button>
 
                 {user ? (
                   <div className="border-t border-gray-200 pt-2 mt-2">

@@ -74,28 +74,29 @@ const Home = () => {
 
   const services = [
     {
-      title: "Purpose Coaching",
+      title: "Discover Your Purpose",
       description:
         "Discover your true calling and create a life aligned with your deepest values and passions.",
       image:
         "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&w=400",
       link: "/purpose-coaching",
     },
+
     {
-      title: "Mindfulness Coaching",
-      description: "Cultivate inner peace and present-moment awareness.",
-      image:
-        "https://images.pexels.com/photos/3820360/pexels-photo-3820360.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/mindfulness-coaching",
-    },
-    {
-      title: "Personal Development Coaching",
+      title: "Find Your Clarity & Focus",
       description:
         "Unlock your full potential with personalized strategies for sustainable growth and success.",
       image:
         "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
       link: "/clarity-coaching",
     },
+    {
+      title: "Experience Mindfulness",
+      description: "Cultivate inner peace and present-moment awareness.",
+      image:
+        "https://images.pexels.com/photos/3820360/pexels-photo-3820360.jpeg?auto=compress&cs=tinysrgb&w=400",
+      link: "/mindfulness-coaching",
+    }
   ];
 
   const handleStartJourney = async () => {
@@ -204,7 +205,7 @@ const Home = () => {
   onClick={handleStartJourney}
   className="inline-flex cursor-pointer items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
 >
-  <span>Start your Journey</span>
+  <span>Book Your Free Session</span>
   <ArrowRight className="h-5 w-5" />
 </button>
               <Link to="/email">

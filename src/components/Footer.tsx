@@ -26,8 +26,8 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <Heart className="h-8 w-8 text-blue-600" />
-              <span className="font-bold text-xl text-gray-900">Head2Heart</span>
+              <img src="Logo6.png" className="w-15 h-15 mt-1"/>
+              <span className="font-bold text-xl text-gray-900 -mx-2">Head2Heart</span>
             </div>
 
             <p className="text-[14px] font-semibold bg-gradient-to-r from-blue-600 to-slate-700 bg-clip-text text-transparent mb-4">
@@ -67,11 +67,7 @@ const Footer = () => {
                   Testimonials
                 </Link>
               </li>
-              <li>
-                <Link to="/podcast" className="text-gray-700 hover:text-gray-900 transition-colors">
-                  Podcast
-                </Link>
-              </li>
+             
             </ul>
           </motion.div>
 

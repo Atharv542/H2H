@@ -86,13 +86,13 @@ const MindfulnessCoaching = () => {
   ];
 
   const included = [
-    '8 × 60-minute weekly coaching sessions',
-    'Group mindfulness and resilience training',
-    'Stress-awareness and mindset reprogramming tools',
-    'Emotional intelligence for leadership',
-    'Time, energy, and boundary-management frameworks',
-    'Guided relaxation and breathing techniques',
-    'Reflection workbook + weekly progress tracker',
+    '8 × 60-minute weekly training sessions',
+    'Mindful Leadership Mastery Master Workbook',
+    'Stress Awareness Workbook',
+    'Mindfulness in Action Toolkit Workbook',
+    'Thought Mastery Focus Optimization Workbook',
+    'Emotional Resilience Energy Management Workbook',
+    'Mindful Communication Leadership Presence Guide',
     'Post-program follow-up session (30 min)'
   ];
   const handleCheckout = async (item: string) => {
@@ -143,30 +143,8 @@ const MindfulnessCoaching = () => {
             </div>
 
             <h1 className="font-bold text-5xl md:text-6xl text-white mb-6 leading-tight">
-              Mindfulness Program for<br />Executives & Teams
+              Mindfulness Program
             </h1>
-
-            <p className="text-2xl text-blue-100 mb-4 max-w-3xl mx-auto">
-              From Overwhelm to Focus
-            </p>
-
-            <p className="text-xl text-blue-50 mb-6 max-w-2xl mx-auto">
-              Building Calm Leadership from the Inside Out
-            </p>
-
-         
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-           
-
-              <a
-                href="#investment"
-                className="inline-flex items-center space-x-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all duration-200"
-              >
-                <span>View Pricing</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
           </motion.div>
         </div>
       </section>
@@ -310,9 +288,10 @@ const MindfulnessCoaching = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {[
-                'Executives, Managers & Leadership teams',
-                'Professionals facing high workloads & decision stress',
-                'Organizations seeking improved wellbeing & retention'
+                'Individuals feeling overwhelmed and seeking focus & clarity',
+                'Individuals feeling mental overload, stress, burnouts and seeking stress management',
+                'Emotional resilience & calm decision making',
+                'Individuals seeking overall improved wellbeing and performance'
               ].map((item, index) => (
                 <motion.div
                   key={index}

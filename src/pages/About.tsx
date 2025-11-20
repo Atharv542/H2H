@@ -51,14 +51,14 @@ const About = () => {
   const team = [
     {
       name: 'Sachin Kaintura',
-      role: 'Founder & Lead Coach',
+      role: 'sachin.kaintura@head2heart.co.nz',
       image: 'Sachin.png',
       bio:
         'Hi, I’m Sachin Kaintura a husband, proud father, and Personal Development & Mindfulness Certified Coach expertise in NLP. My journey began in Mumbai and took me to New Zealand, where I built a life through resilience, hard work, and a commitment to growth. For over 20 years, I worked in hospitality and leadership roles, but something always felt missing. In 2019, I discovered the power of mindfulness and personal development a turning point that helped me overcome stress, procrastination, limiting beliefs, and imposter syndrome. Today, I help individuals break free from self-doubt, gain clarity, and create balance in their personal and professional lives. My mission is simple, to guide you in cultivating mindfulness, unlocking your potential, and living with purpose.',
     },
     {
       name: 'Sandeep Sharma',
-      role: 'Senior Life Coach',
+      role: 'sandeep.sharma@head2heart.co.nz',
       image: 'Sandeep.png',
       bio:
         'Hi, my name is Sandeep Sharma. I’m truly thankful for the life I live today, and for the family and friends who surround me. I was born into a middle-class household in New Delhi, India, where my childhood was joyful despite financial limitations. Like many, I aspired to a life of success—dreaming of wealth, a beautiful home, and luxuries of life — but had no clear roadmap to get there. Years of chasing these ambitions left me feeling stuck, anxious, and unfulfilled. No matter what I achieved, it never felt like enough. Eventually, I had a powerful realization: I wasn’t meant to live in fear, frustration, or emptiness. That moment became a turning point, prompting me to redefine my purpose, values, beliefs, and mindset. I came to see life as a journey made up of meaningful experiences, and that true happiness comes from embracing the present—not just pursuing a distant goal. I believe that if we’re not grateful for what we have today, we’ll never feel truly satisfied with what we gain tomorrow. Now, I live with intention and presence, enjoying the path I’m on. I support others who feel the way I once did—helping them cultivate an abundant mindset and guiding them toward their goals with clarity and purpose.',
@@ -146,7 +146,7 @@ const About = () => {
                   <p className="text-gray-500 mb-3">{member.role}</p>
 
                   {/* Read More / Less */}
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed">
                     {expandedIndex === index
                       ? member.bio
                       : member.bio.substring(0, 180) + '...'}
@@ -174,7 +174,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="font-poppins text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
             <p className="text-lg text-gray-600 mb-6">
-              Head2Heart was founded on the belief that true and lasting transformation comes from integrating intellectual insight with emotional intelligence. While we've been supporting individuals in various ways for years, we officially came together as an organization in April 2025—with a shared vision to help people reconnect with themselves through a holistic blend of mindfulness, emotional awareness, and practical growth tools. We have a vision to reach people globally.
+              Head2Heart was founded on the belief that true and lasting transformation comes from integrating intellectual insight with emotional intelligence. While we've been supporting individuals in various ways for years, we officially came together as an organization in April 2025 with a shared vision to help people reconnect with themselves through a holistic blend of mindfulness, emotional awareness, and practical growth tools. We have a vision to reach people globally.
             </p>
 
             <p className="text-lg text-gray-600">

@@ -87,14 +87,14 @@ const PurposeCoaching = () => {
   ];
 
   const included = [
-    '8 × 60-minute 1:1 weekly coaching sessions',
-    'Purpose Discovery & Values Alignment Assessment',
-    'Mindfulness, meditation & journaling exercises',
-    'Emotional intelligence & stress awareness toolkit',
-    'Vision & goal alignment framework',
-    'Weekly reflections & growth tracking workbook',
-    'Between-session text/voice note support',
-    'Post-program action plan for continued growth'
+    '8 × 60-minute weekly training sessions',
+    'Calm & Clarity Master Workbook',
+    'Awareness Intention Workbook',
+    'Understanding the Mind Workbook',
+    'Stress Emotional Balance Workbook',
+    'Mindful Habits Procrastination Workbook',
+    'Calm Confidence Integration Workbook',
+    'Post-program follow-up session (30 min) '
   ];
 
   const handleCheckout = async (item: string) => {
@@ -146,26 +146,10 @@ const PurposeCoaching = () => {
             </div>
 
             <h1 className="font-bold text-5xl md:text-6xl text-white mb-6 leading-tight">
-              On Purpose & Inner Peace
+              My Purpose
             </h1>
 
-            <p className="text-2xl text-blue-100 mb-4 max-w-3xl mx-auto">
-              Reconnect with Your Why. Realign Your Mind. Rediscover Your Calm.
-            </p>
-
-            
-
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-             
-
-              <a
-                href="#investment"
-                className="inline-flex items-center space-x-2 bg-transparent border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all duration-200"
-              >
-                <span>View Pricing</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
+           
           </motion.div>
         </div>
       </section>
@@ -310,9 +294,11 @@ const PurposeCoaching = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {[
-                'Professionals seeking direction or meaning in their career',
-                'Individuals feeling disconnected or unfulfilled',
-                'Anyone looking to live with more clarity, purpose, and peace'
+                'Individuals seeking their purpose in life',
+                'Individuals feeling lost & disconnected and seeking clarity',
+                'Individuals feeling anxious and stressed and seeking peace',
+                'Individuals feeling held back by limiting beliefs and seeking breakthrough',
+                'Individuals feeling isolated and seeking meaningful connections'
               ].map((item, index) => (
                 <motion.div
                   key={index}
