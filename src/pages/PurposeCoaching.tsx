@@ -1,17 +1,11 @@
-import React, { useRef, useState,useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Target, Heart, CheckCircle2, Calendar, DollarSign, Users, Sparkles } from 'lucide-react';
-import { auth } from "../firebase";
-import { onAuthStateChanged } from "firebase/auth";
+
 const PurposeCoaching = () => {
-  const [user,setUser] = useState<any>(null);
-   useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-      });
-      return () => unsubscribe();
-    }, []);
+  const [user, setUser] = useState<any>(null);
+
   const features = [
     {
       icon: Heart,
@@ -94,43 +88,39 @@ const PurposeCoaching = () => {
     'Stress Emotional Balance Workbook',
     'Mindful Habits Procrastination Workbook',
     'Calm Confidence Integration Workbook',
-    'Post-program follow-up session (30 min) '
+    'Post-program follow-up session (30 min) '
   ];
 
   const handleCheckout = async (item: string) => {
-  if (!user) {
-    // Redirect to login if not signed in
-    window.location.href = "/login";
-    return;
-  }
-
-  try {
-    const res = await fetch("/api/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ item }), // item: "service1" or "team"
-    });
-
-    const data = await res.json();
-
-    if (data.url) {
-      // Redirect to Stripe Checkout
-      window.location.href = data.url;
-    } else {
-      console.error("No URL returned from API", data);
+    if (!user) {
+      window.location.href = "/login";
+      return;
     }
-  } catch (err) {
-    console.error("Stripe checkout error:", err);
-  }
-};
 
+    try {
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ item }),
+      });
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("No URL returned from API", data);
+      }
+    } catch (err) {
+      console.error("Stripe checkout error:", err);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-blue-600 via-blue-500 to-purple-600 overflow-hidden">
+      <section className="relative py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-slate-700 overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -148,13 +138,10 @@ const PurposeCoaching = () => {
             <h1 className="font-bold text-5xl md:text-6xl text-white mb-6 leading-tight">
               My Purpose
             </h1>
-
-           
           </motion.div>
         </div>
       </section>
 
-      {/* Tagline Section */}
       <section className="py-12 bg-gradient-to-r from-blue-50 to-purple-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.p
@@ -168,7 +155,6 @@ const PurposeCoaching = () => {
         </div>
       </section>
 
-      {/* Overview Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -208,7 +194,6 @@ const PurposeCoaching = () => {
         </div>
       </section>
 
-      {/* What's Included */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -240,23 +225,40 @@ const PurposeCoaching = () => {
         </div>
       </section>
 
-      {/* Who It's For */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-100">
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                Who is It For
+            <div className="text-center mb-16">
+              <h2 className="font-bold text-4xl md:text-5xl text-gray-900 mb-4">
+                Is It For Me?
               </h2>
+              <p className="text-xl text-gray-600 font-medium">
+                If you are…
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto mb-12">
               {[
-                'Individuals seeking their purpose in life',
-                'Individuals feeling lost & disconnected and seeking clarity',
-                'Individuals feeling anxious and stressed and seeking peace',
-                'Individuals feeling held back by limiting beliefs and seeking breakthrough',
-                'Individuals feeling isolated and seeking meaningful connections'
+                {
+                  title: 'Seeking Purpose',
+                  description: 'Seeking your purpose in your life'
+                },
+                {
+                  title: 'Feeling Lost',
+                  description: 'Feeling lost & disconnected and seeking clarity'
+                },
+                {
+                  title: 'Feeling Anxious',
+                  description: 'Feeling anxious and stressed and seeking peace'
+                },
+                {
+                  title: 'Feeling Held Back',
+                  description: 'Feeling held back by limiting beliefs'
+                },
+                {
+                  title: 'Feeling Isolated',
+                  description: 'Feeling isolated and seeking meaningful life'
+                }
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -264,17 +266,41 @@ const PurposeCoaching = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-md text-center"
+                  className="group relative"
                 >
-                  <p className="text-gray-700 leading-relaxed">{item}</p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  <div className="relative bg-white border-2 border-transparent hover:border-blue-300 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                      <span className="text-white font-bold text-lg">✓</span>
+                    </div>
+                    <h3 className="font-bold text-lg text-gray-900 mb-3 text-center">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed text-center">
+                      {item.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 rounded-full">
+                <p className="text-white font-bold text-2xl">
+                  Then this course is for You
+                </p>
+              </div>
+            </motion.div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* 8-Week Journey */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -314,8 +340,7 @@ const PurposeCoaching = () => {
           </AnimatedSection>
         </div>
       </section>
-      
-      {/* Outcomes */}
+
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -349,7 +374,6 @@ const PurposeCoaching = () => {
         </div>
       </section>
 
-      {/* Investment */}
       <section id="investment" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -370,7 +394,6 @@ const PurposeCoaching = () => {
                 className="bg-gradient-to-br from-blue-600 to-purple-600 p-8 rounded-3xl shadow-xl text-white"
               >
                 <div className="flex items-center space-x-2 mb-4">
-                  
                   <h3 className="font-bold text-2xl">1:1 Coaching Program</h3>
                 </div>
                 <p className="text-blue-100 mb-6">8 weeks of personalized coaching</p>
@@ -395,15 +418,13 @@ const PurposeCoaching = () => {
                     <CheckCircle2 className="h-5 w-5" />
                     <span>Post-program roadmap</span>
                   </li>
-                  
-                 
                 </ul>
                 <button
-  onClick={() => handleCheckout("service1")}
-  className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200 mt-14 cursor-pointer"
->
-  Get Started
-</button>
+                  onClick={() => handleCheckout("service1")}
+                  className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200 mt-14 cursor-pointer"
+                >
+                  Get Started
+                </button>
               </motion.div>
 
               <motion.div
@@ -442,20 +463,17 @@ const PurposeCoaching = () => {
                   </li>
                 </ul>
                 <button
-  onClick={() => handleCheckout("team4")}
-  className="block cursor-pointer w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
->
-  Book Team Session
-</button>
+                  onClick={() => handleCheckout("team4")}
+                  className="block cursor-pointer w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
+                >
+                  Book Team Session
+                </button>
               </motion.div>
             </div>
           </AnimatedSection>
         </div>
       </section>
 
-      
-
-      {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
@@ -463,9 +481,8 @@ const PurposeCoaching = () => {
               Ready to Discover Your Purpose?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
-              Book your session  today and begin your journey to inner peace.
+              Book your session today and begin your journey to inner peace.
             </p>
-           
           </AnimatedSection>
         </div>
       </section>

@@ -58,26 +58,10 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-600 text-sm md:text-base">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
+        
 
         <div className="mb-20">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
-            What Our Clients Say
-          </h2>
+        
           <TestimonialCarousel testimonials={testimonials} />
         </div>
 

@@ -235,21 +235,40 @@ const MindfulnessCoaching = () => {
         </div>
       </section>
      
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-puplr-100">
+ <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                Who is It For
+            <div className="text-center mb-16">
+              <h2 className="font-bold text-4xl md:text-5xl text-gray-900 mb-4">
+                Is It For Me?
               </h2>
+              <p className="text-xl text-gray-600 font-medium">
+                If you are…
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto mb-12">
               {[
-                'Individuals feeling overwhelmed and seeking focus & clarity',
-                'Individuals feeling mental overload, stress, burnouts and seeking stress management',
-                'Emotional resilience & calm decision making',
-                'Individuals seeking overall improved wellbeing and performance'
+                {
+                  title: 'Seeking Purpose',
+                  description: 'Seeking your purpose in your life'
+                },
+                {
+                  title: 'Feeling Lost',
+                  description: 'Feeling lost & disconnected and seeking clarity'
+                },
+                {
+                  title: 'Feeling Anxious',
+                  description: 'Feeling anxious and stressed and seeking peace'
+                },
+                {
+                  title: 'Feeling Held Back',
+                  description: 'Feeling held back by limiting beliefs'
+                },
+                {
+                  title: 'Feeling Isolated',
+                  description: 'Feeling isolated and seeking meaningful life'
+                }
               ].map((item, index) => (
                 <motion.div
                   key={index}
@@ -257,16 +276,40 @@ const MindfulnessCoaching = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-md text-center"
+                  className="group relative"
                 >
-                  <p className="text-gray-700 leading-relaxed">{item}</p>
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  <div className="relative bg-white border-2 border-transparent hover:border-blue-300 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                      <span className="text-white font-bold text-lg">✓</span>
+                    </div>
+                    <h3 className="font-bold text-lg text-gray-900 mb-3 text-center">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed text-center">
+                      {item.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="inline-block bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 rounded-full">
+                <p className="text-white font-bold text-2xl">
+                  Then this course is for You
+                </p>
+              </div>
+            </motion.div>
           </AnimatedSection>
         </div>
-      </section>
-          
+      </section>          
 
       {/* 8-Week Journey */}
       <section className="py-20 bg-white">
@@ -490,7 +533,7 @@ const MindfulnessCoaching = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h2 className="font-bold text-4xl md:text-5xl text-white mb-6">
-              Ready to Transform Your Leadership?
+              Ready to Transform Your Journey?
             </h2>
             <p className="text-xl text-blue-100 mb-8">
               Book your session and discover mindful performance.

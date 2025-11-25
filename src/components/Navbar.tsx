@@ -24,12 +24,23 @@ const Navbar = () => {
     { /*name: "Podcast", path: "/podcast" */},
   ];
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => unsubscribe();
-  }, []);
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    if (currentUser) {
+      const docRef = doc(db, "users", currentUser.uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setUser({ ...currentUser, displayName: docSnap.data().name });
+      } else {
+        setUser(currentUser);
+      }
+    } else {
+      setUser(null);
+    }
+  });
+  return () => unsubscribe();
+}, []);
+
 
   const isActive = (path: string) => {
     if (path === "/#services") {
@@ -130,19 +141,20 @@ const Navbar = () => {
 
             <button
                onClick={handleStartJourney}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full transition-all duration-200 transform hover:scale-105"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 cursor-pointer text-white px-6 py-2 rounded-full transition-all duration-200 transform hover:scale-105"
             >
               Book Now
             </button>
 
             {user ? (
               <div className="relative">
-                <button
-                  onClick={() => setShowUserMenu(!showUserMenu)}
-                  className="p-2 cursor-pointer rounded-full bg-gray-100 hover:bg-gray-200 transition"
-                >
-                  <User className="h-6 w-6 text-gray-700" />
-                </button>
+               <button
+  onClick={() => setShowUserMenu(!showUserMenu)}
+  className="px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition font-medium text-gray-700"
+>
+  {user?.displayName || user?.email?.split("@")[0]}
+</button>
+
 
                 {showUserMenu && (
                   <div className="absolute right-0 mt-2 w-32 bg-white  shadow-lg z-50">
@@ -210,7 +222,7 @@ const Navbar = () => {
                   <div className="border-t border-gray-200 pt-2 mt-2">
                     <button
                       onClick={handleLogout}
-                      className="block w-full text-left px-3 py-2 bg-gray-100 rounded-md hover:bg-gray-200"
+                      className="block w-full text-left px-3 py-2  rounded-md hover:bg-gray-200"
                     >
                       <LogOut className="inline h-4 w-4 mr-2" /> Log Out
                     </button>

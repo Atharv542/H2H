@@ -1,62 +1,73 @@
 import React from 'react';
-import { FaTiktok } from "react-icons/fa";
-import {
-  Heart,
-  Facebook,
-  Instagram,
-  Twitter,
-  Mail,
-  Phone,
-  MapPin,
-} from 'lucide-react';
+import { Facebook, Instagram, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
+const TikTokIcon = () => (
+  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+  </svg>
+);
 
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-br from-slate-100 to-blue-100 text-gray-900 border-t border-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-4 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12"
         >
-          {/* Brand */}
-          <div className="col-span-1">
+          <div className="flex flex-col -mt-3">
             <div className="flex items-center space-x-2 mb-4">
-              <img src="Logo6.png" className="w-15 h-15 mt-1"/>
-              <span className="font-bold text-xl text-gray-900 -mx-2">Head2Heart</span>
+              <img src="Logo6.png" className="w-14 h-14" alt="Head2Heart Logo" />
+              <span className="font-bold text-2xl text-gray-900">Head2Heart</span>
             </div>
 
-            <p className="text-[14px] font-semibold bg-gradient-to-r from-blue-600 to-slate-700 bg-clip-text text-transparent mb-4">
+            <p className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-slate-700 bg-clip-text text-transparent mb-6">
               We want to create a meaningful impact globally.
             </p>
 
-            {/* Social Icons */}
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/profile.php?id=61583086640267" target='_blank' rel="noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <a
+                href="https://www.facebook.com/profile.php?id=61583086640267"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="https://www.instagram.com/headtwoheart/" target='_blank' rel="noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">
+              <a
+                href="https://www.instagram.com/headtwoheart/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://www.tiktok.com/@head2heartlimited?lang=en" target='_blank' rel="noreferrer" className="text-gray-700 hover:text-blue-600 transition-colors">
-               <FaTiktok className="h-5 w-5" />
+              <a
+                href="https://www.tiktok.com/@head2heartlimited?lang=en"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                <TikTokIcon />
               </a>
             </div>
           </div>
 
-          {/* Quick Links */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
             viewport={{ once: true }}
+            className="flex flex-col"
           >
             <h3 className="font-semibold text-lg text-gray-900 mb-4">Quick Links</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 <Link to="/about" className="text-gray-700 hover:text-gray-900 transition-colors">
                   About Us
@@ -67,70 +78,64 @@ const Footer = () => {
                   Testimonials
                 </Link>
               </li>
-             
             </ul>
           </motion.div>
 
-          {/* Our Mission */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             viewport={{ once: true }}
+            className="flex flex-col "
           >
-            <h3 className="font-semibold text-lg text-gray-900 mb-4">Our Mission</h3>
-            <p className="text-gray-700 leading-relaxed">
-              At Head2Heart, our mission is to empower individuals to lead
-              fulfilling, balanced, and meaningful lives through empathy,
-              guidance, and self-discovery.
+            <h3 className="font-semibold text-lg text-gray-900 mb-4 -mx-20">Our Mission</h3>
+            <div className='-mx-20 w-72'>
+             <p className="text-gray-700 text-sm leading-relaxed">
+              At Head2Heart, our mission is to empower individuals to lead fulfilling,
+              balanced, and meaningful lives through empathy, guidance, and self-discovery.
             </p>
+            </div>
+            
           </motion.div>
 
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
             viewport={{ once: true }}
+            className="flex flex-col"
           >
             <h3 className="font-semibold text-lg text-gray-900 mb-4">Contact Info</h3>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-gray-600" />
-                <span className="text-gray-700">info@head2heart.co.nz</span>
-              </div>
+            <div className="flex items-start space-x-2">
+              <Mail className="h-4 w-4 text-gray-600 mt-1 flex-shrink-0" />
+              <span className="text-gray-700 text-sm">info@head2heart.co.nz</span>
             </div>
           </motion.div>
         </motion.div>
 
-        {/* Bottom Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
           viewport={{ once: true }}
-          className="border-t border-gray-300 mt-8 pt-8"
+          className="border-t border-gray-300 mt-12 pt-8"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-700 text-sm">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-700 text-sm text-center">
               © 2025 Head2Heart. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link
-                to="/terms"
-                className="text-gray-700 hover:text-gray-900 text-sm transition-colors"
-              >
+
+            <div className="flex space-x-6">
+              <Link to="/terms" className="text-gray-700 hover:text-gray-900 text-sm transition-colors">
                 Terms & Conditions
               </Link>
-              <Link
-                to="/privacy"
-                className="text-gray-700 hover:text-gray-900 text-sm transition-colors"
-              >
+              <Link to="/privacy" className="text-gray-700 hover:text-gray-900 text-sm transition-colors">
                 Privacy Policy
               </Link>
             </div>
           </div>
         </motion.div>
+
       </div>
     </footer>
   );
