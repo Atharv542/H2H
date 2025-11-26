@@ -21,13 +21,13 @@ const Footer = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12"
         >
-          <div className="flex flex-col -mt-3">
-            <div className="flex items-center space-x-2 mb-4">
+          <div className="flex flex-col -mt-7">
+            <div className="flex items-center space-x-2">
               <img src="Logo6.png" className="w-14 h-14" alt="Head2Heart Logo" />
-              <span className="font-bold text-2xl text-gray-900">Head2Heart</span>
+              <img src='Name_Logo.png' className='w-30 h-25 -mx-2'/>
             </div>
 
-            <p className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-slate-700 bg-clip-text text-transparent mb-6">
+            <p className="text-sm font-semibold text-gray-700 italic -mt-2  mb-5">
               We want to create a meaningful impact globally.
             </p>
 

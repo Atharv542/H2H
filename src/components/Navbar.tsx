@@ -117,7 +117,7 @@ useEffect(() => {
           >
             <img src="Logo6.png" className="w-15 h-15 mt-1"/>
             <Link to="/">
-              <span className="font-bold text-xl cursor-pointer text-gray-800 -mx-2">Head2Heart</span>
+              < img src="Name_Logo.png" className="w-30 h-25 -mx-2 mt-2 "/>
             </Link>
             
           </motion.div>
