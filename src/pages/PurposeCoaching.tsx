@@ -353,7 +353,7 @@ const PurposeCoaching = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-5xl mx-auto ">
               {outcomes.map((outcome, index) => (
                 <motion.div
                   key={index}
@@ -361,11 +361,13 @@ const PurposeCoaching = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow"
+                  className="bg-white p-6  border-2 border-transparent hover:border-blue-300  rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle2 className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                    <p className="text-gray-700 leading-relaxed">{outcome}</p>
+                  <div className="flex flex-col  mx-auto items-center space-x-3 ">
+                   <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                            <span className="text-white font-bold text-lg">✓</span>
+                          </div>
+                    <p className="text-gray-600 text-sm leading-relaxed text-center">{outcome}</p>
                   </div>
                 </motion.div>
               ))}
@@ -408,15 +410,15 @@ const PurposeCoaching = () => {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>Complete workbook & tools</span>
+                    <span>Comprehensive Workbook & Practical Tools</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>Between-session support</span>
+                    <span>Ongoing Support Between Sessions</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>Post-program roadmap</span>
+                    <span>90-Day Action Plan</span>
                   </li>
                 </ul>
                 <button
@@ -447,19 +449,19 @@ const PurposeCoaching = () => {
                 <ul className="space-y-3 mb-8 text-gray-700">
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>2-hour group sessions</span>
+                    <span>2-Hour Interactive Group Sessions</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Team workbook included</span>
+                    <span>Customized Team Workbook</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Guided meditations</span>
+                    <span>Guided Mindfulness & Meditation Practices</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Reflection tools</span>
+                    <span>Leadership Reflection Tools</span>
                   </li>
                 </ul>
                 <button

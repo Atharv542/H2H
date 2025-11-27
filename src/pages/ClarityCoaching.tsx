@@ -226,25 +226,26 @@ const ClarityCoaching = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto mb-12">
                     {[
                       {
-                        title: 'Seeking Purpose',
-                        description: 'Seeking your purpose in your life'
+                        title: 'Seeking Focus and Clarity',
+                        description: 'Individuals seeeking focus and clarity'
                       },
                       {
-                        title: 'Feeling Lost',
-                        description: 'Feeling lost & disconnected and seeking clarity'
+                        title: 'Feeling Emotional',
+                        description: 'Individuals seeking to build emotional intelligence & resilience'
                       },
                       {
-                        title: 'Feeling Anxious',
-                        description: 'Feeling anxious and stressed and seeking peace'
+                        title: 'Having Self Doubt',
+                        description: 'Individuals feeling self doubt, loneliness and isolation '
                       },
                       {
-                        title: 'Feeling Held Back',
-                        description: 'Feeling held back by limiting beliefs'
+                        title: 'Feeling Stuck',
+                        description: 'Individuals feeling stuck in fear seeking to be free of fear'
                       },
                       {
-                        title: 'Feeling Isolated',
-                        description: 'Feeling isolated and seeking meaningful life'
-                      }
+                        title: 'Feeling Lazy',
+                        description: 'Individuals suffering from Procrastination and wants to be more active'
+                      },
+                       
                     ].map((item, index) => (
                       <motion.div
                         key={index}
@@ -255,6 +256,42 @@ const ClarityCoaching = () => {
                         className="group relative"
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                        <div className="relative bg-white border-2 border-transparent hover:border-blue-300 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                            <span className="text-white font-bold text-lg">✓</span>
+                          </div>
+                          <h3 className="font-bold text-lg text-gray-900 mb-3 text-center">
+                            {item.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm leading-relaxed text-center">
+                            {item.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2  mx-auto  mb-12">
+                    {[
+                      {
+                        title: 'Feeling Underconfident',
+                        description: 'Individuals feeling lack of confidence and wants to feel confident'
+                      },
+                       {
+                        title: 'Feeling depressed',
+                        description: 'Individuals dealing with grief and trauma and seeking to feel alive again'
+                      }
+                       
+                    ].map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                        className="group relative flex justify-center" 
+                      >
+                        
                         <div className="relative bg-white border-2 border-transparent hover:border-blue-300 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300">
                           <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
                             <span className="text-white font-bold text-lg">✓</span>
@@ -342,8 +379,7 @@ const ClarityCoaching = () => {
                 By the end of this 8-week journey, you will:
               </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-5xl mx-auto ">
               {outcomes.map((outcome, index) => (
                 <motion.div
                   key={index}
@@ -351,11 +387,13 @@ const ClarityCoaching = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow"
+                  className="bg-white p-6  border-2 border-transparent hover:border-blue-300  rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle2 className="h-6 w-6 text-green-600 flex-shrink-0 mt-1" />
-                    <p className="text-gray-700 leading-relaxed">{outcome}</p>
+                  <div className="flex flex-col  mx-auto items-center space-x-3 ">
+                   <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                            <span className="text-white font-bold">✓</span>
+                          </div>
+                    <p className="text-gray-600 text-md leading-relaxed text-center">{outcome}</p>
                   </div>
                 </motion.div>
               ))}
@@ -400,20 +438,17 @@ const ClarityCoaching = () => {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>All digital materials</span>
+                    <span>All Digital Workbooks</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>Ongoing support</span>
+                    <span>Between-Session Support & Accountability</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>Growth roadmap</span>
+                    <span>Bonus 30 Days Calm & Clarity Workbook</span>
                   </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle2 className="h-5 w-5" />
-                    <span>Payment plans available</span>
-                  </li>
+                 
                   
                 </ul>
               <button
@@ -470,24 +505,21 @@ const ClarityCoaching = () => {
                 <ul className="space-y-3 mb-8 text-gray-700">
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Tailored program</span>
+                    <span>Tailored Coaching Program for Your Team</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Group materials</span>
+                    <span>Interactive Group Materials & Workbooks</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Team activities</span>
+                    <span>Engaging Team Activities & Discussions</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
                     <span>Flexible scheduling</span>
                   </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>All resources included</span>
-                  </li>
+                 
                 </ul>
                 <Link
                   to={user ? "/contact" : "/login"}

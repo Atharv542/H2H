@@ -247,27 +247,19 @@ const MindfulnessCoaching = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-6 max-w-7xl mx-auto  mb-12">
               {[
                 {
-                  title: 'Seeking Purpose',
-                  description: 'Seeking your purpose in your life'
+                  title: 'Seeking Focus ',
+                  description: 'Individuals feeling overwhelmed and seeking focus & clarity'
                 },
                 {
-                  title: 'Feeling Lost',
-                  description: 'Feeling lost & disconnected and seeking clarity'
+                  title: 'Feeling Stressed',
+                  description: 'Individuals feeling mental overload, stress, burnouts & seeking emotional resilience'
                 },
                 {
-                  title: 'Feeling Anxious',
-                  description: 'Feeling anxious and stressed and seeking peace'
-                },
-                {
-                  title: 'Feeling Held Back',
-                  description: 'Feeling held back by limiting beliefs'
-                },
-                {
-                  title: 'Feeling Isolated',
-                  description: 'Feeling isolated and seeking meaningful life'
+                  title: 'Seeing Improvement',
+                  description: 'Individuals seeking overall improved wellbeing and performance'
                 }
               ].map((item, index) => (
                 <motion.div
@@ -416,17 +408,20 @@ const MindfulnessCoaching = () => {
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>8-week program</span>
+                    <span>8-Week Guided Journey</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>Personal coaching</span>
+                    <span>Personalized Coaching Sessions</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5" />
-                    <span>All resources included</span>
+                    <span>Complete Mindfulness Resources</span>
                   </li>
-                  
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle2 className="h-5 w-5" />
+                    <span>Ongoing Support & Accountability</span>
+                  </li>
                 </ul>
                 <button
   onClick={() => handleCheckout("service2")}
@@ -461,15 +456,19 @@ const MindfulnessCoaching = () => {
                 <ul className="space-y-3 mb-8 text-gray-700">
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Intensive workshop</span>
+                    <span>Tailored Coaching Program for Team</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Team activities</span>
+                    <span>Team Engagement Activities</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Group materials</span>
+                    <span>Custom Group Learning.</span>
+                  </li>
+                   <li className="flex items-center space-x-2">
+                    <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                    <span>Action-Oriented Insights</span>
                   </li>
                 </ul>
                 <button
@@ -495,22 +494,22 @@ const MindfulnessCoaching = () => {
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-gray-900">Custom</span>
                 </div>
-                <ul className="space-y-3 mb-8 text-gray-700">
+                <ul className="space-y-3 mb-8 text-gray-700 pt-3">
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Tailored program</span>
+                    <span>Tailored Program Design</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Multiple sessions</span>
+                    <span>Multi-Session Delivery</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Follow-up workshops</span>
+                    <span>Follow-Up Workshops for Sustainability</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle2 className="h-5 w-5 text-blue-600" />
-                    <span>Ongoing support</span>
+                    <span>Continuous Support & Resources</span>
                   </li>
                 </ul>
                 <Link
