@@ -21,13 +21,13 @@ const Footer = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12"
         >
-          <div className="flex flex-col -mt-10">
+          <div className="flex flex-col -mt-12">
             <div className="flex items-center space-x-2">
               <img src="Logo6.png" className="w-14 h-14" alt="Head2Heart Logo" />
-              <img src='New_Logo_3.png' className='w-40 h-35 -mx-5'/>
+              <img src='New_Logo_3.png' className='w-45 h-35 -mx-7'/>
             </div>
 
-            <p className="text-sm font-semibold text-gray-700 italic -mt-2  mb-5">
+            <p className="text-sm font-semibold text-gray-700 italic -mt-8  mb-5">
               We want to create a meaningful impact globally.
             </p>
 
@@ -66,7 +66,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex flex-col"
           >
-            <h3 className="font-semibold text-lg text-gray-900 mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-lg text-gray-900 mb-8">Quick Links</h3>
             <ul className="space-y-3">
               <li>
                 <Link to="/about" className="text-gray-700 hover:text-gray-900 transition-colors">
@@ -76,6 +76,11 @@ const Footer = () => {
               <li>
                 <Link to="/testimonials" className="text-gray-700 hover:text-gray-900 transition-colors">
                   Testimonials
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop" className="text-gray-700 hover:text-gray-900 transition-colors">
+                  Shop
                 </Link>
               </li>
             </ul>
@@ -88,7 +93,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex flex-col "
           >
-            <h3 className="font-semibold text-lg text-gray-900 mb-4 -mx-20">Our Mission</h3>
+            <h3 className="font-semibold text-lg text-gray-900 mb-4 -mx-20 mb-8">Our Mission</h3>
             <div className='-mx-20 w-72'>
              <p className="text-gray-700 text-sm leading-relaxed">
               At Head2Heart, our mission is to empower individuals to lead fulfilling,
@@ -105,7 +110,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex flex-col"
           >
-            <h3 className="font-semibold text-lg text-gray-900 mb-4">Contact Info</h3>
+            <h3 className="font-semibold text-lg text-gray-900 mb-8">Contact Info</h3>
             <div className="flex items-start space-x-2">
               <Mail className="h-4 w-4 text-gray-600 mt-1 flex-shrink-0" />
               <span className="text-gray-700 text-sm">info@head2heart.co.nz</span>
