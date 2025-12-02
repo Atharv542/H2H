@@ -10,12 +10,11 @@ export default async function handler(req, res) {
   const { item } = req.body; // no JSON.parse
 
   const priceMap = {
-    service1: "price_1SRDX1FuxMozvr1p0IhLIZ3r",
-    service2: "price_1SRDcdFuxMozvr1pbUtalbfZ",
-    service3: "price_1SRDe8FuxMozvr1pUIcHJRCU",
-    team4: "price_1SRDgfFuxMozvr1pPFR8zYA2",
-    team5: "price_1SRDh4FuxMozvr1psu6bFykj",
-    team6: "price_1SRDhaFuxMozvr1p4DscfAbQ",
+    service1: "prod_TWqD89pjVWnIFY",
+    service2: "prod_TWqE07Y5PxzfZZ",
+    service3: "prod_TWqFveg3xH7vO3",
+    service4: "prod_TWqHm01FoOsc9u",
+    team5: "prod_TWqHgzDk3Gda63",
   };
 
   const priceId = priceMap[item];

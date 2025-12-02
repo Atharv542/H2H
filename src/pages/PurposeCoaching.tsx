@@ -422,7 +422,7 @@ const PurposeCoaching = () => {
                   </li>
                 </ul>
                 <button
-                  onClick={() => handleCheckout("service1")}
+                  onClick={() => handleCheckout("service2")}
                   className="block w-full bg-white text-blue-600 text-center px-6 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-200 mt-14 cursor-pointer"
                 >
                   Get Started
@@ -465,7 +465,7 @@ const PurposeCoaching = () => {
                   </li>
                 </ul>
                 <button
-                  onClick={() => handleCheckout("team4")}
+                  onClick={() => handleCheckout("service1")}
                   className="block cursor-pointer w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center px-6 py-4 rounded-full font-semibold hover:opacity-90 transition-all duration-200"
                 >
                   Book Team Session
