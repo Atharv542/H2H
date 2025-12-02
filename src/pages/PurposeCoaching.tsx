@@ -2,9 +2,16 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Target, Heart, CheckCircle2, Calendar, DollarSign, Users, Sparkles } from 'lucide-react';
-
+import { auth } from "../firebase";
+import { onAuthStateChanged } from "firebase/auth";
 const PurposeCoaching = () => {
-  const [user, setUser] = useState<any>(null);
+    const [user,setUser] = useState<any>(null);
+     useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+          setUser(currentUser);
+        });
+        return () => unsubscribe();
+      }, []);
 
   const features = [
     {
