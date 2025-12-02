@@ -28,8 +28,8 @@ export default async function handler(req, res) {
       payment_method_types: ["card"],
       mode: "payment",
       line_items: [{ price: priceId, quantity: 1 }],
-      success_url: "http://localhost:3000/success", // temporary placeholder
-      cancel_url: "http://localhost:3000/cancel",   // temporary placeholder
+      success_url:"https://h2-h-one.vercel.app/success?session_id={CHECKOUT_SESSION_ID}", // temporary placeholder
+      cancel_url: "https://h2-h-one.vercel.app/",   // temporary placeholder
     });
 
     return res.status(200).json({ url: session.url });

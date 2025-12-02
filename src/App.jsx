@@ -28,6 +28,7 @@ import MindfulnessCoaching from './pages/MindfulnessCoaching';
 import ClarityCoaching from './pages/ClarityCoaching';
 
 import ContactForm from './pages/Contact';
+import Success from './pages/Success';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -51,6 +52,7 @@ function App() {
               <Route path="/clarity-coaching" element={<ClarityCoaching />} />
               <Route path="/mindfulness-coaching" element={<MindfulnessCoaching />} />
               <Route path="/purpose-coaching" element={<PurposeCoaching />} />
+              <Route path="/success" element={<Success/>} />
         
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
