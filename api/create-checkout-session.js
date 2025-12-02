@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     service2: "price_1SZmY3CSe0ZSreoRRhtgcEbe",
     service3: "price_1SZmYwCSe0ZSreoR1UEBwnhD",
     service4: "price_1SZmanCSe0ZSreoRDf5wsUbu",
-    team5: "price_1SZmbFCSe0ZSreoRGWwbkinP",
+    service5: "price_1SZmbFCSe0ZSreoRGWwbkinP",
   };
 
   const priceId = priceMap[item];
