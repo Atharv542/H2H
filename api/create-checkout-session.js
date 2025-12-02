@@ -10,8 +10,8 @@ export default async function handler(req, res) {
   const { item } = req.body; // no JSON.parse
 
   const priceMap = {
-    service1: "price_1SZmWiCSe0ZSreoRgjXsVMWs",
-    service2: "price_1SZmY3CSe0ZSreoRRhtgcEbe",
+    service1: "price_1SZq6SCSe0ZSreoRHh1ve6rd",
+    service2: "price_1SZq78CSe0ZSreoR1jSzMgtt",
     service3: "price_1SZmYwCSe0ZSreoR1UEBwnhD",
     service4: "price_1SZmanCSe0ZSreoRDf5wsUbu",
     service5: "price_1SZmbFCSe0ZSreoRGWwbkinP",
