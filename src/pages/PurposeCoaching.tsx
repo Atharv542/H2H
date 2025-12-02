@@ -92,31 +92,34 @@ const PurposeCoaching = () => {
   ];
 
   const handleCheckout = async (item: string) => {
-    if (!user) {
-      window.location.href = "/login";
-      return;
+  if (!user) {
+    // Redirect to login if not signed in
+    window.location.href = "/login";
+    return;
+  }
+
+  try {
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ item }), // item: "service1" or "team"
+    });
+
+    const data = await res.json();
+
+    if (data.url) {
+      // Redirect to Stripe Checkout
+      window.location.href = data.url;
+    } else {
+      console.error("No URL returned from API", data);
     }
+  } catch (err) {
+    console.error("Stripe checkout error:", err);
+  }
+};
 
-    try {
-      const res = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ item }),
-      });
-
-      const data = await res.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        console.error("No URL returned from API", data);
-      }
-    } catch (err) {
-      console.error("Stripe checkout error:", err);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-white">
