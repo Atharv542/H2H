@@ -34,10 +34,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
       </div>
 
       <div className="relative flex-grow">
-        <Quote className="h-12 w-12 text-blue-200 absolute -top-2 -left-2" />
+        <Quote className="h-12 w-12 text-blue-200 absolute -top-2 -left-4" />
 
         <p className="text-gray-700 leading-relaxed mb-8 pl-8 italic text-lg">
-          "{testimonial.text}"
+          {testimonial.text}
         </p>
       </div>
 
