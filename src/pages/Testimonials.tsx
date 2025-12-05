@@ -38,7 +38,7 @@ const Testimonials = () => {
      {
       name: 'Pawan Kumar',
       role: 'Delhi, India',
-      image: 'nopp.jpg',
+      image: 'Pawan.jpg',
       rating: 5,
       text: 'I was drowning in self-doubt, gripped by constant anxiety and a raging inner insecurity about my appearance that left me stuck and overwhelmed daily. Then, in just a few electrifying sessions, Mr. SS ignited a spark with his passionate guidance, helping me embrace myself fully and unleash a rush of self-love! Now, I\'m buzzing with confidence, radiating peace, and soaring in my career—life bursts with vibrant energy and endless possibilities!',
       
@@ -46,7 +46,7 @@ const Testimonials = () => {
     {
       name: 'Isha Verma',
       role: 'Delhi, India',
-      image: 'nopp.jpg',
+      image: 'Isha.jpg',
       rating: 5,
       text: 'Before the session, I often felt overwhelmed and anxious, grappling with deep inner insecurities that shattered my stability in facing day-to-day challenges. Sandeep Sharma provided clear guidance and practical strategies that helped me regain my inner peace and confidence. Thanks to this support, I now handle everyday moments with calm assurance, and our family communication has improved significantly.',
       
@@ -54,7 +54,7 @@ const Testimonials = () => {
     {
       name: 'Sameeta Lal',
       role: 'Auckland, New Zealand',
-      image: 'nopp.jpg',
+      image: 'Sameeta.jpg',
       rating: 5,
       text: 'I often felt challenged in showing up as my true self in relationships. I held back on who I really was. From the very beginning, you created a safe and supportive space where I felt completely comfortable opening up. You made me feel truly seen, heard, and understood in a way I hadn’t experienced before. That sense of safety allowed me to explore parts of myself I had kept hidden, and it was incredibly empowering. The impact you’ve had on me is something I’ll carry for a long time. Thank you for showing me it is ok to be an authentic version of myself, I’m deeply grateful.',
       
