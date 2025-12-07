@@ -59,6 +59,14 @@ const Testimonials = () => {
       text: 'I often felt challenged in showing up as my true self in relationships. I held back on who I really was. From the very beginning, you created a safe and supportive space where I felt completely comfortable opening up. You made me feel truly seen, heard, and understood in a way I hadn’t experienced before. That sense of safety allowed me to explore parts of myself I had kept hidden, and it was incredibly empowering. The impact you’ve had on me is something I’ll carry for a long time. Thank you for showing me it is ok to be an authentic version of myself, I’m deeply grateful.',
       
     },
+     {
+      name: ' Ravi Chandra',
+      role: 'Auckland, New Zealand',
+      image: 'Ravi.jpg',
+      rating: 5,
+      text:'Sandeep supported me at a time when major pressures in both my work and personal life were converging, leaving me overwhelmed and lacking clear direction. He helped me regain perspective by making it easier to see what truly mattered and offering practical, structured strategies to move forward. Through his guidance, I pushed beyond my usual comfort zones and adopted new approaches that genuinely shifted my situation. His support enabled meaningful progress and restored a sense of balance during a particularly challenging period.',
+      
+    },
   ];
 
 
