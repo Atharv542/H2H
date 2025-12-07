@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
     await transporter.sendMail({
       from: `"Head2Heart Coaching" <${process.env.SMTP_USER}>`,
-      to: email,
+      to: 'atharvragdwal05@gmail.com',
       subject: "Welcome to Head2Heart 💙",
       html: `
         <h2 style="color:#4f46e5">Welcome ${name} 💙</h2>
