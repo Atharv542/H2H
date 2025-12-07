@@ -46,7 +46,7 @@ const Signup = () => {
         createdAt: serverTimestamp(),
       });
 
-       await fetch("/api/welcome-email", {
+       await fetch("/api/send-welcome-email", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -54,7 +54,7 @@ const Signup = () => {
       name: fullName,
     }),
   });
-  
+
  // 4️⃣ Send email verification
       await sendEmailVerification(user);
 
