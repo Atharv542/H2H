@@ -8,13 +8,13 @@ export default async function handler(req, res) {
   try {
     const { email, name } = req.body;
 
-   const transporter = nodemailer.createTransport({
-  host: "smtp.titan.email",
+     const transporter = nodemailer.createTransport({
+  host:process.env.SMTP_HOST,
   port: 587,
   secure: false, // false for TLS
   auth: {
-    user: "info@head2heart.co.nz",
-    pass: "Coaching2025!",
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
   tls: {
     rejectUnauthorized: false, // allows self-signed certs
