@@ -8,15 +8,19 @@ export default async function handler(req, res) {
   try {
     const { email, name } = req.body;
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: Number(process.env.SMTP_PORT) === 465,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+   const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: 587,
+  secure: false, // false for TLS
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false, // allows self-signed certs
+  },
+});
+
 
     await transporter.sendMail({
       from: `"Head2Heart Coaching" <${process.env.SMTP_USER}>`,
