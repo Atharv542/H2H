@@ -30,7 +30,7 @@ useEffect(() => {
       const docRef = doc(db, "users", currentUser.uid);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        setUser({ ...currentUser, displayName: docSnap.data().name });
+        setUser({ ...currentUser, displayName: docSnap.data().firstName });
       } else {
         setUser(currentUser);
       }
@@ -152,7 +152,14 @@ useEffect(() => {
   onClick={() => setShowUserMenu(!showUserMenu)}
   className="px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition font-medium text-gray-700"
 >
-  {user?.displayName || user?.email?.split("@")[0]}
+  <div className="flex items-center gap-2 text-gray-700 font-medium">
+  <p>Hi,</p>
+  <span className="text-blue-600 font-semibold">
+    {user?.displayName || user?.email?.split("@")[0]}
+  </span>
+</div>
+
+ 
 </button>
 
 

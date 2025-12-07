@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Heart, Mail, Lock, User, ArrowRight, AlertCircle, CheckCircle } from 'lucide-react';
+import { Heart, Mail, Lock, User, ArrowRight, AlertCircle } from 'lucide-react';
 import { auth, db } from '../firebase';
-import { createUserWithEmailAndPassword, updateProfile,sendEmailVerification  } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import toast from "react-hot-toast";
 
 const Signup = () => {
-  const [fullName, setFullName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -20,8 +20,6 @@ const Signup = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-
-   
 
     if (password.length < 6) {
       setError('Password must be at least 6 characters long');
@@ -35,30 +33,32 @@ const Signup = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
+      const fullName = `${firstName} ${lastName}`;
+
       // 2️⃣ Update display name in Firebase Auth
       await updateProfile(user, { displayName: fullName });
 
       // 3️⃣ Save extra info in Firestore
       await setDoc(doc(db, 'users', user.uid), {
+        firstName,
+        lastName,
         fullName,
         email,
         phoneNumber,
         createdAt: serverTimestamp(),
       });
 
-       await fetch("/api/send-welcome-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: email,
-      name: fullName,
-    }),
-  });
+      // 4️⃣ Send welcome email
+      await fetch("/api/send-welcome-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, name: fullName }),
+      });
 
- // 4️⃣ Send email verification
+      // 5️⃣ Send email verification
       await sendEmailVerification(user);
 
-      toast.success('Account created! Please check your inbox to verify your email.',{duration:4000});
+      toast.success('Account created! Please check your inbox to verify your email.', { duration: 4000 });
       setLoading(false);
       navigate('/login');
     } catch (err: any) {
@@ -71,6 +71,7 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-slate-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+
         {/* Left Side - Branding */}
         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="hidden lg:block">
           <h1 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">
@@ -99,14 +100,27 @@ const Signup = () => {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">Full Name*</label>
-              <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-                <input id="fullName" type="text" required value={fullName} onChange={(e) => setFullName(e.target.value)} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-transparent transition-all duration-200" placeholder="John Doe" />
+
+            {/* First & Last Name in same row */}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">First Name*</label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <input id="firstName" type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-transparent transition-all duration-200" placeholder="John" />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">Last Name*</label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <input id="lastName" type="text" required value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-transparent transition-all duration-200" placeholder="Doe" />
+                </div>
               </div>
             </div>
 
+            {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email Address*</label>
               <div className="relative">
@@ -115,6 +129,7 @@ const Signup = () => {
               </div>
             </div>
 
+            {/* Password */}
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">Password*</label>
               <div className="relative">
@@ -123,8 +138,9 @@ const Signup = () => {
               </div>
             </div>
 
+            {/* Phone Number */}
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">Phone Number*</label>
+              <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">Phone Number*</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
                 <input id="phoneNumber" type="text" required value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:border-transparent transition-all duration-200" placeholder="Enter your phone number" />
@@ -136,9 +152,11 @@ const Signup = () => {
               {!loading && <ArrowRight className="h-5 w-5" />}
             </button>
           </form>
-            <p className="text-xs text-gray-500 text-center mt-6 italic">
-              Tip: If you don’t see any verification email, check your <strong>Spam</strong> or <strong>Promotions</strong> folder and mark it as “Not Spam”.
-            </p>
+
+          <p className="text-xs text-gray-500 text-center mt-6 italic">
+            Tip: If you don’t see any verification email, check your <strong>Spam</strong> or <strong>Promotions</strong> folder and mark it as “Not Spam”.
+          </p>
+
           <div className="mt-8 text-center">
             <p className="text-gray-600">
               Already have an account?{' '}
