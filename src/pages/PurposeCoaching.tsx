@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Target, Heart, CheckCircle2, Calendar, DollarSign, Users, Sparkles } from 'lucide-react';
 import { auth } from "../firebase";
@@ -7,7 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 const PurposeCoaching = () => {
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
-
+  const navigate= useNavigate();
   const titleRef = useRef(null);
   const titleInView = useInView(titleRef, { once: true });
 
@@ -108,7 +108,7 @@ const PurposeCoaching = () => {
     if (authLoading) return; // prevent early call 
 
     if (!user) {
-      window.location.href = "/login";
+      navigate('/login');
       return;
     }
 
