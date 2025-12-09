@@ -33,7 +33,7 @@ const Shop = () => {
         "https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400",
       description:
         "A comprehensive workbook with exercises and prompts for personal transformation.",
-      priceId:"price_1ScPq7CSe0ZSreoR8nUULEQM"
+      priceId:"product1"
     },
    
     {
@@ -47,7 +47,7 @@ const Shop = () => {
         "https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=400",
       description:
         "Beautiful journal with guided prompts for daily reflection and gratitude.",
-        priceId:"price_1ScPqdCSe0ZSreoRlOlBO9ER"
+        priceId:"product2"
     },
     {
       id: "3",
@@ -60,7 +60,7 @@ const Shop = () => {
         "https://images.pexels.com/photos/1493955/pexels-photo-1493955.jpeg?auto=compress&cs=tinysrgb&w=400",
       description:
         "Strategic planner designed to help you set and achieve meaningful goals.",
-        priceId:"price_1ScPr5CSe0ZSreoRwB3kUPNq"
+        priceId:"product3"
     },
   
     {
@@ -74,7 +74,7 @@ const Shop = () => {
         "https://images.pexels.com/photos/4226219/pexels-photo-4226219.jpeg?auto=compress&cs=tinysrgb&w=400",
       description:
         "50 beautifully designed cards with powerful affirmations for daily inspiration.",
-        priceId:"price_1ScPraCSe0ZSreoRTfxl8VQn"
+        priceId:"product4"
     },
   ];
 
