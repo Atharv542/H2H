@@ -1,13 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Award, Heart, Handshake, ShieldCheck, Lightbulb, Eye, Mail, Phone } from 'lucide-react';
+import { Award, Heart, Handshake, ShieldCheck, Lightbulb, Eye } from 'lucide-react';
 
 const About = () => {
-  const [expandedIndex, setExpandedIndex] = React.useState(null);
-
-  const toggleReadMore = (index) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
+  const navigate = useNavigate();
 
   const values = [
     {
@@ -50,27 +47,34 @@ const About = () => {
 
   const team = [
     {
+      id: 'sachin-kaintura',
       name: 'Sachin Kaintura',
       email: 'sachin.kaintura@head2heart.co.nz',
       phone: '+64211368819',
-      image: 'Sachin.png',
+      image: '/team/Sachin.png',
+      role: 'Personal Development & Mindfulness Coach',
+      bgColor: 'from-blue-400 to-cyan-400',
       bio:
-        'Hi, I’m Sachin Kaintura  a husband, proud father, and Personal Development & Mindfulness Certified Coach with expertise in NLP. My journey began in the bustling city of Mumbai, where I studied hospitality and started my career in the service industry. Like many in India’s middle class, I dreamed of giving my family a better life a dream that led me to take a leap of faith in 2009 and move to New Zealand. Starting over as an immigrant meant long hours, financial sacrifices, and the emotional challenge of building a new life far from home. But through it all, I stayed true to the values of honesty, respect, empathy, and authenticity principles that continue to guide me today. Despite over two decades of experience in hospitality and leadership, I often felt a sense of incompleteness. I was doing well, but something inside me was missing. Everything changed in 2019 when I discovered a marketing company that introduced me to mindfulness. That experience became a turning point, helping me overcome stress, procrastination, limiting beliefs, and imposter syndrome. Today, I help individuals break free from self-doubt, gain clarity, and create balance in their personal and professional lives. My mission is simple: to guide you in cultivating mindfulness, unlocking your potential, and living with purpose. If you’ve ever felt stuck, overwhelmed, or like there’s more waiting for you, you’re not alone. I’ve been there too, and I’m here to help you navigate your journey.',
+        'Hi, I\'m Sachin Kaintura  a husband, proud father, and Personal Development & Mindfulness Certified Coach with expertise in NLP. My journey began in the bustling city of Mumbai, where I studied hospitality and started my career in the service industry. Like many in India\'s middle class, I dreamed of giving my family a better life a dream that led me to take a leap of faith in 2009 and move to New Zealand. Starting over as an immigrant meant long hours, financial sacrifices, and the emotional challenge of building a new life far from home. But through it all, I stayed true to the values of honesty, respect, empathy, and authenticity principles that continue to guide me today. Despite over two decades of experience in hospitality and leadership, I often felt a sense of incompleteness. I was doing well, but something inside me was missing. Everything changed in 2019 when I discovered a marketing company that introduced me to mindfulness. That experience became a turning point, helping me overcome stress, procrastination, limiting beliefs, and imposter syndrome. Today, I help individuals break free from self-doubt, gain clarity, and create balance in their personal and professional lives. My mission is simple: to guide you in cultivating mindfulness, unlocking your potential, and living with purpose. If you\'ve ever felt stuck, overwhelmed, or like there\'s more waiting for you, you\'re not alone. I\'ve been there too, and I\'m here to help you navigate your journey.',
+      shortBio: 'Personal Development & Mindfulness Certified Coach helping individuals overcome self-doubt, gain clarity, and create balance in their personal and professional lives.',
     },
     {
+      id: 'sandeep-sharma',
       name: 'Sandeep Sharma',
       email: 'sandeep.sharma@head2heart.co.nz',
       phone: '+6421903306',
-      image: 'Sandeep.png',
+      image: '/team/Sandeep.jpg',
+      role: 'Mindset & Abundance Coach',
+      bgColor: 'from-blue-400 to-purple-400',
       bio:
-        'Hi, my name is Sandeep Sharma. I\'m truly thankful for the life I live today, and for the family and friends who surround me. I was born into a middle-class household in New Delhi, India, where my childhood was joyful despite financial limitations. Like many, I aspired to a life of success dreaming of wealth, a beautiful home, and luxuries of life but had no clear roadmap to get there. Years of chasing these ambitions left me feeling stuck, anxious, and unfulfilled. No matter what I achieved, it never felt like enough. Eventually, I had a powerful realization: I wasn\'t meant to live in fear, frustration, or emptiness. That moment became a turning point, prompting me to redefine my purpose, values, beliefs, and mindset. I came to see life as a journey made up of meaningful experiences, and that true happiness comes from embracing the present not just pursuing a distant goal. I believe that if we\'re not grateful for what we have today, we\'ll never feel truly satisfied with what we gain tomorrow. Now, I live with intention and presence, enjoying the path I\'m on. I support others who feel the way I once did helping them cultivate an abundant mindset and guiding them toward their goals with clarity and purpose.',
+        'Hi, my name is Sandeep Sharma. I\'m truly thankful for the life I live today, and for the family and friends who surround me. I was born into a middle-class household in New Delhi, India, where my childhood was joyful despite financial limitations. Like many, I aspired to a life of success dreaming of wealth, a beautiful home, and luxuries of life but had no clear roadmap to get there. Years of chasing these ambinations left me feeling stuck, anxious, and unfulfilled. No matter what I achieved, it never felt like enough. Eventually, I had a powerful realization: I wasn\'t meant to live in fear, frustration, or emptiness. That moment became a turning point, prompting me to redefine my purpose, values, beliefs, and mindset. I came to see life as a journey made up of meaningful experiences, and that true happiness comes from embracing the present not just pursuing a distant goal. I believe that if we\'re not grateful for what we have today, we\'ll never feel truly satisfied with what we gain tomorrow. Now, I live with intention and presence, enjoying the path I\'m on. I support others who feel the way I once did helping them cultivate an abundant mindset and guiding them toward their goals with clarity and purpose.',
+      shortBio: 'Supporting individuals in cultivating an abundant mindset and guiding them toward their goals with clarity and purpose through gratitude and presence.',
     },
   ];
 
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
           <h1 className="text-5xl font-bold text-gray-900 mb-6">About Head2Heart</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -113,7 +117,7 @@ const About = () => {
                 key={value.title}
                 className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <value.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
@@ -126,59 +130,41 @@ const About = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Meet Our Team</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {team.map((member, index) => (
-              <div
-                key={member.name}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {team.map((member) => (
+              <motion.div
+                key={member.id}
+                whileHover={{ y: -8 }}
+                transition={{ duration: 0.3 }}
+                onClick={() => navigate(`/team/${member.id}`)}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300"
               >
-                <div className="h-[500px] overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-                  
+                <div className="p-8">
+                  <div className="flex justify-center mb-6">
+                    <div className={`w-40 h-40 rounded-full bg-gradient-to-br ${member.bgColor} p-1`}>
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full rounded-full object-cover border-4 border-white"
+                      />
+                    </div>
+                  </div>
 
-                  <p className="text-gray-600 leading-relaxed mb-4">
-                    {expandedIndex === index
-                      ? member.bio
-                      : member.bio.substring(0, 185) + '...'}
+                  <h3 className="text-2xl font-bold text-gray-900 text-center mb-2">{member.name}</h3>
+
+                  <div className="flex justify-center mb-4">
+                    <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium text-white bg-gradient-to-r ${member.bgColor}`}>
+                      Coach
+                    </span>
+                  </div>
+
+                  <p className="text-center text-gray-700 font-medium mb-3">{member.role}</p>
+
+                  <p className="text-gray-600 text-center leading-relaxed">
+                    {member.shortBio}
                   </p>
-
-                  {expandedIndex === index && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="border-t pt-4 mt-4 space-y-3"
-                    >
-                      <div className="flex items-center space-x-3 text-gray-700">
-                        <Mail className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                        <a href={`mailto:${member.email}`} className="hover:text-blue-600 transition-colors">
-                          {member.email}
-                        </a>
-                      </div>
-                      <div className="flex items-center space-x-3 text-gray-700">
-                        <Phone className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                        <a href={`tel:${member.phone}`} className="hover:text-blue-600 transition-colors">
-                          {member.phone}
-                        </a>
-                      </div>
-                    </motion.div>
-                  )}
-
-                  <button
-                    onClick={() => toggleReadMore(index)}
-                    className="mt-4 text-blue-600 font-medium hover:underline"
-                  >
-                    {expandedIndex === index ? 'Read Less' : 'Read More'}
-                  </button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
@@ -187,7 +173,7 @@ const About = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="mt-20 bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8 md:p-12"
+          className="mt-20 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl p-8 md:p-12"
         >
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
@@ -201,6 +187,7 @@ const About = () => {
           </div>
         </motion.div>
       </div>
+
     </div>
   );
 };
