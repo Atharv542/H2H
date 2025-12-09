@@ -1,5 +1,5 @@
 import React, { useRef, useState,useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Brain, Shield, Users, Zap, CheckCircle2, Calendar, DollarSign, TrendingUp, Heart } from 'lucide-react';
 import { auth } from "../firebase";
@@ -12,6 +12,7 @@ const MindfulnessCoaching = () => {
       });
       return () => unsubscribe();
     }, []);
+    const navigate=useNavigate();
   const features = [
     {
       icon: Brain,
@@ -98,7 +99,7 @@ const MindfulnessCoaching = () => {
   const handleCheckout = async (item: string) => {
   if (!user) {
     // Redirect to login if not signed in
-    window.location.href = "/login";
+    navigate('/login');
     return;
   }
 

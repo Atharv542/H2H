@@ -1,11 +1,12 @@
 import React, { useRef, useState,useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Compass, Lightbulb, Focus, Wind, CheckCircle2, Calendar, DollarSign, Users, Eye } from 'lucide-react';
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 const ClarityCoaching = () => {
   const [user,setUser] = useState<any>(null);
+  const navigate= useNavigate();
    useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
@@ -453,7 +454,7 @@ const ClarityCoaching = () => {
                 </ul>
               <button
   onClick={async () => {
-    if (!user) return window.location.href = "/login"; // redirect if not logged in
+    if (!user) return navigate('/login'); // redirect if not logged in
 
     try {
       // This is where you call your API
