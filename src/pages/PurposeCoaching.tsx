@@ -5,13 +5,19 @@ import { ArrowRight, Target, Heart, CheckCircle2, Calendar, DollarSign, Users, S
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 const PurposeCoaching = () => {
-    const [user,setUser] = useState<any>(null);
-     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-          setUser(currentUser);
-        });
-        return () => unsubscribe();
-      }, []);
+  const [user, setUser] = useState(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  const titleRef = useRef(null);
+  const titleInView = useInView(titleRef, { once: true });
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setAuthLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const features = [
     {
@@ -99,33 +105,32 @@ const PurposeCoaching = () => {
   ];
 
   const handleCheckout = async (item: string) => {
-  if (!user) {
-    // Redirect to login if not signed in
-    window.location.href = "/login";
-    return;
-  }
+    if (authLoading) return; // prevent early call 
 
-  try {
-    const res = await fetch("/api/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ item }), // item: "service1" or "team"
-    });
-
-    const data = await res.json();
-
-    if (data.url) {
-      // Redirect to Stripe Checkout
-      window.location.href = data.url;
-    } else {
-      console.error("No URL returned from API", data);
+    if (!user) {
+      window.location.href = "/login";
+      return;
     }
-  } catch (err) {
-    console.error("Stripe checkout error:", err);
-  }
-};
+
+    try {
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ item }),
+      });
+
+      const data = await res.json();
+
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("Stripe Error:", data);
+      }
+    } catch (error) {
+      console.error("Checkout Error:", error);
+    }
+  };
+
 
 
   return (
