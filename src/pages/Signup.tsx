@@ -6,6 +6,8 @@ import { auth, db } from '../firebase';
 import { createUserWithEmailAndPassword, updateProfile, sendEmailVerification } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import toast from "react-hot-toast";
+import emailjs from '@emailjs/browser';
+
 
 const Signup = () => {
   const [firstName, setFirstName] = useState('');
@@ -29,43 +31,48 @@ const Signup = () => {
     setLoading(true);
 
     try {
-      // 1️⃣ Create user in Firebase Auth
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+  // 1️⃣ Create user in Firebase Auth
+  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+  const user = userCredential.user;
 
-      const fullName = `${firstName} ${lastName}`;
+  const fullName = `${firstName} ${lastName}`;
 
-      // 2️⃣ Update display name in Firebase Auth
-      await updateProfile(user, { displayName: fullName });
+  // 2️⃣ Update profile
+  await updateProfile(user, { displayName: fullName });
 
-      // 3️⃣ Save extra info in Firestore
-      await setDoc(doc(db, 'users', user.uid), {
-        firstName,
-        lastName,
-        fullName,
-        email,
-        phoneNumber,
-        createdAt: serverTimestamp(),
-      });
+  // 3️⃣ Save extra info to Firestore
+  await setDoc(doc(db, 'users', user.uid), {
+    firstName,
+    lastName,
+    fullName,
+    email,
+    phoneNumber,
+    createdAt: serverTimestamp(),
+  });
 
-      // 4️⃣ Send welcome email
-      await fetch("/api/send-welcome-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name: fullName }),
-      });
+  // 4️⃣ Send welcome email using EmailJS
+  await emailjs.send(
+    'service_74737vo',
+    'template_qfzd05c',
+    {
+      user_email: email,
+      user_name: firstName,
+    },
+    'OH-W9mIYNDS8h-DUh'
+  );
 
-      // 5️⃣ Send email verification
-      await sendEmailVerification(user);
+  // 5️⃣ Send email verification
+  await sendEmailVerification(user);
 
-      toast.success('Account created! Please check your inbox to verify your email.', { duration: 4000 });
-      setLoading(false);
-      navigate('/login');
-    } catch (err: any) {
-      console.error(err);
-      setError(err.message);
-      setLoading(false);
-    }
+  toast.success('Account created! Please check your inbox to verify your email.', { duration: 4000 });
+  setLoading(false);
+  navigate('/login');
+} catch (err: any) {
+  console.error(err);
+  setError(err.message);
+  setLoading(false);
+}
+
   };
 
   return (
