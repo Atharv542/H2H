@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { motion } from "framer-motion";
 import { ShoppingCart, Star, Filter, CreditCard } from "lucide-react";
 import { useCart } from "../contexts/CartContext";
@@ -6,13 +6,20 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import CartSidebar from "../components/CartSidebar";
 import toast from "react-hot-toast";
-
+import { onAuthStateChanged } from "firebase/auth";
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const { addItem, getTotalItems, openCart } = useCart();
-  const navigate = useNavigate();
+  const [user,setUser] = useState<any>(null);
+     useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+          setUser(currentUser);
+        });
+        return () => unsubscribe();
+      }, []);
+      const navigate=useNavigate();
 
-  const categories = ["all", "books", "courses", "journals", "accessories"];
+  const categories = ["all", "books", "journals", "accessories"];
 
   const products = [
     {
@@ -26,21 +33,11 @@ const Shop = () => {
         "https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400",
       description:
         "A comprehensive workbook with exercises and prompts for personal transformation.",
+      priceId:"price_1ScPq7CSe0ZSreoR8nUULEQM"
     },
+   
     {
       id: "2",
-      title: "Mindfulness Meditation Course",
-      category: "courses",
-      price: 197.0,
-      rating: 4.9,
-      reviews: 89,
-      image:
-        "https://images.pexels.com/photos/3758105/pexels-photo-3758105.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description:
-        "An 8-week online course teaching mindfulness and meditation techniques.",
-    },
-    {
-      id: "3",
       title: "Daily Reflection Journal",
       category: "journals",
       price: 24.99,
@@ -50,9 +47,10 @@ const Shop = () => {
         "https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=400",
       description:
         "Beautiful journal with guided prompts for daily reflection and gratitude.",
+        priceId:"price_1ScPqdCSe0ZSreoRlOlBO9ER"
     },
     {
-      id: "4",
+      id: "3",
       title: "Goal Setting Planner",
       category: "journals",
       price: 34.99,
@@ -62,21 +60,11 @@ const Shop = () => {
         "https://images.pexels.com/photos/1493955/pexels-photo-1493955.jpeg?auto=compress&cs=tinysrgb&w=400",
       description:
         "Strategic planner designed to help you set and achieve meaningful goals.",
+        priceId:"price_1ScPr5CSe0ZSreoRwB3kUPNq"
     },
+  
     {
-      id: "5",
-      title: "Life Coaching Certification",
-      category: "courses",
-      price: 1299.0,
-      rating: 5.0,
-      reviews: 45,
-      image:
-        "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description:
-        "Complete certification program to become a professional life coach.",
-    },
-    {
-      id: "6",
+      id: "4",
       title: "Affirmation Cards Set",
       category: "accessories",
       price: 19.99,
@@ -86,6 +74,7 @@ const Shop = () => {
         "https://images.pexels.com/photos/4226219/pexels-photo-4226219.jpeg?auto=compress&cs=tinysrgb&w=400",
       description:
         "50 beautifully designed cards with powerful affirmations for daily inspiration.",
+        priceId:"price_1ScPraCSe0ZSreoRTfxl8VQn"
     },
   ];
 
@@ -114,14 +103,34 @@ const Shop = () => {
     });
   };
 
-  const handleBuyNow = (product) => {
-    if (!auth.currentUser) {
-      navigate("/login");
-      return;
+  const handleBuyNow = async (item: string) => {
+  if (!user) {
+    // Redirect to login if not signed in
+    navigate('/login');
+    return;
+  }
+
+  try {
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ item }), // item: "service1" or "team"
+    });
+
+    const data = await res.json();
+
+    if (data.url) {
+      // Redirect to Stripe Checkout
+      window.location.href = data.url;
+    } else {
+      console.error("No URL returned from API", data);
     }
-    handleAddToCart(product);
-    navigate("/checkout");
-  };
+  } catch (err) {
+    console.error("Stripe checkout error:", err);
+  }
+};
 
   return (
     <div className="min-h-screen py-20 relative">
@@ -165,7 +174,7 @@ const Shop = () => {
         </motion.div>
 
         {/* 🛍️ Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {filteredProducts.map((product, index) => (
             <motion.div
               key={product.id}
@@ -215,7 +224,7 @@ const Shop = () => {
                       <span>Add</span>
                     </button>
                     <button
-                      onClick={() => handleBuyNow(product)}
+                      onClick={() => handleBuyNow(product.priceId)}
                       className="bg-gradient-to-r from-blue-600 to-purple-600 cursor-pointer text-white px-4 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 flex items-center space-x-1"
                     >
                       <CreditCard className="h-4 w-4" />
