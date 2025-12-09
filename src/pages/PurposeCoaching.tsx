@@ -6,18 +6,14 @@ import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 const PurposeCoaching = () => {
   const [user, setUser] = useState(null);
-  const [authLoading, setAuthLoading] = useState(true);
+ 
   const navigate= useNavigate();
-  const titleRef = useRef(null);
-  const titleInView = useInView(titleRef, { once: true });
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-      setAuthLoading(false);
-    });
-    return () => unsubscribe();
-  }, []);
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+          setUser(currentUser);
+        });
+        return () => unsubscribe();
+      }, []);
 
   const features = [
     {
@@ -104,32 +100,34 @@ const PurposeCoaching = () => {
     'Post-program follow-up session (30 min) '
   ];
 
-  const handleCheckout = async (item: string) => {
-    if (authLoading) return; // prevent early call 
+   const handleCheckout = async (item: string) => {
+  if (!user) {
+    // Redirect to login if not signed in
+    navigate('/login');
+    return;
+  }
 
-    if (!user) {
-      navigate('/login');
-      return;
+  try {
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ item }), // item: "service1" or "team"
+    });
+
+    const data = await res.json();
+
+    if (data.url) {
+      // Redirect to Stripe Checkout
+      window.location.href = data.url;
+    } else {
+      console.error("No URL returned from API", data);
     }
-
-    try {
-      const res = await fetch("/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ item }),
-      });
-
-      const data = await res.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        console.error("Stripe Error:", data);
-      }
-    } catch (error) {
-      console.error("Checkout Error:", error);
-    }
-  };
+  } catch (err) {
+    console.error("Stripe checkout error:", err);
+  }
+};
 
 
 
