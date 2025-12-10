@@ -51,7 +51,7 @@ try {
   });
 
   // 4️⃣ Send welcome email via Vercel Serverless API
-  await fetch("/api/send-welcome-mail", {
+  await fetch("/api/send-welcome-email", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
