@@ -12,23 +12,32 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isVisible, onClose }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-
+  
     setIsLoading(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
+  
+    try {
+      const res = await fetch("/api/sendEbook", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+  
+      if (!res.ok) throw new Error("Email sending failed");
+  
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send workbook. Try again.");
+    }
+  
     setIsLoading(false);
-    setIsSubmitted(true);
-    
-    // Auto close after showing success message
+  
     setTimeout(() => {
-      onClose();
       setIsSubmitted(false);
-      setEmail('');
+      setEmail("");
     }, 3000);
   };
 
