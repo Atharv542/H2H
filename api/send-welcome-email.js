@@ -4,7 +4,18 @@ export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
-   const htmlContent = `
+
+  try {
+    const { email, name } = req.body;
+
+    // Authenticate with Brevo API Key
+    SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
+      process.env.BREVO_API_KEY;
+
+    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+
+    // Email HTML Template
+    const htmlContent = `
       <!DOCTYPE html>
       <html>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -54,22 +65,16 @@ export default async function handler(req, res) {
       </html>
     `;
 
-  try {
-    const { email, name } = req.body;
-
-    SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
-      process.env.BREVO_API_KEY;
-
-    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-
+    // Send Email Through Brevo
     await apiInstance.sendTransacEmail({
       sender: { email: "info@head2heart.co.nz", name: "Head2Heart" },
       to: [{ email, name }],
-      subject: "Welcome to Head2Heart — Your Wellness Journey Begins",
-       htmlContent,
+      subject: "Welcome to Head2Heart — Your Journey Starts Here",
+      htmlContent,
     });
 
     return res.status(200).json({ success: true });
+
   } catch (error) {
     console.error("Brevo API error:", error);
     return res.status(500).json({ error: "Failed to send email" });
