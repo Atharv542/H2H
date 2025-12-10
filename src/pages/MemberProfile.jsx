@@ -7,14 +7,14 @@ const team = {
     name: 'Sachin Kaintura',
       email: 'sachin.kaintura@head2heart.co.nz',
       phone: '+64211368819',
-      image: '/team-new/Sachin.png',
+      image: '/Sachin.png',
       role: 'Personal Development & Mindfulness Coach',
   },
   "sandeep-sharma": {
     name: 'Sandeep Sharma',
       email: 'sandeep.sharma@head2heart.co.nz',
       phone: '+6421903306',
-      image: '/team-new/Sandeep.jpg',
+      image: '/Sandeep.jpg',
       role: 'Mindset & Abundance Coach',
   },
 };
