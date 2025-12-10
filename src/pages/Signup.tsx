@@ -30,7 +30,7 @@ const Signup = () => {
 
     setLoading(true);
 
-    try {
+try {
   // 1️⃣ Create user in Firebase Auth
   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
   const user = userCredential.user;
@@ -50,18 +50,19 @@ const Signup = () => {
     createdAt: serverTimestamp(),
   });
 
-  // 4️⃣ Send welcome email using EmailJS
-  await emailjs.send(
-    'service_74737vo',
-    'template_qfzd05c',
-    {
-      user_email: email,
-      user_name: firstName,
-    },
-    'OH-W9mIYNDS8h-DUh'
-  );
+  // 4️⃣ Send welcome email via Vercel Serverless API
+  await fetch("/api/send-welcome-mail", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email,
+      name: firstName
+    }),
+  })
+    .then(res => res.json())
+    .catch(err => console.error("Email error:", err));
 
-  // 5️⃣ Send email verification
+  // 5️⃣ Send Firebase email verification
   await sendEmailVerification(user);
 
   toast.success('Account created! Please check your inbox to verify your email.', { duration: 4000 });

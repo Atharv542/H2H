@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import SibApiV3Sdk from "sib-api-v3-sdk";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -8,30 +8,24 @@ export default async function handler(req, res) {
   try {
     const { email, name } = req.body;
 
-     const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
-    },
-  });
+    SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
+      process.env.BREVO_API_KEY;
 
+    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 
-    await transporter.sendMail({
-      from: `"Head2Heart Coaching" <${process.env.SMTP_USER}>`,
-      to: 'atharvragdwal05@gmail.com',
-      subject: "Welcome to Head2Heart 💙",
-      html: `
-        <h2 style="color:#4f46e5">Welcome ${name} 💙</h2>
-        <p>Thanks for joining Head2Heart! Your transformation journey begins now.</p>
+    await apiInstance.sendTransacEmail({
+      sender: { email: "info@head2heart.co.nz", name: "Head2Heart" },
+      to: [{ email, name }],
+      subject: "Welcome to Head2Heart!",
+      htmlContent: `
+        <h2>Welcome, ${name}!</h2>
+        <p>Thank you for signing up!</p>
       `,
     });
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error("Email Send Error:", error);
-    return res.status(500).json({ success: false, error: error.message });
+    console.error("Brevo API error:", error);
+    return res.status(500).json({ error: "Failed to send email" });
   }
 }
