@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         <h2>Your Free Workbook is Ready!</h2>
         <p>Thank you for requesting the Life Transformation Workbook.</p>
         <p>You can download your workbook instantly using the link below:</p>
-        <a href="https://www.had2heart.co.nz/ebooks/life-transformation-workbook.pdf"
+        <a href="https://www.head2heart.co.nz/ebooks/life-transformation-workbook.pdf"
           style="padding: 10px 20px; background: #6d28d9; color: white; border-radius: 8px; text-decoration:none;">
           Download Workbook
         </a>
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       // OPTIONAL: attach the PDF directly
       attachment: [
         {
-          url: "https://www.had2heart.co.nz/ebooks/life-transformation-workbook.pdf"
+          url: "https://www.head2heart.co.nz/ebooks/life-transformation-workbook.pdf"
         }
       ],
     });
