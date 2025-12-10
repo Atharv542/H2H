@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Heart, Mail, Lock, ArrowRight, AlertCircle } from 'lucide-react';
@@ -14,7 +14,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-    const [showQuestionnaire, setShowQuestionnaire] = useState(false);
+  const [showQuestionnaire, setShowQuestionnaire] = useState(false);
+  const [questionnaireCompleted, setQuestionnaireCompleted] = useState(false);
   const navigate = useNavigate();
 
  const checkQuestionnaireCompleted = async (userEmail: string) => {
@@ -31,6 +32,42 @@ const Login = () => {
   }
 };
 
+useEffect(() => {
+  // Push a dummy state so back button won't exit page
+  window.history.pushState(null, '', window.location.href);
+
+  const handlePopState = () => {
+    if (!questionnaireCompleted) {
+      // Show error toast
+      toast.error('Please fill the questionnaire first!');
+
+      // Re-push state to block back navigation
+      window.history.pushState(null, '', window.location.href);
+    }
+  };
+
+  window.addEventListener('popstate', handlePopState);
+
+  return () => window.removeEventListener('popstate', handlePopState);
+}, [questionnaireCompleted]);
+
+useEffect(() => {
+  const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+    if (!questionnaireCompleted) {
+      // Show toast (won't always display in all browsers)
+      toast.error('Please fill the questionnaire before leaving!');
+
+      // Standard confirmation dialog
+      e.preventDefault();
+      e.returnValue = ''; // Required for Chrome
+      return ''; // Required for some browsers
+    }
+  };
+
+  window.addEventListener('beforeunload', handleBeforeUnload);
+
+  return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+}, [questionnaireCompleted]);
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
@@ -63,6 +100,8 @@ const handleSubmit = async (e: React.FormEvent) => {
     setLoading(false);
   }
 };
+
+
 
  const handleQuestionnaireComplete = () => {
     toast.success('Welcome! Your profile has been set up successfully.');
