@@ -30,6 +30,8 @@ import ClarityCoaching from './pages/ClarityCoaching';
 import ContactForm from './pages/Contact';
 import Success from './pages/Success';
 import MemberProfile from './pages/MeberProfile';
+import Connect from './pages/Connect';
+import Team from './pages/Team';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -65,6 +67,8 @@ function App() {
               <Route path="/privacy" element={<Terms />} />
               
               <Route path="/contact" element={<ContactForm />} />
+              <Route path="/connect" element={<Connect />} />
+              <Route path="/team" element={<Team />} />
               
             </Routes>
           </AnimatePresence>
