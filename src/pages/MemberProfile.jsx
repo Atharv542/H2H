@@ -57,9 +57,7 @@ const MemberProfile = () => {
           <p className="text-gray-500 text-lg mb-4">{member.role}</p>
         </div>
 
-        <p className="text-gray-700 text-center mb-8 leading-relaxed">
-          {member.bio}
-        </p>
+       
 
         {/* Contact section */}
         <div className="space-y-4">

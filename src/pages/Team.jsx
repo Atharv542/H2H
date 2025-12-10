@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const members = [
   {
       id: 'sachin-kaintura',
+    link: "/team/sachin-kaintura",
       name: 'Sachin Kaintura',
       email: 'sachin.kaintura@head2heart.co.nz',
       phone: '+64211368819',
@@ -18,6 +19,7 @@ const members = [
     {
       id: 'sandeep-sharma',
       name: 'Sandeep Sharma',
+    link: "/team/sandeep-sharma",
       email: 'sandeep.sharma@head2heart.co.nz',
       phone: '+6421903306',
       image: '/team/Sandeep.jpg',
