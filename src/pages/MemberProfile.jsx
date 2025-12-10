@@ -51,7 +51,7 @@ const MemberProfile2 = () => {
         
         <div className="text-center">
           <img
-            src={member.img}
+            src={member.image}
             alt={member.name}
             className="w-32 h-32 rounded-full mx-auto mb-4 object-cover shadow"
           />
