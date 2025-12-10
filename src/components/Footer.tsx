@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Mail } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -33,7 +33,7 @@ const Footer = () => {
 
             <div className="flex space-x-4">
               <a
-                href="https://www.facebook.com/profile.php?id=61583086640267"
+                href="https://www.facebook.com/head2heartconnectwithyourself"
                 target="_blank"
                 rel="noreferrer"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
@@ -41,7 +41,7 @@ const Footer = () => {
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="https://www.instagram.com/headtwoheart/"
+                href="https://www.instagram.com/head2heartconnectwithyourself/"
                 target="_blank"
                 rel="noreferrer"
                 className="text-gray-700 hover:text-blue-600 transition-colors"
@@ -49,12 +49,12 @@ const Footer = () => {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="https://www.tiktok.com/@head2heartlimited?lang=en"
+                href="https://www.linkedin.com/in/head2heart-connectwithyourself-ab7659393/"
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-gray-700  hover:text-blue-600 transition-colors"
               >
-                <TikTokIcon />
+                <Linkedin className='h-5 w-5' />
               </a>
             </div>
           </div>
