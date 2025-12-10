@@ -69,7 +69,7 @@ function App() {
               
               <Route path="/contact" element={<ContactForm />} />
               <Route path="/connect" element={<Connect />} />
-              <Route path="/team" element={<Team />} />
+              <Route path="/team-new" element={<Team />} />
               <Route path="/team-new/:memberId" element={<MemberProfile2 />} />
               
             </Routes>
