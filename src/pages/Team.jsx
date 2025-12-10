@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 const members = [
   {
       id: 'sachin-kaintura',
-    link: "/team/sachin-kaintura",
+    link: "/team-new/sachin-kaintura",
       name: 'Sachin Kaintura',
       email: 'sachin.kaintura@head2heart.co.nz',
       phone: '+64211368819',
-      image: '/team-new/Sachin.png',
+      image: '/team/Sachin.png',
       role: 'Personal Development & Mindfulness Coach',
       bgColor: 'from-blue-400 to-cyan-400',
       bio:
@@ -19,10 +19,10 @@ const members = [
     {
       id: 'sandeep-sharma',
       name: 'Sandeep Sharma',
-    link: "/team/sandeep-sharma",
+    link: "/team-new/sandeep-sharma",
       email: 'sandeep.sharma@head2heart.co.nz',
       phone: '+6421903306',
-      image: '/team-new/Sandeep.jpg',
+      image: '/team/Sandeep.jpg',
       role: 'Mindset & Abundance Coach',
       bgColor: 'from-blue-400 to-purple-400',
       bio:
