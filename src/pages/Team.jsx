@@ -1,5 +1,6 @@
 import React from "react";
 import { User, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const members = [
   {
@@ -29,19 +30,18 @@ const members = [
 ];
 
 const Team = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center px-6 py-16">
-      
-      <h1 className="text-4xl font-bold mb-10 text-center">
-        Meet Our Team
-      </h1>
+      <h1 className="text-4xl font-bold mb-10 text-center">Meet Our Team</h1>
 
       <div className="w-full max-w-lg space-y-6">
         {members.map((member) => (
-          <a
+          <div
             key={member.id}
-            href={member.link}
-            className="flex items-center justify-between bg-white p-5 rounded-xl shadow-md hover:shadow-xl border transition group"
+            className="bg-white p-5 rounded-xl shadow-md border hover:shadow-xl transition flex items-center justify-between group cursor-pointer"
+            onClick={() => navigate(member.link)} // Whole card clickable
           >
             <div className="flex items-center gap-3">
               <div className="bg-blue-100 p-3 rounded-full">
@@ -54,8 +54,15 @@ const Team = () => {
               </div>
             </div>
 
-            <ArrowRight className="text-gray-400 group-hover:text-blue-600 transition" />
-          </a>
+            {/* Arrow also navigates */}
+            <ArrowRight
+              className="text-gray-400 group-hover:text-blue-600 transition"
+              onClick={(e) => {
+                e.stopPropagation(); // Avoid triggering the parent onClick
+                navigate(member.link);
+              }}
+            />
+          </div>
         ))}
       </div>
     </div>
