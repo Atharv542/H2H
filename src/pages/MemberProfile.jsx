@@ -1,8 +1,8 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Mail, Phone, User } from "lucide-react";
-import sachinimg from 'C:\Users\Atharv\OneDrive\Desktop\H2H\myapp\public\team-new\Sachin.png'
-import sandeepimg from 'C:\Users\Atharv\OneDrive\Desktop\H2H\myapp\public\team-new\Sandeep.jpg'
+import sachinimg from '../../public/team-new/Sachin.png'
+import sandeepimg from '../../public/team-new/Sandeep.jpg'
 
 const team = {
   "sachin-kaintura": {
