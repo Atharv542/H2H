@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       // OPTIONAL: attach the PDF directly
       attachment: [
         {
-          url: "https://www.head2heart.co.nz/ebooks/life-transformation-workbook.pdf"
+          url: "https://www.head2heart.co.nz/ebooks/daa.pdf"
         }
       ],
     });
