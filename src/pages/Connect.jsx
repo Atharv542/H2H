@@ -24,7 +24,7 @@ const Connect = () => {
 
         {/* Team button */}
         <a
-          href="/team"
+          href="/team-new"
           className="flex items-center justify-between w-full bg-pink-600 text-white px-5 py-3 rounded-xl text-lg font-medium hover:bg-pink-700 transition"
         >
           <div className="flex items-center gap-2">
