@@ -1,20 +1,22 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Mail, Phone, User } from "lucide-react";
+import sachinimg from 'C:\Users\Atharv\OneDrive\Desktop\H2H\myapp\public\team-new\Sachin.png'
+import sandeepimg from 'C:\Users\Atharv\OneDrive\Desktop\H2H\myapp\public\team-new\Sandeep.jpg'
 
 const team = {
   "sachin-kaintura": {
     name: 'Sachin Kaintura',
       email: 'sachin.kaintura@head2heart.co.nz',
       phone: '+64211368819',
-      image: '/Sachin.png',
+      image: sachinimg,
       role: 'Personal Development & Mindfulness Coach',
   },
   "sandeep-sharma": {
     name: 'Sandeep Sharma',
       email: 'sandeep.sharma@head2heart.co.nz',
       phone: '+6421903306',
-      image: '/Sandeep.jpg',
+      image: sandeepimg,
       role: 'Mindset & Abundance Coach',
   },
 };
