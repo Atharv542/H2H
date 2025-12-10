@@ -8,23 +8,34 @@ const EmailPopupLearnPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email) return;
+  e.preventDefault();
+  if (!email) return;
 
-    setIsLoading(true);
+  setIsLoading(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+  try {
+    const res = await fetch("/api/sendEbook", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
 
-    setIsLoading(false);
+    if (!res.ok) throw new Error("Email sending failed");
+
     setIsSubmitted(true);
+  } catch (err) {
+    console.error(err);
+    alert("Failed to send workbook. Try again.");
+  }
 
-    // Reset after showing success message
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setEmail('');
-    }, 3000);
-  };
+  setIsLoading(false);
+
+  setTimeout(() => {
+    setIsSubmitted(false);
+    setEmail("");
+  }, 3000);
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-purple-50 px-4">
