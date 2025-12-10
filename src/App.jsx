@@ -32,6 +32,7 @@ import Success from './pages/Success';
 import MemberProfile from './pages/MeberProfile';
 import Connect from './pages/Connect';
 import Team from './pages/Team';
+import MemberProfile2 from './pages/MemberProfile';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -69,6 +70,7 @@ function App() {
               <Route path="/contact" element={<ContactForm />} />
               <Route path="/connect" element={<Connect />} />
               <Route path="/team" element={<Team />} />
+              <Route path="/team-new/:memberId" element={<MemberProfile2 />} />
               
             </Routes>
           </AnimatePresence>

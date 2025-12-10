@@ -19,7 +19,7 @@ const team = {
   },
 };
 
-const MemberProfile = () => {
+const MemberProfile2 = () => {
   const { memberId } = useParams();
   const navigate = useNavigate();
 
@@ -76,4 +76,4 @@ const MemberProfile = () => {
   );
 };
 
-export default MemberProfile;
+export default MemberProfile2;
