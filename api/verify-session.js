@@ -1,5 +1,5 @@
 import Stripe from "stripe";
-import SibApiV3Sdk from "@sendinblue/client";
+import SibApiV3Sdk from "sib-api-v3-sdk";
 import fs from "fs";
 import path from "path";
 
@@ -37,15 +37,18 @@ export default async function handler(req, res) {
     const pdfBuffer = fs.readFileSync(filePath);
 
     // 3️⃣ Send email via Brevo
-    const defaultClient = SibApiV3Sdk.ApiClient.instance;
-    defaultClient.authentications["api-key"].apiKey = process.env.BREVO_API_KEY;
-    const apiInstance = new SibApiV3Sdk.SMTPApi();
+    SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
+      process.env.BREVO_API_KEY;
 
-    const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail({
+    const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+
+    await apiInstance.sendTransacEmail({
       sender: { name: "Head2Heart", email: "no-reply@head2heart.co.nz" },
       to: [{ email: customerEmail }],
       subject: "Your eBook Purchase",
-      htmlContent: `<p>Thank you for your purchase!</p><p>You bought: <strong>${productName}</strong></p><p>Attached is your eBook.</p>`,
+      htmlContent: `<p>Thank you for your purchase!</p>
+                    <p>You bought: <strong>${productName}</strong></p>
+                    <p>Attached is your eBook.</p>`,
       attachment: [
         {
           content: pdfBuffer.toString("base64"),
@@ -53,8 +56,6 @@ export default async function handler(req, res) {
         },
       ],
     });
-
-    await apiInstance.sendTransacEmail(sendSmtpEmail);
 
     return res.status(200).json({ success: true });
   } catch (err) {
