@@ -255,7 +255,7 @@ const [user,setUser] = useState<any>(null);
                 One week to transform your awareness and reconnect with your true self
               </p>
               <button
-                onClick={() => handleBookNow("product1")}
+                onClick={() => handleBookNow("service4")}
                 className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-slate-700 text-white px-10 py-5 rounded-full text-lg font-semibold hover:opacity-90 transition-all duration-200 transform hover:scale-105 shadow-xl"
               >
                 <span>Book Your Program Now</span>
