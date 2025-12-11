@@ -1,65 +1,49 @@
-import Stripe from "stripe";
-import { Resend } from "resend";
+import SibApiV3Sdk from "@sendinblue/client";
 import fs from "fs";
 import path from "path";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export default async function handler(req, res) {
-  if (req.method !== "POST")
-    return res.status(405).json({ error: "Method Not Allowed" });
+  if (req.method !== "POST") return res.status(405).json({ error: "Method Not Allowed" });
+
+  const { email, productName } = req.body;
+
+  // Map product names to PDFs
+  const pdfFiles = {
+    "Transform Your Life Workbook": "daa.pdf",
+    "Daily Reflection Journal": "DailyReflectionJournal.pdf",
+    "Goal Setting Planner": "GoalSettingPlanner.pdf",
+    "Affirmation Cards Set": "AffirmationCardsSet.pdf",
+  };
+
+  const pdfFile = pdfFiles[productName];
+  if (!pdfFile) return res.status(400).json({ error: "PDF not found for this product" });
+
+  const filePath = path.join(process.cwd(), "public", "ebooks", pdfFile);
+  const pdfBuffer = fs.readFileSync(filePath);
+
+  const defaultClient = SibApiV3Sdk.ApiClient.instance;
+  defaultClient.authentications["api-key"].apiKey = process.env.BREVO_API_KEY;
+
+  const apiInstance = new SibApiV3Sdk.SMTPApi();
+
+  const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail({
+    sender: { name: "Head2Heart", email: "no-reply@head2heart.co.nz" },
+    to: [{ email }],
+    subject: "Your eBook Purchase",
+    htmlContent: `<p>Thank you for your purchase!</p><p>You bought: <strong>${productName}</strong></p><p>Attached is your eBook.</p>`,
+    attachment: [
+      {
+        content: pdfBuffer.toString("base64"),
+        name: pdfFile,
+      },
+    ],
+  });
 
   try {
-    const { sessionId } = req.body;
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
-    // retrieve session
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
-
-    if (session.payment_status !== "paid") {
-      return res.status(400).json({ success: false });
-    }
-
-    const customerEmail = session.customer_details.email;
-    const productName = session.metadata.productName; // ✔️ Comes from checkout session
-
-    // Map product names to PDF files
-    const pdfFiles = {
-      "Transform Your Life Workbook": "daa.pdf",
-      "Daily Reflection Journal": "DailyReflectionJournal.pdf",
-      "Goal Setting Planner": "GoalSettingPlanner.pdf",
-      "Affirmation Cards Set": "AffirmationCardsSet.pdf",
-    };
-
-    const pdfFile = pdfFiles[productName];
-
-    if (!pdfFile) {
-      return res.status(400).json({ error: "No PDF matched for product" });
-    }
-
-    const filePath = path.join(process.cwd(), "public", "ebooks", pdfFile);
-    const pdfBuffer = fs.readFileSync(filePath);
-
-    await resend.emails.send({
-      from: "Head2Heart <no-reply@head2heart.co.nz>",
-      to: customerEmail,
-      subject: "Your eBook Purchase",
-      html: `
-        <p>Thank you for your purchase!</p>
-        <p>You bought: <strong>${productName}</strong></p>
-        <p>Your eBook is attached below.</p>
-      `,
-      attachments: [
-        {
-          filename: pdfFile,
-          content: pdfBuffer.toString("base64"),
-        },
-      ],
-    });
-
+    await apiInstance.sendTransacEmail(sendSmtpEmail);
     return res.status(200).json({ success: true });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ error: "Server Error" });
+    return res.status(500).json({ error: "Email sending failed" });
   }
 }
