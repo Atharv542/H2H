@@ -7,23 +7,33 @@ export default function ShopSuccess() {
       const params = new URLSearchParams(window.location.search);
       const sessionId = params.get("session_id");
 
-      const res = await fetch("/api/verify-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sessionId }),
-      });
-
-      const data = await res.json();
-
-      if (data.success) {
-        toast.success("Payment complete! eBook sent to your email.");
-      } else {
-        toast.error("Payment could not be verified");
+      if (!sessionId) {
+        toast.error("No session ID found!");
+        return;
       }
 
-      setTimeout(() => {
-        window.location.href = "/shop";
-      }, 1500);
+      try {
+        const res = await fetch("/api/verify-session", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ sessionId }),
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          toast.success("Payment complete! eBook sent to your email.");
+        } else {
+          toast.error(data.error || "Payment could not be verified");
+        }
+
+        setTimeout(() => {
+          window.location.href = "/shop";
+        }, 2000);
+      } catch (err) {
+        toast.error("Server error. Please contact support.");
+        console.error(err);
+      }
     };
 
     run();
