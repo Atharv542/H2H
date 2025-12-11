@@ -66,10 +66,10 @@ const Home = () => {
     {
       title: "Awareness & Discovery",
       subtitle: "1-Week Self-Awareness Reset Program",
-      duration: "90-Minute Deep Dive",
+      duration: "90-Min Deep Dive",
       price: "$99",
       description:
-        "Begin your transformation with a powerful self-awareness reset. This 1-week program helps you pause, reflect, and understand where you are in life emotionally, mentally, and energetically.",
+        "Begin your transformation with a powerful self-awareness reset. This 1-week program helps you pause, reflect, and understand where you are in life emotionally.",
       image:
         "https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=400",
       link: "/awareness-program",
@@ -77,10 +77,10 @@ const Home = () => {
     {
       title: "Purpose & Clarity",
       subtitle: "4-Week Purpose Discovery Journey",
-      duration: "60-Minute Sessions",
+      duration: "60-Min Sessions",
       price: "$399",
       description:
-        "Discover your true calling and create a life aligned with your deepest values. Uncover what truly matters to you and design a meaningful path forward.",
+        "Discover your true calling and create a life aligned with your deepest values. Uncover what truly matters to you and design a meaningful path forward, mentally,energetically and feasible for all.",
       image:
         "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&w=400",
       link: "/purpose-program",
@@ -102,7 +102,7 @@ const Home = () => {
       duration: "60-Minute Weekly Sessions",
       price: "$899",
       description:
-        "Break free from self-doubt and step into your power. Build unshakeable confidence and learn to trust yourself completely in all areas of life.",
+        "Break free from self-doubt and step into your power. Build unshakeable confidence and learn to trust yourself completely in all areas of life without doubting your inner self.",
       image:
         "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
       link: "/confidence-program",
@@ -110,10 +110,10 @@ const Home = () => {
     {
       title: "Relationship Harmony",
       subtitle: "5-Week Relationship Enhancement",
-      duration: "90-Minute Sessions",
+      duration: "90-Min Sessions",
       price: "$599",
       description:
-        "Transform your relationships through deeper understanding and authentic communication. Create meaningful connections built on trust and mutual respect.",
+        "Transform your relationships through deeper understanding and authentic communication. Create meaningful connections built on trust and mutual respect for everyone came in life.",
       image:
         "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
       link: "/relationship-program",
@@ -121,10 +121,10 @@ const Home = () => {
     {
       title: "Career Breakthrough",
       subtitle: "10-Week Professional Development",
-      duration: "60-Minute Bi-Weekly Sessions",
+      duration: "60-Min Bi-Weekly Sessions",
       price: "$1,299",
       description:
-        "Accelerate your career growth and achieve professional excellence. Develop leadership skills and strategic thinking for lasting career success.",
+        "Accelerate your career growth and achieve professional excellence. Develop leadership skills and strategic thinking for lasting career success and harmony in life .",
       image:
         "https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=400",
       link: "/career-program",
@@ -132,7 +132,7 @@ const Home = () => {
     {
       title: "Stress & Balance",
       subtitle: "6-Week Stress Management Program",
-      duration: "75-Minute Weekly Sessions",
+      duration: "75-Min Weekly Sessions",
       price: "$749",
       description:
         "Find balance in a busy world. Learn practical strategies to manage stress, prevent burnout, and create sustainable work-life harmony.",
@@ -143,7 +143,7 @@ const Home = () => {
     {
       title: "Life Transformation",
       subtitle: "12-Week Complete Life Makeover",
-      duration: "90-Minute Weekly Sessions",
+      duration: "90-Min Weekly Sessions",
       price: "$1,799",
       description:
         "Experience comprehensive transformation across all life areas. This holistic program combines all our methodologies for complete personal renewal.",
