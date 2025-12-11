@@ -29,6 +29,9 @@ export default async function handler(req, res) {
       line_items: [{ price: priceId, quantity: 1 }],
       success_url:"https://www.head2heart.co.nz//shop-success?session_id={CHECKOUT_SESSION_ID}", // temporary placeholder
       cancel_url: "https://www.head2heart.co.nz/",   // temporary placeholder
+       metadata: {
+       productName: product.name,   // ← use product name instead of ID
+      },
     });
 
     return res.status(200).json({ url: session.url });

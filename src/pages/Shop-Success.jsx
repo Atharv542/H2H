@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
-const ShopSuccess = () => {
-  const [searchParams] = useSearchParams();
-  const sessionId = searchParams.get("session_id");
-  const [verified, setVerified] = useState(false);
-  const [productId, setProductId] = useState(null);
-
+export default function ShopSuccess() {
   useEffect(() => {
-    if (!sessionId) return;
+    const run = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("session_id");
 
-    const verifyPayment = async () => {
       const res = await fetch("/api/verify-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -19,39 +15,19 @@ const ShopSuccess = () => {
 
       const data = await res.json();
 
-      if (data.verified) {
-        setVerified(true);
-        setProductId(data.productId); // which product user bought
+      if (data.success) {
+        toast.success("Payment complete! eBook sent to your email.");
+      } else {
+        toast.error("Payment could not be verified");
       }
+
+      setTimeout(() => {
+        window.location.href = "/shop";
+      }, 1500);
     };
 
-    verifyPayment();
-  }, [sessionId]);
+    run();
+  }, []);
 
-  const downloadLinks = {
-    product1: "/ebooks/daa.pdf",
-    product2: "/ebooks/daa.pdf",
-    product3: "/ebooks/daa.pdf",
-    product4: "/ebooks/daa.pdf",
-  };
-
-  return (
-    <div className="h-screen flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold text-green-600">Payment Successful 🎉</h1>
-
-      {verified ? (
-        <a
-          href={downloadLinks[productId]}
-          download
-          className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700"
-        >
-          Download Your eBook 📥
-        </a>
-      ) : (
-        <p className="text-gray-600 mt-4">Verifying payment…</p>
-      )}
-    </div>
-  );
-};
-
-export default ShopSuccess;
+  return <h2 className="text-center mt-10">Processing your payment...</h2>;
+}
