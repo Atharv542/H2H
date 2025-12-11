@@ -34,6 +34,7 @@ import Connect from './pages/Connect';
 import Team from './pages/Team';
 import MemberProfile2 from './pages/MemberProfile';
 import ShopSuccess from './pages/Shop-Success';
+import AwarenessProgram from './pages/AwarenessProgram';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -73,6 +74,7 @@ function App() {
               <Route path="/connect" element={<Connect />} />
               <Route path="/team-new" element={<Team />} />
               <Route path="/team-new/:memberId" element={<MemberProfile2 />} />
+              <Route path="/awareness-program" element={<AwarenessProgram />} />
               
             </Routes>
           </AnimatePresence>
