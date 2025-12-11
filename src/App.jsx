@@ -33,6 +33,7 @@ import MemberProfile from './pages/MeberProfile';
 import Connect from './pages/Connect';
 import Team from './pages/Team';
 import MemberProfile2 from './pages/MemberProfile';
+import ShopSuccess from './pages/Shop-Success';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -66,6 +67,7 @@ function App() {
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Terms />} />
+              <Route path="/shop-success" element={<ShopSuccess />} />
               
               <Route path="/contact" element={<ContactForm />} />
               <Route path="/connect" element={<Connect />} />
