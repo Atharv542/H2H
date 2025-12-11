@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const { item } = req.body; // no JSON.parse
 
   const priceMap = {
-    product1:"price_1ScPq7CSe0ZSreoR8nUULEQM",
+    product1:"price_1Sd80cCSe0ZSreoRbGprv180",
     product2:"price_1ScPqdCSe0ZSreoRlOlBO9ER",
     product3:"price_1ScPr5CSe0ZSreoRwB3kUPNq",
     product4:"price_1ScPraCSe0ZSreoRTfxl8VQn",
