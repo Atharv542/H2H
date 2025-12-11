@@ -13,6 +13,7 @@ export default async function handler(req, res) {
     const { sessionId } = req.body;
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+    // retrieve session
     const session = await stripe.checkout.sessions.retrieve(sessionId);
 
     if (session.payment_status !== "paid") {
@@ -20,7 +21,7 @@ export default async function handler(req, res) {
     }
 
     const customerEmail = session.customer_details.email;
-    const productName = session.metadata.productName; // ← We use product name now
+    const productName = session.metadata.productName; // ✔️ Comes from checkout session
 
     // Map product names to PDF files
     const pdfFiles = {
@@ -33,16 +34,14 @@ export default async function handler(req, res) {
     const pdfFile = pdfFiles[productName];
 
     if (!pdfFile) {
-      return res.status(400).json({ error: "PDF not found for this product" });
+      return res.status(400).json({ error: "No PDF matched for product" });
     }
 
-    // Load PDF from /public/ebooks/
     const filePath = path.join(process.cwd(), "public", "ebooks", pdfFile);
     const pdfBuffer = fs.readFileSync(filePath);
 
-    // Send email
     await resend.emails.send({
-      from: "Your Store <no-reply@yourdomain.com>",
+      from: "Head2Heart <no-reply@head2heart.co.nz>",
       to: customerEmail,
       subject: "Your eBook Purchase",
       html: `
@@ -59,7 +58,6 @@ export default async function handler(req, res) {
     });
 
     return res.status(200).json({ success: true });
-
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: "Server Error" });

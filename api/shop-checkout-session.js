@@ -7,18 +7,30 @@ export default async function handler(req, res) {
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-  const { item } = req.body; // no JSON.parse
+  const { item } = req.body;
 
   const priceMap = {
-    product1:"price_1Sd80cCSe0ZSreoRbGprv180",
-    product2:"price_1ScPqdCSe0ZSreoRlOlBO9ER",
-    product3:"price_1ScPr5CSe0ZSreoRwB3kUPNq",
-    product4:"price_1ScPraCSe0ZSreoRTfxl8VQn",
+    product1: {
+      id: "price_1Sd80cCSe0ZSreoRbGprv180",
+      name: "Transform Your Life Workbook",
+    },
+    product2: {
+      id: "price_1ScPqdCSe0ZSreoRlOlBO9ER",
+      name: "Daily Reflection Journal",
+    },
+    product3: {
+      id: "price_1ScPr5CSe0ZSreoRwB3kUPNq",
+      name: "Goal Setting Planner",
+    },
+    product4: {
+      id: "price_1ScPraCSe0ZSreoRTfxl8VQn",
+      name: "Affirmation Cards Set",
+    },
   };
 
-  const priceId = priceMap[item];
+  const selected = priceMap[item];
 
-  if (!priceId) {
+  if (!selected) {
     return res.status(400).json({ error: "Invalid item selected" });
   }
 
@@ -26,11 +38,12 @@ export default async function handler(req, res) {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       mode: "payment",
-      line_items: [{ price: priceId, quantity: 1 }],
-      success_url:"https://www.head2heart.co.nz//shop-success?session_id={CHECKOUT_SESSION_ID}", // temporary placeholder
-      cancel_url: "https://www.head2heart.co.nz/",   // temporary placeholder
-       metadata: {
-       productName: product.name,   // ← use product name instead of ID
+      line_items: [{ price: selected.id, quantity: 1 }],
+      success_url:
+        "https://www.head2heart.co.nz/shop-success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "https://www.head2heart.co.nz/",
+      metadata: {
+        productName: selected.name, // ✔️ Correct product name added
       },
     });
 
