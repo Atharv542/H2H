@@ -4,10 +4,59 @@ import { Calendar, Clock, CheckCircle, Video, Users, Target, Sparkles } from "lu
 import { auth } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import toast from "react-hot-toast";
+import QuestionnaireModal from "../components/QuestionnaireModal";
+
+
 const Booking = () => {
   const [step, setStep] = useState(1);
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
+  const [showQuestionnaire, setShowQuestionnaire] = useState(false);
+
+  const navigate = useNavigate();
+   const toastShownRef = React.useRef(false);
+
+useEffect(() => {
+  const checkAccess = async () => {
+    const user = auth.currentUser;
+
+    if (!user) {
+      toast.error("Please login first!");
+      navigate("/login");
+      return;
+    }
+
+    // Check if questionnaire is completed
+    const q = query(
+      collection(db, "user_questionnaires"),
+      where("user_email", "==", user.email)
+    );
+    const querySnapshot = await getDocs(q);
+
+    if (querySnapshot.empty) {
+       if (!toastShownRef.current) {
+        toast.error("Please complete the questionnaire first");
+        toastShownRef.current = true;
+      }
+  
+  setShowQuestionnaire(true);
+  return;
+}
+  };
+
+  checkAccess();
+}, []);
+
+const handleQuestionnaireComplete = () => {
+  toast.success("Thank you! Questionnaire completed.");
+  setShowQuestionnaire(false); // now they can see booking screen
+};
+
+
 
   const timeSlots = [
     "9:00 AM",
@@ -71,6 +120,7 @@ const Booking = () => {
 
 
   return (
+    <>
     <div className="min-h-screen py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -413,6 +463,14 @@ const Booking = () => {
         </div>
       </div>
     </div>
+    <QuestionnaireModal
+  isOpen={showQuestionnaire}
+  onClose={() => setShowQuestionnaire(false)}
+  userEmail={auth.currentUser?.email}
+  onComplete={handleQuestionnaireComplete}
+/>
+
+    </>
   );
 };
 

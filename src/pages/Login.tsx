@@ -34,13 +34,12 @@ const Login = () => {
 
 useEffect(() => {
   // Push a dummy state so back button won't exit page
-  window.history.pushState(null, '', window.location.href);
+  
 
   const handlePopState = () => {
     if (!questionnaireCompleted) {
       // Show error toast
-      toast.error('Please fill the questionnaire first!');
-
+    
       // Re-push state to block back navigation
       window.history.pushState(null, '', window.location.href);
     }

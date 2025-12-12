@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Services", path: "/#services" },
+    { name: "Services", path: "/services" },
     { name: "About", path: "/about" },
     { name: "Shop", path: "/shop" },
     { name: "Testimonials", path: "/testimonials" },
@@ -88,18 +88,7 @@ useEffect(() => {
   
     if (snap.exists() && snap.data().hasBookedFreeSession === true) {
       // Already booked → Smooth scroll to Services section
-      if (window.location.pathname === "/") {
-        document
-          .getElementById("services")
-          ?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        navigate("/");
-        setTimeout(() => {
-          document
-            .getElementById("services")
-            ?.scrollIntoView({ behavior: "smooth" });
-        }, 100); // slight delay to wait for DOM
-      }
+      navigate('/services')
     } else {
       // Not booked yet → Go to free booking page
       navigate("/booking");

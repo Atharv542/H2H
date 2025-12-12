@@ -35,6 +35,7 @@ import Team from './pages/Team';
 import MemberProfile2 from './pages/MemberProfile';
 import ShopSuccess from './pages/Shop-Success';
 import AwarenessProgram from './pages/AwarenessProgram';
+import Services from './pages/Services';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -69,6 +70,7 @@ function App() {
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Terms />} />
               <Route path="/shop-success" element={<ShopSuccess />} />
+              <Route path="/services" element={<Services/>} />
               
               <Route path="/contact" element={<ContactForm />} />
               <Route path="/connect" element={<Connect />} />

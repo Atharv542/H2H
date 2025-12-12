@@ -93,8 +93,8 @@ const Footer = () => {
             viewport={{ once: true }}
             className="flex flex-col "
           >
-            <h3 className="font-semibold text-lg text-gray-900 mb-4 -mx-20 mb-8">Our Mission</h3>
-            <div className='-mx-20 w-72'>
+            <h3 className="font-semibold text-lg text-gray-900  md:-mx-20 mb-8">Our Mission</h3>
+            <div className='md:-mx-20 w-72'>
              <p className="text-gray-700 text-sm leading-relaxed">
               At Head2Heart, our mission is to empower individuals to lead fulfilling,
               balanced, and meaningful lives through empathy, guidance, and self-discovery.

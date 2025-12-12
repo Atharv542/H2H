@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
   const priceMap = {
     product1: {
-      id: "price_1Sd80cCSe0ZSreoRbGprv180",
+      id: "price_1ScPq7CSe0ZSreoR8nUULEQM",
       name: "Transform Your Life Workbook",
     },
     product2: {
