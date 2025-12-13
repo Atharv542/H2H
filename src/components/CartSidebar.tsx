@@ -3,15 +3,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Plus, Minus, ShoppingBag, CreditCard } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
+import { auth } from "../firebase";
+
 
 const CartSidebar = () => {
   const { state, removeItem, updateQuantity, closeCart, getTotalItems, getTotalPrice } = useCart();
   const navigate = useNavigate();
 
-  const handleCheckout = () => {
-    closeCart();
-    navigate('/checkout');
-  };
+const handleCheckout = async () => {
+  if (!auth.currentUser) {
+    navigate("/login");
+    return;
+  }
+
+  const res = await fetch("/api/create-checkout-session", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      cartItems: state.items.map(item => ({
+        priceId: item.priceId,
+        quantity: item.quantity,
+      })),
+      userId: auth.currentUser.uid,
+    }),
+  });
+
+  const data = await res.json();
+  window.location.href = data.url;
+};
+
 
   return (
     <AnimatePresence>

@@ -21,7 +21,7 @@ export default async function handler(req, res) {
       subject: "Your Free Life Transformation Workbook",
       htmlContent: `
         <h2>Your Free Workbook is Ready!</h2>
-        <p>Thank you for requesting the Life Transformation Workbook.</p>
+        <p>Thank you for requesting the free life transformation e-book.</p>
         <p>You can download your workbook instantly using the link below:</p>
         <a href="https://www.head2heart.co.nz/ebooks/h2h_Free_ebook.pdf"
           style="padding: 10px 20px; background: #6d28d9; color: white; border-radius: 8px; text-decoration:none;">
