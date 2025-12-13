@@ -13,10 +13,10 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Shop from './pages/Shop';
 import Testimonials from './pages/Testimonials';
-import Podcast from './pages/Podcast';
+
 
 import Booking from './pages/Booking';
-import Checkout from './pages/Checkout';
+
 import Terms from './pages/Terms';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -74,7 +74,7 @@ function App() {
         
            <Route path='/team/:memberId'element={<MemberProfile/>}/>
               <Route path="/booking" element={<Booking />} />
-              <Route path="/checkout" element={<Checkout />} />
+             
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Terms />} />
               <Route path="/shop-success" element={<ShopSuccess />} />
