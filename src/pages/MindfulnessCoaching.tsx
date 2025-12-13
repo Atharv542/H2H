@@ -90,10 +90,8 @@ const MindfulnessCoaching = () => {
     '8 × 60-minute weekly training sessions',
     'Mindful Leadership Mastery Master Workbook',
     'Stress Awareness Workbook',
-    'Mindfulness in Action Toolkit Workbook',
+    'Mindfulness in Action Toolkit',
     'Thought Mastery Focus Optimization Workbook',
-    'Emotional Resilience Energy Management Workbook',
-    'Mindful Communication Leadership Presence Guide',
     'Post-program follow-up session (30 min)'
   ];
   const handleCheckout = async (item: string) => {

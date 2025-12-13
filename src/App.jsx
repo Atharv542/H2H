@@ -36,6 +36,14 @@ import MemberProfile2 from './pages/MemberProfile';
 import ShopSuccess from './pages/Shop-Success';
 import AwarenessProgram from './pages/AwarenessProgram';
 import Services from './pages/Services';
+import TransformProgram from './pages/Transform';
+import BurnoutRecovery from './pages/Burnout';
+import ConfidenceBuilding from './pages/ConfidenceBuilding';
+import LimitingBeliefs from './pages/LimitingBelief';
+import Procrastination from './pages/Procrastination';
+import BoostingSelfEsteem from './pages/SelfEsteem';
+import StressManagement from './pages/StressManagement';
+import WorkLifeBalance from './pages/WorkLife';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -77,6 +85,14 @@ function App() {
               <Route path="/team-new" element={<Team />} />
               <Route path="/team-new/:memberId" element={<MemberProfile2 />} />
               <Route path="/awareness-program" element={<AwarenessProgram />} />
+              <Route path="/burnout-program" element={<BurnoutRecovery/>} />
+              <Route path="/confidence-program" element={<ConfidenceBuilding/>} />
+              <Route path="/limitingbelief-program" element={<LimitingBeliefs/>} />
+              <Route path="/procrastination-program" element={<Procrastination/>} />
+              <Route path="/selfesteem-program" element={<BoostingSelfEsteem/>} />
+              <Route path="/transform-program" element={<TransformProgram/>} />
+              <Route path="/stress-program" element={<StressManagement/>} />
+              <Route path="/work-program" element={<WorkLifeBalance/>} />
               
             </Routes>
           </AnimatePresence>

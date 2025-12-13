@@ -91,12 +91,10 @@ const PurposeCoaching = () => {
 
   const included = [
     '8 × 60-minute weekly training sessions',
-    'Calm & Clarity Master Workbook',
-    'Awareness Intention Workbook',
-    'Understanding the Mind Workbook',
-    'Stress Emotional Balance Workbook',
-    'Mindful Habits Procrastination Workbook',
-    'Calm Confidence Integration Workbook',
+    'Awareness Workbook',
+    'Purpose Values Workbook',
+    'Vision Future Alignment Workbook',
+    'On Purpose Inner Peace Master Workbook',
     'Post-program follow-up session (30 min) '
   ];
 

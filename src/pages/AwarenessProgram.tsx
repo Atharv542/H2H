@@ -119,7 +119,7 @@ const [user,setUser] = useState<any>(null);
             </p>
             <div className="flex items-center justify-center space-x-4 text-white">
               <span className="text-lg">90-Minute Deep Dive</span>
-              <span className="text-3xl font-bold">$99</span>
+              
             </div>
           </motion.div>
         </div>

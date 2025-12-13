@@ -50,35 +50,35 @@ import {
       duration: "90-Min Deep Dive",
       price: "$99",
       description:
-        "Begin your transformation with a powerful self-awareness reset. This 1-week program helps you pause, reflect, and understand where you are in life emotionally.",
+        "Begin your transformation with a powerful self-awareness reset.",
       image:
         "https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=400",
       link: "/awareness-program",
     },
     {
-      title: "Purpose & Clarity",
+      title: "Transform Your Life",
       subtitle: "4-Week Purpose Discovery Journey",
       duration: "60-Min Sessions",
       price: "$399",
       description:
-        "Discover your true calling and create a life aligned with your deepest values. Uncover what truly matters to you and design a meaningful path forward, mentally,energetically and feasible for all.",
+        " Mindfulness & Self-Discovery Session- A Mindfulness-Based Inner Connection & Life Clarity Experience",
       image:
         "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/purpose-program",
+      link: "/transform-program",
     },
     {
-      title: "Emotional Mastery",
+      title: "Burnout Recovery",
       subtitle: "6-Week Emotional Intelligence Program",
       duration: "Weekly 75-Minute Sessions",
       price: "$699",
       description:
-        "Master your emotions and build resilience. Learn to navigate life's challenges with grace while maintaining inner peace and emotional balance and accept evry challenge.",
+        "Burnout is not a sign of weakness—it’s a signal that something in your life needs care & boundaries",
       image:
         "https://images.pexels.com/photos/3820360/pexels-photo-3820360.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/emotional-program",
+      link: "/burnout-program",
     },
     {
-      title: "Confidence Builder",
+      title: "Stress Awareness & Management",
       subtitle: "8-Week Self-Confidence Transformation",
       duration: "60-Minute Weekly Sessions",
       price: "$899",
@@ -86,10 +86,10 @@ import {
         "Break free from self-doubt and step into your power. Build unshakeable confidence and learn to trust yourself completely in all areas of life without doubting your inner self.",
       image:
         "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/confidence-program",
+      link: "/stress-program",
     },
     {
-      title: "Relationship Harmony",
+      title: "Releasing Limiting Beliefs",
       subtitle: "5-Week Relationship Enhancement",
       duration: "90-Min Sessions",
       price: "$599",
@@ -97,10 +97,10 @@ import {
         "Transform your relationships through deeper understanding and authentic communication. Create meaningful connections built on trust and mutual respect for everyone came in life.",
       image:
         "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/relationship-program",
+      link: "/limitingbelief-program",
     },
     {
-      title: "Career Breakthrough",
+      title: "Confidence Building",
       subtitle: "10-Week Professional Development",
       duration: "60-Min Bi-Weekly Sessions",
       price: "$1,299",
@@ -108,10 +108,10 @@ import {
         "Accelerate your career growth and achieve professional excellence. Develop leadership skills and strategic thinking for lasting career success and harmony in life .",
       image:
         "https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/career-program",
+      link: "/confidence-program",
     },
     {
-      title: "Stress & Balance",
+      title: "Work–Life Balance",
       subtitle: "6-Week Stress Management Program",
       duration: "75-Min Weekly Sessions",
       price: "$749",
@@ -119,10 +119,21 @@ import {
         "Find balance in a busy world. Learn practical strategies to manage stress, prevent burnout, and create sustainable work-life harmony.",
       image:
         "https://images.pexels.com/photos/3760607/pexels-photo-3760607.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/stress-program",
+      link: "/work-program",
     },
     {
-      title: "Life Transformation",
+      title: "Procrastination",
+      subtitle: "12-Week Complete Life Makeover",
+      duration: "90-Min Weekly Sessions",
+      price: "$1,799",
+      description:
+        "Procrastination is rarely about laziness. It is often a response to fear, overwhelm, self-doubt, or perfectionism.",
+      image:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
+      link: "/procrastination-program",
+    },
+    {
+      title: "Boosting Self Esteem",
       subtitle: "12-Week Complete Life Makeover",
       duration: "90-Min Weekly Sessions",
       price: "$1,799",
@@ -130,18 +141,7 @@ import {
         "Experience comprehensive transformation across all life areas. This holistic program combines all our methodologies for complete personal renewal.",
       image:
         "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/transformation-program",
-    },
-    {
-      title: "Career Breakthrough",
-      subtitle: "12-Week Complete Life Makeover",
-      duration: "90-Min Weekly Sessions",
-      price: "$1,799",
-      description:
-        "Experience comprehensive transformation across all life areas. This holistic program combines all our methodologies for complete personal renewal.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/transformation-program",
+      link: "/selfesteem-program",
     },
   ];
 
@@ -181,9 +181,7 @@ function Services() {
                         </p>
                         <div className="flex items-center justify-between mb-3 text-sm">
                           <span className="text-gray-600">{service.duration}</span>
-                          <span className="text-blue-600 font-bold text-lg">
-                            {service.price}
-                          </span>
+                          
                         </div>
                         <p className="text-gray-600 mb-4 leading-relaxed text-sm">
                           {service.description}
