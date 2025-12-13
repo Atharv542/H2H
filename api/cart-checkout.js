@@ -21,8 +21,8 @@ export default async function handler(req, res) {
         price: item.priceId,
         quantity: item.quantity,
       })),
-      success_url: `${req.headers.origin}/success`,
-      cancel_url: `${req.headers.origin}/cart`,
+      success_url: `https://www.head2heart.co.nz/success`,
+      cancel_url: `https://www.head2heart.co.nz`,
       metadata: { userId },
     });
 

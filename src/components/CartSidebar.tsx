@@ -17,7 +17,7 @@ const handleCheckout = async () => {
   }
 
   try {
-    const res = await fetch("/api/cart-checkout-session", {
+    const res = await fetch("/api/cart-checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
