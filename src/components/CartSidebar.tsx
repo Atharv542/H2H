@@ -16,21 +16,36 @@ const handleCheckout = async () => {
     return;
   }
 
-  const res = await fetch("/api/cart-checkout-session", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      cartItems: state.items.map(item => ({
-        priceId: item.priceId,
-        quantity: item.quantity,
-      })),
-      userId: auth.currentUser.uid,
-    }),
-  });
+  try {
+    const res = await fetch("/api/cart-checkout-session", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        cartItems: state.items.map((item) => ({
+          priceId: item.priceId,
+          quantity: item.quantity,
+        })),
+        userId: auth.currentUser.uid,
+      }),
+    });
 
-  const data = await res.json();
-  window.location.href = data.url;
+    if (!res.ok) {
+      throw new Error("Failed to create checkout session");
+    }
+
+    const data = await res.json();
+
+    if (!data.url) {
+      throw new Error("Stripe URL missing");
+    }
+
+    window.location.href = data.url;
+  } catch (err) {
+    console.error("Checkout error:", err);
+    alert("Unable to start checkout. Please try again.");
+  }
 };
+
 
 
   return (

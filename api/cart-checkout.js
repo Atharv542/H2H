@@ -10,6 +10,10 @@ export default async function handler(req, res) {
   try {
     const { cartItems, userId } = req.body;
 
+    if (!cartItems || cartItems.length === 0) {
+      return res.status(400).json({ error: "Cart is empty" });
+    }
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
@@ -17,14 +21,14 @@ export default async function handler(req, res) {
         price: item.priceId,
         quantity: item.quantity,
       })),
-      success_url: "https://www.head2heart.co.nz/success",
-      cancel_url: "https://www.head2heart.co.nz",
+      success_url: `${req.headers.origin}/success`,
+      cancel_url: `${req.headers.origin}/cart`,
       metadata: { userId },
     });
 
     return res.status(200).json({ url: session.url });
-  } catch (err) {
-    console.error(err);
-    return res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.error("Stripe error:", error);
+    return res.status(500).json({ error: error.message });
   }
 }
