@@ -11,7 +11,7 @@ export default function BoostingSelfEsteem() {
       title="Boosting Self-Esteem"
       subtitle="Strengthen Self-Worth. Build a Healthier Inner Relationship."
       duration="90 Minutes"
-      price="$1,799"
+      price="$99"
       gradient="from-pink-500 via-purple-600 to-slate-700"
       description="This session focuses on strengthening self-worth, reducing self-criticism, and building a compassionate, supportive relationship with yourself."
       features={[

@@ -11,7 +11,7 @@ export default function Procrastination() {
       title="Overcoming Procrastination"
       subtitle="Understand the Pattern. Build Momentum."
       duration="90 Minutes"
-      price="$1,799"
+      price="$99"
       gradient="from-blue-500 via-purple-600 to-slate-700"
       description="This session helps you understand why you procrastinate, identify emotional triggers, and create simple, realistic strategies to move from avoidance to action."
       features={[

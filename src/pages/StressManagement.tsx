@@ -11,7 +11,7 @@ export default function StressManagement() {
       title="Stress Awareness & Management"
       subtitle="Respond with Calm & Clarity"
       duration="90 Minutes"
-      price="$899"
+      price="$99"
       gradient="from-blue-500 to-purple-600"
       description="Learn how stress shows up in your body and mind and how to manage it consciously."
       features={[

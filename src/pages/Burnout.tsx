@@ -11,7 +11,7 @@ export default function BurnoutRecovery() {
       title="Burnout Recovery"
       subtitle="Recognise. Reset. Rebuild."
       duration="90 Minutes"
-      price="$699"
+      price="$99"
       gradient="from-purple-600 to-slate-700"
       description="A compassionate session to understand burnout and begin recovery without pressure."
       features={[

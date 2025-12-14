@@ -19,89 +19,201 @@ const Shop = () => {
       }, []);
       const navigate=useNavigate();
 
-  const categories = ["all", "books", "journals", "accessories"];
+  const categories = ["all", "worksheets", "journals", "accessories"];
 
   const products = [
-    {
-      id: "1",
-      title: "Transform Your Life Workbook",
-      category: "books",
-      price: 29.99,
-      rating: 4.8,
-      reviews: 124,
-      image:
-        "https://images.pexels.com/photos/1029141/pexels-photo-1029141.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description:
-        "A comprehensive workbook with exercises and prompts for personal transformation.",
-      priceId:"product1"
-    },
-   
-    {
-      id: "2",
-      title: "Daily Reflection Journal",
-      category: "journals",
-      price: 24.99,
-      rating: 4.7,
-      reviews: 203,
-      image:
-        "https://images.pexels.com/photos/6985001/pexels-photo-6985001.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description:
-        "Beautiful journal with guided prompts for daily reflection and gratitude.",
-        priceId:"product2"
-    },
-    {
-      id: "3",
-      title: "Goal Setting Planner",
-      category: "journals",
-      price: 34.99,
-      rating: 4.6,
-      reviews: 156,
-      image:
-        "https://images.pexels.com/photos/1493955/pexels-photo-1493955.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description:
-        "Strategic planner designed to help you set and achieve meaningful goals.",
-        priceId:"product3"
-    },
-  
-    {
-      id: "4",
-      title: "Affirmation Cards Set",
-      category: "accessories",
-      price: 19.99,
-      rating: 4.5,
-      reviews: 78,
-      image:
-        "https://images.pexels.com/photos/4226219/pexels-photo-4226219.jpeg?auto=compress&cs=tinysrgb&w=400",
-      description:
-        "50 beautifully designed cards with powerful affirmations for daily inspiration.",
-        priceId:"product4"
-    },
-  ];
+  {
+    id: "2",
+    title: "Daily Reflection Journal",
+    category: "journals",
+    price: 24.99,
+    rating: 4.7,
+    reviews: 203,
+    image:
+      "https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Beautiful journal with guided prompts for daily reflection and gratitude.",
+    priceId: "product2",
+  },
+
+  {
+    id: "4",
+    title: "H2H GOAL SETTING PLANNER",
+    category: "accessories",
+    price: 24.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Structured planner to define goals and track daily progress.",
+    priceId: "product4",
+  },
+  {
+    id: "5",
+    title: "H2H MINDFUL DAILY LOG",
+    category: "accessories",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://i.etsystatic.com/24721769/r/il/17c0ab/2502013776/il_1140xN.2502013776_8o3s.jpg",
+    description:
+      "Daily log to cultivate mindfulness and self-awareness.",
+    priceId: "product5",
+  },
+  {
+    id: "6",
+    title: "H2H DAILY WINNING ROUTINES",
+    category: "accessories",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/3759657/pexels-photo-3759657.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Routine builder for productivity and consistency.",
+    priceId: "product6",
+  },
+  {
+    id: "7",
+    title: "H2H BUILD MOTIVATION",
+    category: "accessories",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Motivation-building exercises to stay inspired.",
+    priceId: "product7",
+  },
+  {
+    id: "8",
+    title: "5 Min Simple Morning Practies",
+    category: "accessories",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Quick morning practices to start your day with clarity.",
+    priceId: "product8",
+  },
+  {
+    id: "9",
+    title: "A Mindset Worksheet",
+    category: "worksheets",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Worksheets designed to reshape your mindset.",
+    priceId: "product9",
+  },
+  {
+    id: "10",
+    title: "A Night Routine Worksheet",
+    category: "worksheets",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/3771110/pexels-photo-3771110.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Night routine planner for better sleep and reflection.",
+    priceId: "product10",
+  },
+  {
+    id: "11",
+    title: "A Morning Routine Worksheet",
+    category: "worksheets",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Morning routine worksheet for a productive start.",
+    priceId: "product11",
+  },
+  {
+    id: "12",
+    title: "An Attitude Worksheet",
+    category: "worksheets",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Improve your attitude with guided exercises.",
+    priceId: "product12",
+  },
+  {
+    id: "13",
+    title: "A Law of Attraction Worksheet",
+    category: "worksheets",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://i.etsystatic.com/49179139/r/il/c4cad1/6597212031/il_1588xN.6597212031_frim.jpg",
+    description:
+      "Manifest goals using law of attraction techniques.",
+    priceId: "product13",
+  },
+  {
+    id: "14",
+    title: "A Paradigm Shift Worksheet",
+    category: "worksheets",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Shift thinking patterns for long-term change.",
+    priceId: "product14",
+  },
+  {
+    id: "15",
+    title: "Personal Development Worksheet",
+    category: "worksheets",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=400",
+    description:
+      "Personal growth exercises for self-improvement.",
+    priceId: "product15",
+  },
+  {
+    id: "16",
+    title: "Mindfulness Worksheet",
+    category: "worksheets",
+    price: 19.99,
+    rating: 4.5,
+    reviews: 78,
+    image:
+      "https://i.pinimg.com/564x/77/db/7b/77db7bc0e3dd69e00555840c69a6fa60.jpg",
+    description:
+      "Mindfulness worksheets for calm and focus.",
+    priceId: "product16",
+  },
+];
+
 
   const filteredProducts =
     selectedCategory === "all"
       ? products
       : products.filter((p) => p.category === selectedCategory);
 
-  const handleAddToCart = (product) => {
-    if (!auth.currentUser) {
-      navigate("/login");
-      return;
-    }
-
-    addItem({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      image: product.image,
-      category: product.category,
-    });
-
-    toast.success(`${product.title} added to cart! 🛒`, {
-      duration: 3000,
-      style: { fontSize: "14px", borderRadius: "10px" },
-    });
-  };
+  
 
   const handleBuyNow = async (item: string) => {
   if (!user) {
@@ -174,7 +286,7 @@ const Shop = () => {
         </motion.div>
 
         {/* 🛍️ Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product, index) => (
             <motion.div
               key={product.id}
@@ -195,12 +307,7 @@ const Shop = () => {
                   <span className="px-3 py-1 bg-blue-100 text-blue-600 text-xs font-medium rounded-full">
                     {product.category}
                   </span>
-                  <div className="flex items-center space-x-1">
-                    <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                    <span className="text-sm text-gray-600">
-                      {product.rating} ({product.reviews})
-                    </span>
-                  </div>
+                  
                 </div>
 
                 <h3 className="font-poppins text-xl font-semibold text-gray-900 mb-3">

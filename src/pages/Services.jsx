@@ -10,140 +10,116 @@ import {
   Sparkles,
 } from "lucide-react";
  const services = [
-     {
-      title: "Discover Your Purpose",
-      description:
-        "Discover your true calling and create a life aligned with your deepest values and passions.",
-      image:
-        "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/purpose-coaching",
-      subtitle: "1-Week Self-Awareness Reset Program",
-      duration: "90-Min Deep Dive",
-       price: "$499",
-    },
+  {
+    title: "Discover Your Purpose",
+    description:
+      "Discover your true calling and create a life aligned with your deepest values and passions.",
+    image:
+      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
+    link: "/purpose-coaching",
+    price: "$499",
+  },
+  {
+    title: "Find Your Clarity & Focus",
+    description:
+      "Unlock your full potential with personalized strategies for sustainable growth and success.",
+    image:
+      "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
+    link: "/clarity-coaching",
+    price: "$499",
+  },
+  {
+    title: "Experience Mindfulness",
+    description:
+      "Cultivate inner peace and present-moment awareness to enhance your surroundings.",
+    image:
+      "https://static.vecteezy.com/system/resources/previews/029/354/655/large_2x/ai-generative-of-a-man-practicing-mindfulness-and-meditation-in-a-peaceful-natural-environment-sony-a7s-realistic-image-ultra-hd-high-design-very-detailed-free-photo.jpg",
+    link: "/mindfulness-coaching",
+    price: "$499",
+  },
+  {
+    title: "Awareness & Discovery",
+    description:
+      "Begin your transformation with a powerful self-awareness reset.",
+    image:
+      "https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=400",
+    link: "/awareness-program",
+    price: "$99",
+  },
+  {
+    title: "Transform Your Life",
+    description:
+      "A mindfulness-based inner connection and life clarity experience.",
+    image:
+      "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&w=400",
+    link: "/transform-program",
+    price: "$399",
+  },
+  {
+    title: "Burnout Recovery",
+    description:
+      "Burnout is not a sign of weakness—it’s a signal that something in your life needs care and boundaries.",
+    image:
+      "https://tse1.mm.bing.net/th/id/OIP.tpnaaf114Lv9jXpzZ2VlawHaEc?rs=1&pid=ImgDetMain&o=7&rm=3",
+    link: "/burnout-program",
+    price: "$699",
+  },
+  {
+    title: "Stress Awareness & Management",
+    description:
+      "Learn practical tools to manage stress and regain emotional balance.",
+    image:
+      "https://tse4.mm.bing.net/th/id/OIP.90RuQdYVA1Q3VKHPix3c4wHaFq?rs=1&pid=ImgDetMain&o=7&rm=3",
+    link: "/stress-program",
+    price: "$899",
+  },
+  {
+    title: "Releasing Limiting Beliefs",
+    description:
+      "Transform thought patterns that hold you back from growth and fulfillment.",
+    image:
+      "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
+    link: "/limitingbelief-program",
+    price: "$599",
+  },
+  {
+    title: "Confidence Building",
+    description:
+      "Build unshakable confidence and trust yourself in every area of life.",
+    image:
+      "https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=400",
+    link: "/confidence-program",
+    price: "$1,299",
+  },
+  {
+    title: "Work–Life Balance",
+    description:
+      "Create harmony between your professional and personal life.",
+    image:
+      "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=400",
+    link: "/work-program",
+    price: "$749",
+  },
+  {
+    title: "Procrastination",
+    description:
+      "Understand the root causes of procrastination and take control of your time.",
+    image:
+      "https://masterbundles.com/wp-content/uploads/2023/11/procrastination_madterbundles-3-957.jpg",
+    link: "/procrastination-program",
+    price: "$1,799",
+  },
+  {
+    title: "Boosting Self Esteem",
+    description:
+      "Develop self-worth, confidence, and a positive self-image.",
+    image:
+      "https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=400",
+    link: "/selfesteem-program",
+    price: "$1,799",
+  },
+];
 
-    {
-      title: "Find Your Clarity & Focus",
-      description:
-        "Unlock your full potential with personalized strategies for sustainable growth and success.",
-      image:
-        "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/clarity-coaching",
-      subtitle: "1-Week Self-Awareness Reset Program",
-      duration: "90-Min Deep Dive",
-       price: "$499"
-    },
-    {
-      title: "Experience Mindfulness",
-      description: "Cultivate inner peace and present-moment awareness to enhance your surroundings.",
-      image:
-        "https://images.pexels.com/photos/3820360/pexels-photo-3820360.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/mindfulness-coaching",
-      subtitle: "1-Week Self-Awareness Reset Program",
-      duration: "90-Min Deep Dive",
-       price: "$499"
-    },
-
-    {
-      title: "Awareness & Discovery",
-      subtitle: "1-Week Self-Awareness Reset Program",
-      duration: "90-Min Deep Dive",
-      price: "$99",
-      description:
-        "Begin your transformation with a powerful self-awareness reset.",
-      image:
-        "https://images.pexels.com/photos/3759660/pexels-photo-3759660.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/awareness-program",
-    },
-    {
-      title: "Transform Your Life",
-      subtitle: "4-Week Purpose Discovery Journey",
-      duration: "60-Min Sessions",
-      price: "$399",
-      description:
-        " Mindfulness & Self-Discovery Session- A Mindfulness-Based Inner Connection & Life Clarity Experience",
-      image:
-        "https://images.pexels.com/photos/697243/pexels-photo-697243.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/transform-program",
-    },
-    {
-      title: "Burnout Recovery",
-      subtitle: "6-Week Emotional Intelligence Program",
-      duration: "Weekly 75-Minute Sessions",
-      price: "$699",
-      description:
-        "Burnout is not a sign of weakness—it’s a signal that something in your life needs care & boundaries",
-      image:
-        "https://images.pexels.com/photos/3820360/pexels-photo-3820360.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/burnout-program",
-    },
-    {
-      title: "Stress Awareness & Management",
-      subtitle: "8-Week Self-Confidence Transformation",
-      duration: "60-Minute Weekly Sessions",
-      price: "$899",
-      description:
-        "Break free from self-doubt and step into your power. Build unshakeable confidence and learn to trust yourself completely in all areas of life without doubting your inner self.",
-      image:
-        "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/stress-program",
-    },
-    {
-      title: "Releasing Limiting Beliefs",
-      subtitle: "5-Week Relationship Enhancement",
-      duration: "90-Min Sessions",
-      price: "$599",
-      description:
-        "Transform your relationships through deeper understanding and authentic communication. Create meaningful connections built on trust and mutual respect for everyone came in life.",
-      image:
-        "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/limitingbelief-program",
-    },
-    {
-      title: "Confidence Building",
-      subtitle: "10-Week Professional Development",
-      duration: "60-Min Bi-Weekly Sessions",
-      price: "$1,299",
-      description:
-        "Accelerate your career growth and achieve professional excellence. Develop leadership skills and strategic thinking for lasting career success and harmony in life .",
-      image:
-        "https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/confidence-program",
-    },
-    {
-      title: "Work–Life Balance",
-      subtitle: "6-Week Stress Management Program",
-      duration: "75-Min Weekly Sessions",
-      price: "$749",
-      description:
-        "Find balance in a busy world. Learn practical strategies to manage stress, prevent burnout, and create sustainable work-life harmony.",
-      image:
-        "https://images.pexels.com/photos/3760607/pexels-photo-3760607.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/work-program",
-    },
-    {
-      title: "Procrastination",
-      subtitle: "12-Week Complete Life Makeover",
-      duration: "90-Min Weekly Sessions",
-      price: "$1,799",
-      description:
-        "Procrastination is rarely about laziness. It is often a response to fear, overwhelm, self-doubt, or perfectionism.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/procrastination-program",
-    },
-    {
-      title: "Boosting Self Esteem",
-      subtitle: "12-Week Complete Life Makeover",
-      duration: "90-Min Weekly Sessions",
-      price: "$1,799",
-      description:
-        "Experience comprehensive transformation across all life areas. This holistic program combines all our methodologies for complete personal renewal.",
-      image:
-        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
-      link: "/selfesteem-program",
-    },
-  ];
 
 function Services() {
   return (

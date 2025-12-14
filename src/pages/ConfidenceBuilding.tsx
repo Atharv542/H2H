@@ -11,7 +11,7 @@ export default function ConfidenceBuilding() {
       title="Confidence Building"
       subtitle="Build Confidence from Within. Take Aligned Action."
       duration="90 Minutes"
-      price="$1,299"
+      price="$99"
       gradient="from-blue-600 via-indigo-600 to-slate-700"
       description="This session helps you understand where confidence drops, why self-doubt appears, and how to build confidence through awareness, self-trust, and small aligned actions."
       features={[
