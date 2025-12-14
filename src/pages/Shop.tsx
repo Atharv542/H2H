@@ -23,7 +23,7 @@ const Shop = () => {
 
   const products = [
   {
-    id: "2",
+    id: "1",
     title: "Daily Reflection Journal",
     category: "journals",
     price: 24.99,
@@ -37,7 +37,7 @@ const Shop = () => {
   },
 
   {
-    id: "4",
+    id: "2",
     title: "GOAL SETTING PLANNER",
     category: "accessories",
     price: 24.99,
@@ -50,7 +50,7 @@ const Shop = () => {
     priceId: "product4",
   },
   {
-    id: "5",
+    id: "3",
     title: "MINDFUL DAILY LOG",
     category: "accessories",
     price: 19.99,
@@ -63,7 +63,7 @@ const Shop = () => {
     priceId: "product5",
   },
   {
-    id: "6",
+    id: "4",
     title: "DAILY WINNING ROUTINES",
     category: "accessories",
     price: 19.99,
@@ -76,7 +76,7 @@ const Shop = () => {
     priceId: "product6",
   },
   {
-    id: "7",
+    id: "5",
     title: "BUILD MOTIVATION",
     category: "accessories",
     price: 19.99,
@@ -89,7 +89,7 @@ const Shop = () => {
     priceId: "product7",
   },
   {
-    id: "8",
+    id: "6",
     title: "5 Min Simple Morning Practices",
     category: "accessories",
     price: 19.99,
@@ -102,7 +102,7 @@ const Shop = () => {
     priceId: "product8",
   },
   {
-    id: "9",
+    id: "7",
     title: " Fixed Mindset vs Growth Mindset",
     category: "worksheets",
     price: 19.99,
@@ -115,7 +115,7 @@ const Shop = () => {
     priceId: "product9",
   },
   {
-    id: "10",
+    id: "8",
     title: "A Night Routine Worksheet",
     category: "worksheets",
     price: 19.99,
@@ -128,7 +128,7 @@ const Shop = () => {
     priceId: "product10",
   },
   {
-    id: "11",
+    id: "9",
     title: "A Morning Routine Worksheet",
     category: "worksheets",
     price: 19.99,
@@ -141,7 +141,7 @@ const Shop = () => {
     priceId: "product11",
   },
   {
-    id: "12",
+    id: "10",
     title: "An Attitude Worksheet",
     category: "worksheets",
     price: 19.99,
@@ -154,7 +154,7 @@ const Shop = () => {
     priceId: "product12",
   },
   {
-    id: "13",
+    id: "11",
     title: "A Law of Attraction Worksheet",
     category: "worksheets",
     price: 19.99,
@@ -167,7 +167,7 @@ const Shop = () => {
     priceId: "product13",
   },
   {
-    id: "14",
+    id: "12",
     title: "A Paradigm Shift Worksheet",
     category: "worksheets",
     price: 19.99,
@@ -180,7 +180,7 @@ const Shop = () => {
     priceId: "product14",
   },
   {
-    id: "15",
+    id: "13",
     title: "Personal Development Worksheet",
     category: "worksheets",
     price: 19.99,
@@ -193,7 +193,7 @@ const Shop = () => {
     priceId: "product15",
   },
   {
-    id: "16",
+    id: "14",
     title: "Mindfulness Worksheet",
     category: "worksheets",
     price: 19.99,
