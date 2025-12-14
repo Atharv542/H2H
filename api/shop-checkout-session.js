@@ -10,21 +10,63 @@ export default async function handler(req, res) {
   const { item } = req.body;
 
   const priceMap = {
-    product1: {
-      id: "price_1ScPq7CSe0ZSreoR8nUULEQM",
-      name: "Transform Your Life Workbook",
-    },
-    product2: {
+     product1: {
       id: "price_1ScPqdCSe0ZSreoRlOlBO9ER",
       name: "Daily Reflection Journal",
     },
-    product3: {
+    product2: {
       id: "price_1ScPr5CSe0ZSreoRwB3kUPNq",
       name: "Goal Setting Planner",
+      
+    },
+   
+    product3: {
+      id: "price_1ScPq7CSe0ZSreoR8nUULEQM",
+      name: "MINDFUL DAILY LOG",
     },
     product4: {
       id: "price_1ScPraCSe0ZSreoRTfxl8VQn",
-      name: "Affirmation Cards Set",
+      name: "DAILY WINNING ROUTINES",
+    },
+      product5: {
+      id: "price_1SeE5kCSe0ZSreoROn5N8xnl",
+      name: "BUILD MOTIVATION",
+    },
+     product6: {
+      id: "price_1SeE6QCSe0ZSreoReGeUZ30s",
+      name: "5 Min Simple Morning Practices",
+    },
+     product7: {
+      id: "price_1SeE6vCSe0ZSreoRy5olHk4D",
+      name: "Fixed Mindset vs Growth Mindset",
+    },
+     product8: {
+      id: "price_1SeE7GCSe0ZSreoR3uB2KxcI",
+      name: "A Night Routine Worksheet",
+    },
+     product9: {
+      id: "price_1SeE7cCSe0ZSreoRPAK1fGVR",
+      name: "A Morning Routine Worksheet",
+    },
+     product10: {
+      id: "price_1SeE7xCSe0ZSreoR91yyMCUG",
+      name: "An Attitude Worksheet",
+    },
+     product11: {
+      id: "price_1SeE8HCSe0ZSreoRfr3VvZdH",
+      name: "A Law of Attraction Worksheet",
+    },
+     product12: {
+      id: "price_1SeE90CSe0ZSreoRBO7a9H5f",
+      name: "A Paradigm Shift Worksheet",
+    },
+     product13: {
+      id: "price_1SeE9LCSe0ZSreoRnvwuamnR",
+      name: "Personal Development Worksheet",
+    },
+     product14: {
+      id: "price_1SeE9jCSe0ZSreoRRVZKBIgk",
+      name: "Mindfulness Worksheet",
     },
   };
 

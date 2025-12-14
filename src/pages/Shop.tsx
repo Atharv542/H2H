@@ -38,7 +38,7 @@ const Shop = () => {
 
   {
     id: "4",
-    title: "H2H GOAL SETTING PLANNER",
+    title: "GOAL SETTING PLANNER",
     category: "accessories",
     price: 24.99,
     rating: 4.5,
@@ -51,7 +51,7 @@ const Shop = () => {
   },
   {
     id: "5",
-    title: "H2H MINDFUL DAILY LOG",
+    title: "MINDFUL DAILY LOG",
     category: "accessories",
     price: 19.99,
     rating: 4.5,
@@ -64,7 +64,7 @@ const Shop = () => {
   },
   {
     id: "6",
-    title: "H2H DAILY WINNING ROUTINES",
+    title: "DAILY WINNING ROUTINES",
     category: "accessories",
     price: 19.99,
     rating: 4.5,
@@ -77,7 +77,7 @@ const Shop = () => {
   },
   {
     id: "7",
-    title: "H2H BUILD MOTIVATION",
+    title: "BUILD MOTIVATION",
     category: "accessories",
     price: 19.99,
     rating: 4.5,
@@ -90,7 +90,7 @@ const Shop = () => {
   },
   {
     id: "8",
-    title: "5 Min Simple Morning Practies",
+    title: "5 Min Simple Morning Practices",
     category: "accessories",
     price: 19.99,
     rating: 4.5,
@@ -103,7 +103,7 @@ const Shop = () => {
   },
   {
     id: "9",
-    title: "A Mindset Worksheet",
+    title: " Fixed Mindset vs Growth Mindset",
     category: "worksheets",
     price: 19.99,
     rating: 4.5,
