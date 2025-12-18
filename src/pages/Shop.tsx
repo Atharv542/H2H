@@ -70,7 +70,7 @@ const Shop = () => {
     rating: 4.5,
     reviews: 78,
     image:
-      "https://images.pexels.com/photos/3759657/pexels-photo-3759657.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "DAILY WINNING ROUTINES.jpg",
     description:
       "Routine builder for productivity and consistency.",
     priceId: "product6",
@@ -83,7 +83,7 @@ const Shop = () => {
     rating: 4.5,
     reviews: 78,
     image:
-      "https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "BUILD MOTIVATION.jpg",
     description:
       "Motivation-building exercises to stay inspired.",
     priceId: "product7",
@@ -148,7 +148,7 @@ const Shop = () => {
     rating: 4.5,
     reviews: 78,
     image:
-      "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "An Attitude Worksheet.jpg",
     description:
       "Improve your attitude with guided exercises.",
     priceId: "product12",
@@ -174,7 +174,7 @@ const Shop = () => {
     rating: 4.5,
     reviews: 78,
     image:
-      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "A Paradigm Shift Worksheet.jpg",
     description:
       "Shift thinking patterns for long-term change.",
     priceId: "product14",
@@ -187,7 +187,7 @@ const Shop = () => {
     rating: 4.5,
     reviews: 78,
     image:
-      "https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "Personal Development Worksheet.jpg",
     description:
       "Personal growth exercises for self-improvement.",
     priceId: "product15",
@@ -200,7 +200,7 @@ const Shop = () => {
     rating: 4.5,
     reviews: 78,
     image:
-      "https://i.pinimg.com/564x/77/db/7b/77db7bc0e3dd69e00555840c69a6fa60.jpg",
+      "Mindfulness Worksheet.jpg",
     description:
       "Mindfulness worksheets for calm and focus.",
     priceId: "product16",

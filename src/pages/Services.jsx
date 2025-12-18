@@ -15,7 +15,7 @@ import {
     description:
       "Discover your true calling and create a life aligned with your deepest values and passions.",
     image:
-      "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "Dicover your purpose.jpg",
     link: "/purpose-coaching",
     price: "$499",
   },
@@ -24,7 +24,7 @@ import {
     description:
       "Unlock your full potential with personalized strategies for sustainable growth and success.",
     image:
-      "https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "clarity & focus.jpg",
     link: "/clarity-coaching",
     price: "$499",
   },
@@ -33,7 +33,7 @@ import {
     description:
       "Cultivate inner peace and present-moment awareness to enhance your surroundings.",
     image:
-      "https://static.vecteezy.com/system/resources/previews/029/354/655/large_2x/ai-generative-of-a-man-practicing-mindfulness-and-meditation-in-a-peaceful-natural-environment-sony-a7s-realistic-image-ultra-hd-high-design-very-detailed-free-photo.jpg",
+      "Mindfulness.jpg",
     link: "/mindfulness-coaching",
     price: "$499",
   },
@@ -60,7 +60,7 @@ import {
     description:
       "Burnout is not a sign of weakness—it’s a signal that something in your life needs care and boundaries.",
     image:
-      "https://tse1.mm.bing.net/th/id/OIP.tpnaaf114Lv9jXpzZ2VlawHaEc?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "Burnout Recovery1.jpg",
     link: "/burnout-program",
     price: "$699",
   },
@@ -69,7 +69,7 @@ import {
     description:
       "Learn practical tools to manage stress and regain emotional balance.",
     image:
-      "https://tse4.mm.bing.net/th/id/OIP.90RuQdYVA1Q3VKHPix3c4wHaFq?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "Stress management & awareness.jpg",
     link: "/stress-program",
     price: "$899",
   },
@@ -87,7 +87,7 @@ import {
     description:
       "Build unshakable confidence and trust yourself in every area of life.",
     image:
-      "https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "Confidence Building.jpg",
     link: "/confidence-program",
     price: "$1,299",
   },
@@ -105,7 +105,7 @@ import {
     description:
       "Understand the root causes of procrastination and take control of your time.",
     image:
-      "https://masterbundles.com/wp-content/uploads/2023/11/procrastination_madterbundles-3-957.jpg",
+      "Procrastination.jpg",
     link: "/procrastination-program",
     price: "$1,799",
   },
