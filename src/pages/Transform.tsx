@@ -11,6 +11,7 @@ export default function TransformYourLife() {
       title="Transform Your Life"
       subtitle="Mindfulness & Self-Discovery Session"
       duration="60 Minutes"
+      stripeItemId="service7"
       price="$149"
       gradient="from-blue-600 via-purple-600 to-slate-700"
       description="Slow down, reconnect with yourself, and gain clarity about your emotions, values, habits, and life direction."

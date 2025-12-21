@@ -11,6 +11,7 @@ export default function ConfidenceBuilding() {
       title="Confidence Building"
       duration="60 Minutes"
       price="$149"
+       stripeItemId="service11"
       gradient="from-blue-600 via-indigo-600 to-slate-700"
       description="This session helps you understand where confidence drops, why self-doubt appears, and how to build confidence through awareness, self-trust, and small aligned actions."
       features={[

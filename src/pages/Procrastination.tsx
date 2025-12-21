@@ -12,6 +12,7 @@ export default function Procrastination() {
       subtitle="Understand the Pattern. Build Momentum."
       duration="60 Minutes"
       price="$99"
+       stripeItemId="service13"
       gradient="from-blue-500 via-purple-600 to-slate-700"
       description="This session helps you understand why you procrastinate, identify emotional triggers, and create simple, realistic strategies to move from avoidance to action."
       features={[

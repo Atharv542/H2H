@@ -22,7 +22,7 @@ export default async function handler(req, res) {
         quantity: item.quantity,
       })),
       success_url: `https://www.head2heart.co.nz/success`,
-      cancel_url: `https://www.head2heart.co.nz`,
+      cancel_url: `https://www.head2heart.co.nz/shop`,
       metadata: { userId },
     });
 

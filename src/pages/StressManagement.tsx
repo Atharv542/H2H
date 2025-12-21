@@ -12,6 +12,7 @@ export default function StressManagement() {
       subtitle="Respond with Calm & Clarity"
       duration="60 Minutes"
       price="$149"
+       stripeItemId="service9"
       gradient="from-blue-500 to-purple-600"
       description="Learn how stress shows up in your body and mind and how to manage it consciously."
       features={[

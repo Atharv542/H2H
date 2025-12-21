@@ -9,7 +9,7 @@ export default function BurnoutRecovery() {
     <ServiceTemplate
       badge="Mindful Reset"
       title="Burnout Recovery"
-     
+      stripeItemId="service8"
       duration="60 Minutes"
       price="$149"
       gradient="from-purple-600 to-slate-700"

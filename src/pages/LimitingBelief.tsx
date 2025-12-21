@@ -12,6 +12,7 @@ export default function LimitingBeliefs() {
       subtitle="Rewrite Your Inner Story"
       duration="60 Minutes"
       price="$149"
+       stripeItemId="service10"
       gradient="from-purple-600 to-indigo-700"
       description="Identify and release beliefs holding you back and replace them with empowering ones."
       features={[

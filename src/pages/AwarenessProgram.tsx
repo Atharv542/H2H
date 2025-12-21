@@ -283,7 +283,7 @@ const [user,setUser] = useState<any>(null);
 
 
           <button
-            onClick={() => handleBookNow("service4")}
+            onClick={() => handleBookNow("service6")}
             className="w-full cursor-pointer bg-white text-blue-700 py-4 rounded-full font-semibold hover:bg-gray-100 transition flex justify-center items-center gap-2"
           >
             Book Now <ArrowRight />
