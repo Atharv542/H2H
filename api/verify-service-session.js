@@ -49,7 +49,7 @@ export default async function handler(req, res) {
       to: [{ email: userEmail }],
       subject: "Your Session Is Confirmed – Head2Heart",
       htmlContent: `
-        <h2>Thank you, ${userName} 🌿</h2>
+        <h2>Thank you,🌿</h2>
 
         <p>Your payment has been successfully received.</p>
 
@@ -73,7 +73,7 @@ export default async function handler(req, res) {
       htmlContent: `
         <h3>New Booking Alert 🚀</h3>
 
-        <p><strong>Name:</strong> ${userName}</p>
+      
         <p><strong>Email:</strong> ${userEmail}</p>
         <p><strong>Service Purchased:</strong> ${serviceName}</p>
         <p><strong>Amount Paid:</strong> $${amountPaid}</p>

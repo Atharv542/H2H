@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     service4: "price_1SZmanCSe0ZSreoRDf5wsUbu",
     service5: "price_1SZmbFCSe0ZSreoRGWwbkinP",
     service6: "price_1SgimyCSe0ZSreoRv54jLeZ6",
-    service7: "price_1SgjG1CSe0ZSreoR7P2qE5tK",
+    service7: "price_1SginJCSe0ZSreoRzL5i0lHT",
     service8: "price_1Sgio2CSe0ZSreoRou0zr5zc",
     service9: "price_1SgioRCSe0ZSreoR8tnstFKB",
     service10: "price_1SgiotCSe0ZSreoRYZbONf7l",
@@ -30,20 +30,20 @@ export default async function handler(req, res) {
   /* ---------------- SERVICE NAME MAP ---------------- */
 
   const serviceNameMap = {
-    service1: "Transform Your Life",
+    service1: "Discover Purpose",
     service2: "Mindful Reset",
     service3: "Emotional Healing",
     service4: "Inner Balance",
     service5: "Stress Release",
-    service6: "Transform Your Life",
-    service7: "Transform Your Life – Deep Dive",
-    service8: "Confidence Building",
-    service9: "Relationship Clarity",
-    service10: "Purpose Discovery",
-    service11: "Mindfulness Coaching",
-    service12: "Life Alignment Session",
-    service13: "Self Discovery Session",
-    service14: "Leadership Coaching",
+    service6: "Awareness & Discovery",
+    service7: "Transform Your Life",
+    service8: "Burnout Recovery",
+    service9: "Stress Awareness & Management",
+    service10: "Releasing Limiting Beliefs",
+    service11: "Confidence Building",
+    service12: "Work–Life Balance",
+    service13: "Procrastination",
+    service14: "Boosting Self Esteem",
   };
 
   const priceId = priceMap[item];
