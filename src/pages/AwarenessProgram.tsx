@@ -106,17 +106,14 @@ const [user,setUser] = useState<any>(null);
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white mb-6">
-              <Sparkles className="h-4 w-4" />
-              <span className="text-sm font-medium">1-Week Program</span>
-            </div>
+           
 
             <h1 className="font-bold text-5xl md:text-6xl text-white mb-4 leading-tight">
               Awareness & Discovery
             </h1>
             
             <div className="flex items-center justify-center space-x-4 text-white">
-              <span className="text-lg">90-Minute Deep Dive</span>
+              <span className="text-lg">60-Minute Deep Dive</span>
               
             </div>
           </motion.div>
