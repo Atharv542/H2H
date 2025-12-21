@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     service4: "price_1SZmanCSe0ZSreoRDf5wsUbu",
     service5: "price_1SZmbFCSe0ZSreoRGWwbkinP",
     service6:"price_1SgimyCSe0ZSreoRv54jLeZ6",    
-    service7:"price_1SginJCSe0ZSreoRzL5i0lHT",    
+    service7:"price_1SgjG1CSe0ZSreoR7P2qE5tK",    
     service8:"price_1Sgio2CSe0ZSreoRou0zr5zc",    
     service9:"price_1SgioRCSe0ZSreoR8tnstFKB",    
     service10:"price_1SgiotCSe0ZSreoRYZbONf7l",    
