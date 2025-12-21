@@ -13,6 +13,7 @@
     "@emailjs/browser": "^4.4.1",
     "@sendinblue/client": "^3.3.1",
     "@tailwindcss/vite": "^4.1.13",
+    "axios": "^1.13.2",
     "firebase": "^12.4.0",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.542.0",
