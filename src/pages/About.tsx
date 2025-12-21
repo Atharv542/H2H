@@ -113,28 +113,12 @@ const About = () => {
         >
           <div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
-            <p className="text-lg text-gray-700 mb-6 font-semibold">
+            <p className='text-lg text-gray-700 mb-6 font-semibold'>At Head2Heart,we believe that true transformation happens when logic meets emotions,when strategies align with values and when the mind and heart work together in harmony.</p>
+            <p className="text-lg text-gray-700 mb-6 font-semibold mt-2">
               We change lives from within by empowering and transforming mental, emotional and physical wellbeing through purpose driven guidance.
             </p>
-            <ul className="space-y-3 mb-6">
-              <li className="text-lg text-gray-700 flex items-start">
-                <span className="text-blue-600 mr-3">•</span>
-                <span>Non-clinical and non-diagnostic</span>
-              </li>
-              <li className="text-lg text-gray-700 flex items-start">
-                <span className="text-blue-600 mr-3">•</span>
-                <span>Emotion-first, human-centred</span>
-              </li>
-              <li className="text-lg text-gray-700 flex items-start">
-                <span className="text-blue-600 mr-3">•</span>
-                <span>Culturally gentle and inclusive</span>
-              </li>
-              <li className="text-lg text-gray-700 flex items-start">
-                <span className="text-blue-600 mr-3">•</span>
-                <span>Calm, grounded, and heart-led</span>
-              </li>
-            </ul>
-            <p className="text-lg text-gray-700">
+            
+            <p className="text-lg italic font-bold text-gray-700">
               We believe emotions are signals — not problems to fix.
             </p>
           </div>
@@ -157,6 +141,24 @@ const About = () => {
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Approach</h2>
           <div className="bg-white rounded-2xl shadow-lg p-8">
+            <ul className="space-y-3 mb-6">
+              <li className="text-lg text-gray-700 flex items-start">
+                <span className="text-blue-600 mr-3">•</span>
+                <span>Non-clinical and non-diagnostic</span>
+              </li>
+              <li className="text-lg text-gray-700 flex items-start">
+                <span className="text-blue-600 mr-3">•</span>
+                <span>Emotion-first, human-centred</span>
+              </li>
+              <li className="text-lg text-gray-700 flex items-start">
+                <span className="text-blue-600 mr-3">•</span>
+                <span>Culturally gentle and inclusive</span>
+              </li>
+              <li className="text-lg text-gray-700 flex items-start">
+                <span className="text-blue-600 mr-3">•</span>
+                <span>Calm, grounded, and heart-led</span>
+              </li>
+            </ul>
             <h3 className="text-2xl font-bold text-gray-900 mb-6">What Head2Heart Is (and Isn't)</h3>
 
             <div className="mb-8">

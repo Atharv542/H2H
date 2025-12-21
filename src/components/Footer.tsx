@@ -29,11 +29,11 @@ const Footer = () => {
               <img src='New_Logo_3.png' className='w-45 h-35 -mx-7'/>
             </div>
 
-            <p className="text-sm font-semibold text-gray-700 italic -mt-8  mb-5">
-              We want to create a meaningful impact globally.
+            <p className="text-md font-semibold text-gray-700 italic -mt-8 mx-8  mb-5">
+              Let's Grow Together.
             </p>
 
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mx-12">
               <a
                 href="https://www.facebook.com/head2heartconnectwithyourself"
                 target="_blank"
