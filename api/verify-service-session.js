@@ -9,14 +9,16 @@ export default async function handler(req, res) {
   const { sessionId } = req.body;
 
   if (!sessionId) {
-    return res.status(400).json({ success: false, error: "No session ID provided" });
+    return res.status(400).json({
+      success: false,
+      error: "No session ID provided",
+    });
   }
 
   try {
-    /* ---------------- STRIPE VERIFICATION ---------------- */
+    /* ---------------- STRIPE ---------------- */
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
     const session = await stripe.checkout.sessions.retrieve(sessionId);
 
     if (session.payment_status !== "paid") {
@@ -26,23 +28,21 @@ export default async function handler(req, res) {
       });
     }
 
-    /* ---------------- METADATA ---------------- */
+    /* ---------------- DATA ---------------- */
 
-    const userEmail = session.customer_details?.email;
+    const userEmail = session.customer_details?.email || "N/A";
     const userName = session.metadata?.userName || "N/A";
-    const serviceName = session.metadata?.serviceName || "Service";
+    const serviceName = session.metadata?.serviceName || "Unknown Service";
     const amountPaid = (session.amount_total / 100).toFixed(2);
 
-    /* ---------------- BREVO SETUP ---------------- */
+    /* ---------------- BREVO ---------------- */
 
     SibApiV3Sdk.ApiClient.instance.authentications["api-key"].apiKey =
       process.env.BREVO_API_KEY;
 
     const emailApi = new SibApiV3Sdk.TransactionalEmailsApi();
 
-    /* =====================================================
-       1️⃣ USER CONFIRMATION EMAIL
-       ===================================================== */
+    /* ================= USER EMAIL ================= */
 
     await emailApi.sendTransacEmail({
       sender: { name: "Head2Heart", email: "info@head2heart.co.nz" },
@@ -50,6 +50,7 @@ export default async function handler(req, res) {
       subject: "Your Session Is Confirmed – Head2Heart",
       htmlContent: `
         <h2>Thank you, ${userName} 🌿</h2>
+
         <p>Your payment has been successfully received.</p>
 
         <p><strong>Service:</strong> ${serviceName}</p>
@@ -63,9 +64,7 @@ export default async function handler(req, res) {
       `,
     });
 
-    /* =====================================================
-       2️⃣ ADMIN NOTIFICATION EMAIL
-       ===================================================== */
+    /* ================= ADMIN EMAIL ================= */
 
     await emailApi.sendTransacEmail({
       sender: { name: "Head2Heart System", email: "info@head2heart.co.nz" },
@@ -83,8 +82,6 @@ export default async function handler(req, res) {
         <p>Please reach out to the client for scheduling.</p>
       `,
     });
-
-    /* ---------------- SUCCESS ---------------- */
 
     return res.status(200).json({ success: true });
   } catch (error) {
