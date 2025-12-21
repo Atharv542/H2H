@@ -10,7 +10,7 @@ import {
   CheckCircle2,
   Sparkles,
   Target,
-  Lightbulb
+  Users
 } from 'lucide-react';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
@@ -50,7 +50,7 @@ const [user,setUser] = useState<any>(null);
 
   const included = [
     'Awareness & Intention Workbook to explore your thoughts, emotions, and habits',
-    '90-Minute Deep Awareness Coaching Session to identify emotional patterns, stress triggers, and blocks',
+    '60-Minute Deep Awareness Coaching Session to identify emotional patterns, stress triggers, and blocks',
     'Mindfulness check-in exercises for grounding and inner calm',
     'Daily reflection prompts to deepen awareness throughout the week',
     'Personal Awareness Summary with key insights and your recommended next step'
@@ -114,9 +114,7 @@ const [user,setUser] = useState<any>(null);
             <h1 className="font-bold text-5xl md:text-6xl text-white mb-4 leading-tight">
               Awareness & Discovery
             </h1>
-            <p className="text-2xl text-blue-100 mb-6 font-medium">
-              1-Week Self-Awareness Reset Program
-            </p>
+            
             <div className="flex items-center justify-center space-x-4 text-white">
               <span className="text-lg">90-Minute Deep Dive</span>
               
@@ -242,29 +240,100 @@ const [user,setUser] = useState<any>(null);
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection>
-            <div className="bg-white rounded-3xl shadow-2xl p-12">
-              <BookOpen className="h-16 w-16 text-blue-600 mx-auto mb-6" />
-              <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                Investment in Yourself
-              </h2>
-              <div className="text-6xl font-bold text-blue-600 mb-6">$99</div>
-              <p className="text-xl text-gray-600 mb-8">
-                One week to transform your awareness and reconnect with your true self
-              </p>
-              <button
-                onClick={() => handleBookNow("service4")}
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-slate-700 text-white px-10 py-5 rounded-full text-lg font-semibold hover:opacity-90 transition-all duration-200 transform hover:scale-105 shadow-xl"
-              >
-                <span>Book Your Program Now</span>
-                <ArrowRight className="h-5 w-5" />
-              </button>
-            </div>
-          </AnimatedSection>
+      {/* ---------------- INVESTMENT ---------------- */}
+  <section className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4">
+    <AnimatedSection>
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold">Investment</h2>
+        <p className="text-gray-600 text-lg">
+          Choose how you want to grow with this program
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+        {/* ---- LEFT: PRICE CARD ---- */}
+        <div className="bg-gradient-to-br from-blue-600 to-slate-700 p-8 rounded-3xl text-white shadow-xl">
+          <h3 className="text-xl font-semibold text-blue-100 mb-2">
+      1:1 Coaching Program
+    </h3>
+          <div className="text-5xl font-bold mb-6">$149</div>
+        
+
+       <ul className="space-y-3 mb-8  text-blue-100">
+  <li className="flex items-start gap-2">
+    <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+    <span className="leading-relaxed">
+      60-minute deep awareness coaching session.
+    </span>
+  </li>
+
+  <li className="flex items-start gap-2">
+    <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+    <span className="leading-relaxed">
+      Guided mindfulness tools to identify stress patterns.
+    </span>
+  </li>
+
+  <li className="flex items-start gap-2">
+    <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+    <span className="leading-relaxed">
+      Personalized awareness summary with clear next-step guidance
+    </span>
+  </li>
+</ul>
+
+
+          <button
+            onClick={() => handleBookNow("service4")}
+            className="w-full cursor-pointer bg-white text-blue-700 py-4 rounded-full font-semibold hover:bg-gray-100 transition flex justify-center items-center gap-2"
+          >
+            Book Now <ArrowRight />
+          </button>
         </div>
-      </section>
+
+        {/* ---- RIGHT: CUSTOM QUOTE ---- */}
+        <div className="bg-white border-2 border-gray-200 p-8 rounded-3xl shadow-lg">
+          <div className="flex items-center gap-2 mb-4">
+            <Users className="h-6 w-6 text-blue-600" />
+            <h3 className="text-2xl font-bold text-gray-900">
+              Corporate / Team
+            </h3>
+          </div>
+
+          <p className="text-gray-600 mb-6">
+            Custom coaching options tailored for teams or groups
+          </p>
+
+          <ul className="space-y-5 py-4 mb-8 text-gray-700">
+            <li className="flex gap-2">
+              <CheckCircle2 className="text-blue-600" />
+              Tailored Coaching Program for Your Team
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="text-blue-600" />
+              Interactive Group Materials & Workbooks
+            </li>
+            <li className="flex gap-2">
+              <CheckCircle2 className="text-blue-600" />
+              Engaging Team Activities & Discussions
+            </li>
+          </ul>
+
+          <Link
+            to={user ? "/contact" : "/login"}
+            className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center py-4 rounded-full font-semibold hover:opacity-90 transition"
+          >
+            Request Quote
+          </Link>
+        </div>
+
+      </div>
+    </AnimatedSection>
+  </div>
+</section>
+
 
       <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-slate-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

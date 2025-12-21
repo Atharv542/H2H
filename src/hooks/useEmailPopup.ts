@@ -13,7 +13,7 @@ export const useEmailPopup = () => {
     // Timer for 15 seconds
     const timer = setTimeout(() => {
       setTimeElapsed(true);
-    }, 7000);
+    }, 15000);
 
     // Scroll detection
     const handleScroll = () => {

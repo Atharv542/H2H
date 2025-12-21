@@ -7,11 +7,11 @@ export default function TransformYourLife() {
 
   return (
     <ServiceTemplate
-      badge="90-Min Session"
+      badge="60-Min Session"
       title="Transform Your Life"
       subtitle="Mindfulness & Self-Discovery Session"
-      duration="90 Minutes"
-      price="$99"
+      duration="60 Minutes"
+      price="$149"
       gradient="from-blue-600 via-purple-600 to-slate-700"
       description="Slow down, reconnect with yourself, and gain clarity about your emotions, values, habits, and life direction."
       features={[
@@ -21,7 +21,7 @@ export default function TransformYourLife() {
         { icon: Target, title: "Life Direction", description: "Define aligned next steps." },
       ]}
       included={[
-        "90-minute guided mindfulness session",
+        "60-minute guided mindfulness session",
         "Values & inner truth exploration",
         "Emotional awareness reflection",
         "Life clarity vision exercise",

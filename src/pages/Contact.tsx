@@ -34,37 +34,49 @@ const ContactForm = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
 
-    try {
-      console.log('Form submitted:', formData);
+  try {
+    const response = await fetch("/api/send-contact-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-      await new Promise(resolve => setTimeout(resolve, 1500));
-
-      setSubmitted(true);
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        company: '',
-        position: '',
-        teamSize: '',
-        message: '',
-        agreeToTerms: false
-      });
-
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    } finally {
-      setLoading(false);
+    if (!response.ok) {
+      throw new Error("Failed to send email");
     }
-  };
+
+    setSubmitted(true);
+
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      company: '',
+      position: '',
+      teamSize: '',
+      message: '',
+      agreeToTerms: false
+    });
+
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 5000);
+
+  } catch (error) {
+    console.error("Submit error:", error);
+    alert("Something went wrong. Please try again.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
@@ -109,8 +121,8 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                    <a href="mailto:corporate@headtoheartcoaching.com" className="text-blue-600 hover:underline">
-                      info@h2h.co.nz
+                    <a href="mailto:info@head2heart.co.nz" className="text-blue-600 hover:underline">
+                      info@head2heart.co.nz
                     </a>
                   </div>
                 </div>
@@ -122,7 +134,7 @@ const ContactForm = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
                     <a href="tel:+64-2-1234-5678" className="text-blue-600 hover:underline">
-                      +64 (0)21 234 5678
+                      +64 21 136 8819
                     </a>
                   </div>
                 </div>

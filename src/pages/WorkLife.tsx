@@ -10,8 +10,8 @@ export default function WorkLifeBalance() {
       badge="Clarity & Alignment"
       title="Work–Life Balance"
       subtitle="Reset Priorities. Restore Balance. Live Intentionally."
-      duration="75 Minutes"
-      price="$99"
+      duration="60 Minutes"
+      price="$149"
       gradient="from-purple-600 via-blue-600 to-slate-700"
       description="This session helps you identify imbalance, understand what’s draining you, and create practical boundaries and habits for sustainable balance without guilt."
       features={[

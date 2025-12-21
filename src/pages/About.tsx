@@ -68,7 +68,7 @@ const About = () => {
       bgColor: 'from-blue-400 to-cyan-400',
       bio:
         'Hi, I\'m Sachin Kaintura  a husband, proud father, and Personal Development & Mindfulness Certified Coach with expertise in NLP. My journey began in the bustling city of Mumbai, where I studied hospitality and started my career in the service industry. Like many in India\'s middle class, I dreamed of giving my family a better life a dream that led me to take a leap of faith in 2009 and move to New Zealand. Starting over as an immigrant meant long hours, financial sacrifices, and the emotional challenge of building a new life far from home. But through it all, I stayed true to the values of honesty, respect, empathy, and authenticity principles that continue to guide me today. Despite over two decades of experience in hospitality and leadership, I often felt a sense of incompleteness. I was doing well, but something inside me was missing. Everything changed in 2019 when I discovered a marketing company that introduced me to mindfulness. That experience became a turning point, helping me overcome stress, procrastination, limiting beliefs, and imposter syndrome. Today, I help individuals break free from self-doubt, gain clarity, and create balance in their personal and professional lives. My mission is simple: to guide you in cultivating mindfulness, unlocking your potential, and living with purpose. If you\'ve ever felt stuck, overwhelmed, or like there\'s more waiting for you, you\'re not alone. I\'ve been there too, and I\'m here to help you navigate your journey.',
-      shortBio: 'Personal Development & Mindfulness Certified Coach helping individuals overcome self-doubt, gain clarity, and create balance in their personal and professional lives.',
+      shortBio: 'Personal Development & Mindfulness Certified Coach helping individuals overcome self-doubt, gain clarity, and create balance in their lives.',
     },
   
   ];
@@ -102,7 +102,7 @@ const About = () => {
 
           <div className="relative">
             <img
-              src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src="Mission.jpg"
               alt="About Us"
               className="rounded-2xl shadow-2xl w-full h-96 object-cover"
             />
@@ -137,8 +137,8 @@ const About = () => {
                 key={member.id}
                 whileHover={{ y: -8 }}
                 transition={{ duration: 0.3 }}
-                onClick={() => navigate(`/team/${member.id}`)}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300"
+                
+                className="bg-white rounded-2xl shadow-lg overflow-hidden"
               >
                 <div className="p-8">
                   <div className="flex justify-center mb-6">
@@ -153,40 +153,25 @@ const About = () => {
 
                   <h3 className="text-2xl font-bold text-gray-900 text-center mb-2">{member.name}</h3>
 
-                  <div className="flex justify-center mb-4">
-                    <span className={`inline-block px-4 py-1 rounded-full text-sm font-medium text-white bg-gradient-to-r ${member.bgColor}`}>
-                      Coach
-                    </span>
-                  </div>
+                  
 
                   <p className="text-center text-gray-700 font-medium mb-3">{member.role}</p>
 
-                  <p className="text-gray-600 text-center leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed">
                     {member.shortBio}
                   </p>
+                  <div> 
+                    <button onClick={() => navigate(`/team/${member.id}`)} className='mt-2 text-blue-500 cursor-pointer  underline'>Read More</button>
+                  </div>
+                  
+                 
                 </div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="mt-20 bg-gradient-to-br from-blue-50 to-teal-50 rounded-3xl p-8 md:p-12"
-        >
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              Head2Heart was founded on the belief that true and lasting transformation comes from integrating intellectual insight with emotional intelligence. While we've been supporting individuals in various ways for years, we officially came together as an organization in April 2025 with a shared vision to help people reconnect with themselves through a holistic blend of mindfulness, emotional awareness, and practical growth tools. We have a vision to reach people globally.
-            </p>
-
-            <p className="text-lg text-gray-600">
-              At our core, we understand the universal human desire to be seen, heard, guided, and transformed. And throughout this journey, we've been deeply humbled and inspired by the profound changes we've witnessed. There's a kind of magic that unfolds when people align their thoughts with their emotions, their goals with their values, and their minds with their hearts.
-            </p>
-          </div>
-        </motion.div>
+       
       </div>
 
     </div>

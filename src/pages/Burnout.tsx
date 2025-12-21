@@ -9,9 +9,9 @@ export default function BurnoutRecovery() {
     <ServiceTemplate
       badge="Mindful Reset"
       title="Burnout Recovery"
-      subtitle="Recognise. Reset. Rebuild."
-      duration="90 Minutes"
-      price="$99"
+     
+      duration="60 Minutes"
+      price="$149"
       gradient="from-purple-600 to-slate-700"
       description="A compassionate session to understand burnout and begin recovery without pressure."
       features={[

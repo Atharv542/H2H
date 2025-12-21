@@ -1,6 +1,6 @@
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Facebook, Instagram, Linkedin, Mail,MessageCircle } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const TikTokIcon = () => (
@@ -9,7 +9,9 @@ const TikTokIcon = () => (
   </svg>
 );
 
+
 const Footer = () => {
+  const navigate= useNavigate();
   return (
     <footer className="bg-gradient-to-br from-slate-100 to-blue-100 text-gray-900 border-t border-gray-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
@@ -111,10 +113,23 @@ const Footer = () => {
             className="flex flex-col"
           >
             <h3 className="font-semibold text-lg text-gray-900 mb-8">Contact Info</h3>
-            <div className="flex items-start space-x-2">
-              <Mail className="h-4 w-4 text-gray-600 mt-1 flex-shrink-0" />
-              <span className="text-gray-700 text-sm">info@head2heart.co.nz</span>
-            </div>
+           <div className="flex items-start flex-col space-y-2">
+  <div className="flex items-start space-x-2">
+    <Mail className="h-4 w-4 text-gray-600 mt-1 flex-shrink-0" />
+    <a href='mailto:info@head2heart.co.nz' className="text-gray-700 text-sm">
+      info@head2heart.co.nz
+    </a>
+  </div>
+
+  <button
+    onClick={() => navigate('/contact')}
+    className="flex items-start space-x-2 text-gray-700 text-sm hover:text-gray-900  transition-colors"
+  >
+    <MessageCircle className="h-4 w-4 text-gray-600 mt-1 flex-shrink-0" />
+    <span className='cursor-pointer '>Contact Us</span>
+  </button>
+</div>
+
           </motion.div>
         </motion.div>
 

@@ -10,8 +10,8 @@ export default function LimitingBeliefs() {
       badge="Mindset Reset"
       title="Releasing Limiting Beliefs"
       subtitle="Rewrite Your Inner Story"
-      duration="90 Minutes"
-      price="$99"
+      duration="60 Minutes"
+      price="$149"
       gradient="from-purple-600 to-indigo-700"
       description="Identify and release beliefs holding you back and replace them with empowering ones."
       features={[

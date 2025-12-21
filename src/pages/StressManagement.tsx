@@ -10,8 +10,8 @@ export default function StressManagement() {
       badge="Mindful Reset"
       title="Stress Awareness & Management"
       subtitle="Respond with Calm & Clarity"
-      duration="90 Minutes"
-      price="$99"
+      duration="60 Minutes"
+      price="$149"
       gradient="from-blue-500 to-purple-600"
       description="Learn how stress shows up in your body and mind and how to manage it consciously."
       features={[

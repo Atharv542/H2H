@@ -60,7 +60,7 @@ const Home = () => {
       description:
         "Strengthen your connections with others by first understanding yourself. Learn communication techniques and emotional intelligence skills that transform your personal and professional relationships.",
       image:
-        "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "Home-meaningful.jpg",
       reverse: true,
     },
     {
@@ -69,7 +69,7 @@ const Home = () => {
       description:
         "Experience sustainable transformation that goes beyond temporary fixes. Our comprehensive approach ensures you develop habits, mindsets, and practices that support your growth for years to come.",
       image:
-        "https://images.pexels.com/photos/3760607/pexels-photo-3760607.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "Home-lasting.jpg",
       reverse: false,
     },
   ];
