@@ -9,6 +9,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import toast from "react-hot-toast";
 
 /* ---------------- TYPES ---------------- */
 
@@ -77,7 +78,17 @@ const ServiceTemplate: React.FC<Props> = ({
 
   /* -------- STRIPE CHECKOUT -------- */
   const handleCheckout = async () => {
-    if (!user) return navigate("/login");
+      if (!user) {
+      toast.error("Please login first!");
+      navigate("/login");
+      return;
+    }
+
+    if (!user.emailVerified) {
+      toast.error("Please verify your email before booking a session.");
+      navigate("/login");
+      return;
+    }
 
     try {
       const res = await fetch("/api/create-checkout-session", {

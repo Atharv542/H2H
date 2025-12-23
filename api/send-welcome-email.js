@@ -34,7 +34,7 @@ export default async function handler(req, res) {
           <p>Hi <strong>${name}</strong>,</p>
 
           <p>
-            Welcome to <strong>Head2Heart Wellness</strong>.
+            Welcome to <strong>Head2Heart</strong>.
             <br><br>
             Your account has been successfully created, and we’re honoured to be a part of your journey toward
             <strong>clarity, balance, and emotional wellbeing</strong>.

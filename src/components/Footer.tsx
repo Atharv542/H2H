@@ -21,7 +21,7 @@ const Footer = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12"
+          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-12"
         >
           <div className="flex flex-col -mt-12">
             <div className="flex items-center space-x-2">
@@ -88,7 +88,7 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          <motion.div
+          {/*<motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -103,7 +103,7 @@ const Footer = () => {
             </p>
             </div>
             
-          </motion.div>
+          </motion.div>*/}
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}

@@ -91,7 +91,7 @@ const About = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Head2Heart was created to meet a quiet but growing need in Aotearoa New Zealand — the need for early, human, emotional support. Not everyone needs therapy. Not everyone is in crisis. But many people need a safe space to be heard, grounded, and supported. Head2Heart offers that space — gently, respectfully, and without judgement.
+              Head2Heart was created to meet a quiet but growing need in Aotearoa New Zealand,the need for early, human, emotional support. Not everyone needs therapy. Not everyone is in crisis. But many people need a safe space to be heard, grounded, and supported. Head2Heart offers that space gently, respectfully, and without judgement.
             </p>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               While we've been supporting individuals in various ways for years, we officially came together as an organization in April 2025 with a shared vision to help people reconnect with themselves through a holistic blend of mindfulness, emotional awareness, and practical growth tools. We have a vision to reach people globally.
@@ -119,7 +119,7 @@ const About = () => {
             </p>
             
             <p className="text-lg italic font-bold text-gray-700">
-              We believe emotions are signals — not problems to fix.
+              We believe emotions are signals not problems to fix.
             </p>
           </div>
 

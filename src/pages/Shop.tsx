@@ -216,9 +216,15 @@ const Shop = () => {
   
 
   const handleBuyNow = async (item: string) => {
-  if (!user) {
-    // Redirect to login if not signed in
-    navigate('/login');
+   if (!user) {
+    toast.error("Please login first!");
+    navigate("/login");
+    return;
+  }
+
+  if (!user.emailVerified) {
+    toast.error("Please verify your email before making a purchase.");
+    navigate("/login");
     return;
   }
 
@@ -274,7 +280,7 @@ const Shop = () => {
           </div>
 
           {/* 🛒 Cart Icon */}
-          <div
+          {/*<div
             className="flex items-center space-x-2 cursor-pointer"
             onClick={openCart}
           >
@@ -282,7 +288,7 @@ const Shop = () => {
             <span className="font-medium text-gray-900">
               Cart ({getTotalItems()})
             </span>
-          </div>
+          </div>*/}
         </motion.div>
 
         {/* 🛍️ Product Grid */}
@@ -323,13 +329,13 @@ const Shop = () => {
                     ${product.price}
                   </span>
                   <div className="flex space-x-2">
-                    <button
+                    {/*<button
                       onClick={() => handleAddToCart(product)}
                       className="bg-gray-100 cursor-pointer text-gray-700 px-4 py-2 rounded-full hover:bg-gray-200 transition-all duration-200 flex items-center space-x-1"
                     >
                       <ShoppingCart className="h-4 w-4" />
                       <span>Add</span>
-                    </button>
+                    </button>*/}
                     <button
                       onClick={() => handleBuyNow(product.priceId)}
                       className="bg-gradient-to-r from-blue-600 to-purple-600 cursor-pointer text-white px-4 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 flex items-center space-x-1"

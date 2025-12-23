@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Compass, Lightbulb, Focus, Wind, CheckCircle2, Calendar, DollarSign, Users, Eye } from 'lucide-react';
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import toast from 'react-hot-toast';
 const ClarityCoaching = () => {
   const [user,setUser] = useState<any>(null);
   const navigate= useNavigate();
@@ -451,7 +452,17 @@ const ClarityCoaching = () => {
                 </ul>
               <button
   onClick={async () => {
-    if (!user) return navigate('/login'); // redirect if not logged in
+     if (!user) {
+      toast.error("Please login first!");
+      navigate("/login");
+      return;
+    }
+
+    if (!user.emailVerified) {
+      toast.error("Please verify your email before booking a session.");
+      navigate("/login");
+      return;
+    } // redirect if not logged in
 
     try {
       // This is where you call your API

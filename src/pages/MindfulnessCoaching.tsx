@@ -4,6 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Brain, Shield, Users, Zap, CheckCircle2, Calendar, DollarSign, TrendingUp, Heart } from 'lucide-react';
 import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import toast from 'react-hot-toast';
 const MindfulnessCoaching = () => {
   const [user,setUser] = useState<any>(null);
    useEffect(() => {
@@ -95,11 +96,17 @@ const MindfulnessCoaching = () => {
     'Post-program follow-up session (30 min)'
   ];
   const handleCheckout = async (item: string) => {
-  if (!user) {
-    // Redirect to login if not signed in
-    navigate('/login');
-    return;
-  }
+   if (!user) {
+      toast.error("Please login first!");
+      navigate("/login");
+      return;
+    }
+
+    if (!user.emailVerified) {
+      toast.error("Please verify your email before booking a session.");
+      navigate("/login");
+      return;
+    }
 
   try {
     const res = await fetch("/api/create-checkout-session", {

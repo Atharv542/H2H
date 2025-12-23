@@ -95,7 +95,7 @@ const handleSubmit = async (e) => {
               Let's Create Your Custom Program
             </h1>
             <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              Connect with our team to discuss your organization's unique coaching needs and get a personalized quote.
+              Connect with our team to discuss unique coaching needs and get a personalised quote.
             </p>
           </motion.div>
         </div>
@@ -127,7 +127,7 @@ const handleSubmit = async (e) => {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
+                {/*<div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Phone className="h-6 w-6 text-white" />
                   </div>
@@ -137,7 +137,7 @@ const handleSubmit = async (e) => {
                       +64 21 136 8819
                     </a>
                   </div>
-                </div>
+                </div>*/}
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -172,10 +172,10 @@ const handleSubmit = async (e) => {
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="p-8 md:p-10">
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                    Corporate Program Inquiry
+                    Program Enquiry
                   </h2>
                   <p className="text-gray-600 mb-8">
-                    Fill out the form below and we'll be in touch with a customized proposal for your organization.
+                    Fill out the form below and we'll be in touch with a customized proposal.
                   </p>
 
                   {/* Name Fields */}
@@ -317,7 +317,7 @@ const handleSubmit = async (e) => {
                   </div>
 
                   {/* Team Size */}
-                  <motion.div
+                  {/*<motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
@@ -343,7 +343,7 @@ const handleSubmit = async (e) => {
                       <option value="51-100">51-100 people</option>
                       <option value="100+">100+ people</option>
                     </select>
-                  </motion.div>
+                  </motion.div>*/}
 
                   {/* Message */}
                   <motion.div
@@ -386,7 +386,7 @@ const handleSubmit = async (e) => {
                       className="w-5 h-5 text-blue-600 rounded mt-0.5"
                     />
                     <label htmlFor="terms" className="text-sm text-gray-700">
-                      I agree to be contacted about my inquiry and to receive information about Head2Heart coaching programs
+                      I agree to be contacted about my enquiry and to receive information about Head2Heart coaching programs
                     </label>
                   </motion.div>
 

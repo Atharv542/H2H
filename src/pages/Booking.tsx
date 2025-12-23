@@ -24,8 +24,14 @@ useEffect(() => {
   const checkAccess = async () => {
     const user = auth.currentUser;
 
-    if (!user) {
+     if (!user) {
       toast.error("Please login first!");
+      navigate("/login");
+      return;
+    }
+
+    if (!user.emailVerified) {
+      toast.error("Please verify your email before booking a session.");
       navigate("/login");
       return;
     }

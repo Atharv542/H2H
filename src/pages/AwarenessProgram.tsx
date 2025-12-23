@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
+import toast from 'react-hot-toast';
 
 const AwarenessProgram = () => {
 const [user,setUser] = useState<any>(null);
@@ -66,11 +67,17 @@ const [user,setUser] = useState<any>(null);
   ];
 
   const handleBookNow = async (item: string) => {
-  if (!user) {
-    // Redirect to login if not signed in
-    navigate('/login');
-    return;
-  }
+    if (!user) {
+      toast.error("Please login first!");
+      navigate("/login");
+      return;
+    }
+
+    if (!user.emailVerified) {
+      toast.error("Please verify your email before booking a session.");
+      navigate("/login");
+      return;
+    }
 
   try {
     const res = await fetch("/api/create-checkout-session", {
