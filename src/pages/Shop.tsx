@@ -33,7 +33,7 @@ const Shop = () => {
       "https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&w=400",
     description:
       "Beautiful journal with guided prompts for daily reflection and gratitude.",
-    priceId: "product2",
+    priceId: "product1",
   },
 
   {
@@ -47,7 +47,7 @@ const Shop = () => {
       "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=400",
     description:
       "Structured planner to define goals and track daily progress.",
-    priceId: "product4",
+    priceId: "product2",
   },
   {
     id: "3",
@@ -60,7 +60,7 @@ const Shop = () => {
       "https://i.etsystatic.com/24721769/r/il/17c0ab/2502013776/il_1140xN.2502013776_8o3s.jpg",
     description:
       "Daily log to cultivate mindfulness and self-awareness.",
-    priceId: "product5",
+    priceId: "product3",
   },
   {
     id: "4",
@@ -73,7 +73,7 @@ const Shop = () => {
       "DAILY WINNING ROUTINES.jpg",
     description:
       "Routine builder for productivity and consistency.",
-    priceId: "product6",
+    priceId: "product4",
   },
   {
     id: "5",
@@ -86,7 +86,7 @@ const Shop = () => {
       "BUILD MOTIVATION.jpg",
     description:
       "Motivation-building exercises to stay inspired.",
-    priceId: "product7",
+    priceId: "product5",
   },
   {
     id: "6",
@@ -99,7 +99,7 @@ const Shop = () => {
       "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg?auto=compress&cs=tinysrgb&w=400",
     description:
       "Quick morning practices to start your day with clarity.",
-    priceId: "product8",
+    priceId: "product6",
   },
   {
     id: "7",
@@ -112,7 +112,7 @@ const Shop = () => {
       "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=400",
     description:
       "Worksheets designed to reshape your mindset.",
-    priceId: "product9",
+    priceId: "product7",
   },
   {
     id: "8",
@@ -125,7 +125,7 @@ const Shop = () => {
       "https://images.pexels.com/photos/3771110/pexels-photo-3771110.jpeg?auto=compress&cs=tinysrgb&w=400",
     description:
       "Night routine planner for better sleep and reflection.",
-    priceId: "product10",
+    priceId: "product8",
   },
   {
     id: "9",
@@ -138,7 +138,7 @@ const Shop = () => {
       "https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?auto=compress&cs=tinysrgb&w=400",
     description:
       "Morning routine worksheet for a productive start.",
-    priceId: "product11",
+    priceId: "product9",
   },
   {
     id: "10",
@@ -151,7 +151,7 @@ const Shop = () => {
       "An Attitude Worksheet.jpg",
     description:
       "Improve your attitude with guided exercises.",
-    priceId: "product12",
+    priceId: "product10",
   },
   {
     id: "11",
@@ -164,7 +164,7 @@ const Shop = () => {
       "https://i.etsystatic.com/49179139/r/il/c4cad1/6597212031/il_1588xN.6597212031_frim.jpg",
     description:
       "Manifest goals using law of attraction techniques.",
-    priceId: "product13",
+    priceId: "product11",
   },
   {
     id: "12",
@@ -177,7 +177,7 @@ const Shop = () => {
       "A Paradigm Shift Worksheet.jpg",
     description:
       "Shift thinking patterns for long-term change.",
-    priceId: "product14",
+    priceId: "product12",
   },
   {
     id: "13",
@@ -190,7 +190,7 @@ const Shop = () => {
       "Personal Development Worksheet.jpg",
     description:
       "Personal growth exercises for self-improvement.",
-    priceId: "product15",
+    priceId: "product13",
   },
   {
     id: "14",
@@ -203,7 +203,7 @@ const Shop = () => {
       "Mindfulness Worksheet.jpg",
     description:
       "Mindfulness worksheets for calm and focus.",
-    priceId: "product16",
+    priceId: "product14",
   },
 ];
 
