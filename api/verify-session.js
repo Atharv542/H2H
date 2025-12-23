@@ -24,10 +24,20 @@ export default async function handler(req, res) {
 
     // 2️⃣ Map productName → PDF file
     const pdfFiles = {
-      "Transform Your Life Workbook": "daa.pdf",
-      "Daily Reflection Journal": "DailyReflectionJournal.pdf",
-      "Goal Setting Planner": "GoalSettingPlanner.pdf",
-      "Affirmation Cards Set": "AffirmationCardsSet.pdf",
+      "Daily Reflection Journal": "H2H Daily Reflection Log Workbook  v0.1.pdf",
+      "Goal Setting Planner": "H2H Goal setting plannner Workbook.pdf",
+      "MINDFUL DAILY LOG": "H2H Mindful daily log workbook.pdf",
+      "DAILY WINNING ROUTINES": "H2H Daily winning habits workbook.pdf",
+      "BUILD MOTIVATION": "H2H BUILD MOTIVATION Workbook  v0.1.pdf",
+      "5 Min Simple Morning Practices": "H2H Morning Practice Workbook.pdf",
+      "Fixed Mindset vs Growth Mindset": "H2H Fixed vs. Growth Mindset Workbook.pdf",
+      "A Night Routine Worksheet": "H2H Night Routine Workbook.pdf",
+      "A Morning Routine Worksheet": "H2H Morning Practice Workbook.pdf",
+      "An Attitude Worksheet": "H2H Winning Attitude Workbook.pdf",
+      "A Law of Attraction Worksheet": "H2H Law of Attraction Workbook.pdf",
+      "A Paradigm Shift Worksheet": "H2H Paradigm Shift Workbook.pdf",
+      "Personal Development Worksheet": "H2H Personal Development Workbook.pdf",
+      "Mindfulness Worksheet": "H2H Mindfulness Practice Workbook.pdf",
     };
 
     const pdfFile = pdfFiles[productName];
