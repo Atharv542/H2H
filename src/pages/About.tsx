@@ -106,32 +106,50 @@ const About = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
-        >
-          <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
-            <p className='text-lg text-gray-700 mb-6 font-semibold'>At Head2Heart,we believe that true transformation happens when logic meets emotions,when strategies align with values and when the mind and heart work together in harmony.</p>
-            <p className="text-lg text-gray-700 mb-6 font-semibold mt-2">
-              We change lives from within by empowering and transforming mental, emotional and physical wellbeing through purpose driven guidance.
-            </p>
-            
-            <p className="text-lg italic font-bold text-gray-700">
-              We believe emotions are signals not problems to fix.
-            </p>
-          </div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.3 }}
+  className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
+>
+  {/* LEFT: Mission & Vision */}
+  <div>
+    <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
 
-          <div className="relative">
-            <img
-              src="/Mission.jpg"
-              alt="Our Mission"
-              className="rounded-2xl shadow-2xl w-full h-96 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent rounded-2xl"></div>
-          </div>
-        </motion.div>
+    <p className="text-lg text-gray-700 mb-6 font-semibold">
+      At Head2Heart, we believe that true transformation happens when logic meets emotions,
+      when strategies align with values, and when the mind and heart work together in harmony.
+    </p>
+
+    <p className="text-lg text-gray-700 mb-6 font-semibold">
+      We change lives from within by empowering and transforming mental, emotional,
+      and physical wellbeing through purpose-driven guidance.
+    </p>
+
+    <p className="text-lg italic font-bold text-gray-700 mb-10">
+      We believe emotions are signals — not problems to fix.
+    </p>
+  {/* OUR VISION */}
+    <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Vision</h3>
+
+    <p className="text-lg text-gray-700 mb-4 leading-relaxed">
+      We want to create a meaningful impact globally
+    </p>
+   
+  </div>
+
+  {/* RIGHT: IMAGE */}
+  <div className="relative">
+    <img
+      src="/Mission.jpg"
+      alt="Our Mission and Vision"
+      className="rounded-2xl shadow-2xl w-full h-96 object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent rounded-2xl"></div>
+  </div>
+</motion.div>
+
+ 
+
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

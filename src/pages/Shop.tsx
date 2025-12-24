@@ -224,7 +224,6 @@ const Shop = () => {
 
   if (!user.emailVerified) {
     toast.error("Please verify your email before making a purchase.");
-    navigate("/login");
     return;
   }
 

@@ -155,7 +155,7 @@ const handleSubmit = async (e) => {
               <div className="mt-8 pt-8 border-t-2 border-gray-200">
                 <h4 className="font-semibold text-gray-900 mb-4">Response Time</h4>
                 <p className="text-gray-600 text-sm">
-                  We typically respond to corporate inquiries within 24 business hours.
+                  We typically respond to enquiries within 24 business hours.
                 </p>
               </div>
             </div>
@@ -175,7 +175,7 @@ const handleSubmit = async (e) => {
                     Program Enquiry
                   </h2>
                   <p className="text-gray-600 mb-8">
-                    Fill out the form below and we'll be in touch with a customized proposal.
+                    Fill out the form below and we'll be in touch with a customised proposal.
                   </p>
 
                   {/* Name Fields */}

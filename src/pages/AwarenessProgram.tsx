@@ -75,7 +75,6 @@ const [user,setUser] = useState<any>(null);
 
     if (!user.emailVerified) {
       toast.error("Please verify your email before booking a session.");
-      navigate("/login");
       return;
     }
 
