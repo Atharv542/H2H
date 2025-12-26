@@ -18,31 +18,31 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-     { name: "Shop", path: "/shop" },
-     { name: "Testimonials", path: "/testimonials" },
+    { name: "Shop", path: "/shop" },
+    { name: "Testimonials", path: "/testimonials" },
     { name: "About", path: "/about" },
-   
-    
-    { /*name: "Podcast", path: "/podcast" */},
+
+    {
+      /*name: "Podcast", path: "/podcast" */
+    },
   ];
 
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-    if (currentUser) {
-      const docRef = doc(db, "users", currentUser.uid);
-      const docSnap = await getDoc(docRef);
-      if (docSnap.exists()) {
-        setUser({ ...currentUser, displayName: docSnap.data().firstName });
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      if (currentUser) {
+        const docRef = doc(db, "users", currentUser.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setUser({ ...currentUser, displayName: docSnap.data().firstName });
+        } else {
+          setUser(currentUser);
+        }
       } else {
-        setUser(currentUser);
+        setUser(null);
       }
-    } else {
-      setUser(null);
-    }
-  });
-  return () => unsubscribe();
-}, []);
-
+    });
+    return () => unsubscribe();
+  }, []);
 
   const isActive = (path: string) => {
     if (path === "/#services") {
@@ -73,28 +73,30 @@ useEffect(() => {
   const handleLogout = async () => {
     await signOut(auth);
     setShowUserMenu(false);
-    toast.success("Logged out successfully!")
+    toast.success("Logged out successfully!");
     navigate("/login"); // optional redirect after logout
   };
 
-  
-    const handleStartJourney = async () => {
+  const handleStartJourney = async () => {
     if (!user) {
       navigate("/login");
       return;
     }
-  
+
     // Check if user has booked free session
     const ref = doc(db, "user_sessions", user.uid);
     const snap = await getDoc(ref);
-  
+
     if (snap.exists() && snap.data().hasBookedFreeSession === true) {
       // Already booked → Smooth scroll to Services section
-      navigate('/services')
+      navigate("/services");
     } else {
       // Not booked yet → Go to free booking page
       navigate("/booking");
     }
+  };
+  const closeMobileMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -106,11 +108,13 @@ useEffect(() => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center space-x-2"
           >
-            <img src="Logo6.png" className="w-15 h-15 mt-1"/>
+            <img src="Logo6.png" className="w-15 h-15 mt-1" />
             <Link to="/">
-              < img src="New_Logo_3.png" className="w-60 h-35 -mx-8 mt-2 opacity-100"/>
+              <img
+                src="New_Logo_3.png"
+                className="w-60 h-35 -mx-8 mt-2 opacity-100"
+              />
             </Link>
-            
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -131,7 +135,7 @@ useEffect(() => {
             ))}
 
             <button
-               onClick={handleStartJourney}
+              onClick={handleStartJourney}
               className="bg-gradient-to-r from-blue-600 to-purple-600 cursor-pointer text-white px-6 py-2 rounded-full transition-all duration-200 transform hover:scale-105"
             >
               Book Now
@@ -139,20 +143,17 @@ useEffect(() => {
 
             {user ? (
               <div className="relative">
-               <button
-  onClick={() => setShowUserMenu(!showUserMenu)}
-  className="px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition font-medium text-gray-700"
->
-  <div className="flex items-center gap-2 text-gray-700 font-medium">
-  <p>Hi,</p>
-  <span className="text-blue-600 font-semibold">
-    {user?.displayName || user?.email?.split("@")[0]}
-  </span>
-</div>
-
- 
-</button>
-
+                <button
+                  onClick={() => setShowUserMenu(!showUserMenu)}
+                  className="px-4 py-2 rounded-full cursor-pointer hover:bg-gray-200 transition font-medium text-gray-700"
+                >
+                  <div className="flex items-center gap-2 text-gray-700 font-medium">
+                    <p>Hi,</p>
+                    <span className="text-blue-600 font-semibold">
+                      {user?.displayName || user?.email?.split("@")[0]}
+                    </span>
+                  </div>
+                </button>
 
                 {showUserMenu && (
                   <div className="absolute right-0 mt-2 w-32 bg-white  shadow-lg z-50">
@@ -198,7 +199,10 @@ useEffect(() => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    onClick={(e) => handleNavClick(e, item.path)}
+                    onClick={(e) => {
+                      handleNavClick(e, item.path);
+                      closeMobileMenu();
+                    }}
                     className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                       isActive(item.path)
                         ? "text-blue-600 bg-blue-50"
@@ -210,7 +214,10 @@ useEffect(() => {
                 ))}
 
                 <button
-                   onClick={handleStartJourney}
+                  onClick={() => {
+                    handleStartJourney();
+                    closeMobileMenu();
+                  }}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full transition-all duration-200 transform hover:scale-105"
                 >
                   Book Now
