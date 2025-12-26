@@ -408,7 +408,7 @@ const handleSubmit = async (e) => {
                         </>
                       ) : (
                         <>
-                          <span>Send Inquiry</span>
+                          <span>Send Enquiry</span>
                           <ArrowRight className="h-5 w-5" />
                         </>
                       )}
@@ -416,7 +416,7 @@ const handleSubmit = async (e) => {
                   </motion.div>
 
                   <p className="text-center text-xs text-gray-500 mt-6">
-                    Your information is secure and will only be used to contact you about your inquiry.
+                    Your information is secure and will only be used to contact you about your enquiry.
                   </p>
                 </form>
               ) : (

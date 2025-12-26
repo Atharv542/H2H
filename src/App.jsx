@@ -44,6 +44,8 @@ import Procrastination from './pages/Procrastination';
 import BoostingSelfEsteem from './pages/SelfEsteem';
 import StressManagement from './pages/StressManagement';
 import WorkLifeBalance from './pages/WorkLife';
+import { BookIcon } from 'lucide-react';
+import BookingSuccess from './pages/CalenderSuccess';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -79,7 +81,8 @@ function App() {
               <Route path="/privacy" element={<Terms />} />
               <Route path="/shop-success" element={<ShopSuccess />} />
               <Route path="/services" element={<Services/>} />
-              
+              <Route path="/calender-success" element={<BookingSuccess />} />
+
               <Route path="/contact" element={<ContactForm />} />
               <Route path="/connect" element={<Connect />} />
               <Route path="/team-new" element={<Team />} />
