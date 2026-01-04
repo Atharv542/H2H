@@ -83,7 +83,7 @@ export default async function handler(req, res) {
       line_items: [{ price: selected.id, quantity: 1 }],
       success_url:
         "https://www.head2heart.co.nz/shop-success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "https://www.head2heart.co.nz/",
+      cancel_url: "https://www.head2heart.co.nz/shop",
       metadata: {
         productName: selected.name, // ✔️ Correct product name added
       },
