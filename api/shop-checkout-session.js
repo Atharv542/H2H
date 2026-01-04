@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     },
    
     product3: {
-      id: "price_1ScPq7CSe0ZSreoR8nUULEQM",
+      id: "price_1SlseoCSe0ZSreoRDakcBlMl",
       name: "MINDFUL DAILY LOG",
     },
     product4: {
