@@ -287,7 +287,7 @@ const handleSubmit = async (e) => {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        required
+                        
                         placeholder="Your Company"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                       />
@@ -309,7 +309,7 @@ const handleSubmit = async (e) => {
                         name="position"
                         value={formData.position}
                         onChange={handleChange}
-                        required
+                        
                         placeholder="e.g., HR Manager"
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all"
                       />
