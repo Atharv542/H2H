@@ -26,7 +26,7 @@ const Shop = () => {
     id: "1",
     title: "Daily reflection journal",
     category: "journals",
-    price: 24.99,
+    price: 19.99,
     rating: 4.7,
     reviews: 203,
     image:
@@ -40,7 +40,7 @@ const Shop = () => {
     id: "2",
     title: "Goal setting planner",
     category: "accessories",
-    price: 24.99,
+    price: 19.99,
     rating: 4.5,
     reviews: 78,
     image:

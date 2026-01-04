@@ -15,7 +15,7 @@ export default async function handler(req, res) {
       name: "Daily Reflection Journal",
     },
     product2: {
-      id: "price_1Sll0bCSe0ZSreoRHc5YT8AG",
+      id: "price_1SllYmCSe0ZSreoRcP1zKQK0",
       name: "Goal Setting Planner",
       
     },
