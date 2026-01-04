@@ -61,7 +61,7 @@ export default async function handler(req, res) {
 
       success_url:
         "https://www.head2heart.co.nz/success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "https://www.head2heart.co.nz/",
+      cancel_url: "https://www.head2heart.co.nz/services",
 
       /* 🔥 METADATA (CRITICAL) */
       metadata: {
