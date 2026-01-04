@@ -172,7 +172,7 @@ const handleSubmit = async (e) => {
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="p-8 md:p-10">
                   <h2 className="text-3xl font-bold text-gray-900 mb-2">
-                    Program Enquiry
+                    Enquiry
                   </h2>
                   <p className="text-gray-600 mb-8">
                     Fill out the form below and we'll be in touch with a customised proposal.
@@ -439,7 +439,7 @@ const handleSubmit = async (e) => {
                   </h2>
 
                   <p className="text-lg text-gray-600 mb-4">
-                    Your inquiry has been received successfully.
+                    Your enquiry has been received successfully.
                   </p>
 
                   <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 mb-8 border border-blue-200">

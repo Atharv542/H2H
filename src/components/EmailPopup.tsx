@@ -59,7 +59,7 @@ const EmailPopup: React.FC<EmailPopupProps> = ({ isVisible, onClose }) => {
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            transition={{ type: "spring", duration: 0.5 }}
+            transition={{ type: "spring", duration: 0.30 }}
             className="fixed inset-0 flex items-center justify-center z-50 p-4"
           >
             <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 overflow-hidden">
