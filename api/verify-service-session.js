@@ -60,8 +60,8 @@ export default async function handler(req, res) {
                   <img
                     src="https://www.head2heart.co.nz/Logo6.png"
                     alt="Head2Heart Logo"
-                    width="48"
-                    height="48"
+                    width="100"
+                    height="100"
                     style="border-radius:50%; display:block;"
                   />
                 </td>

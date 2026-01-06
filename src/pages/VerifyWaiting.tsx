@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import QuestionnaireModal from "../components/QuestionnaireModal";
 import { db } from "../firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { MailCheck } from "lucide-react";
 
 const VerifyWaiting = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const VerifyWaiting = () => {
         const email = auth.currentUser.email!;
         setUserEmail(email);
 
-        // ✅ Send welcome email
+        // Send welcome email
         await fetch("/api/send-welcome-email", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -65,19 +66,39 @@ const VerifyWaiting = () => {
 
   return (
     <>
-      <div className="min-h-screen flex items-center justify-center text-center">
-        <div>
-          <h2 className="text-2xl font-semibold mb-2">
-            Please take a moment to check your email inbox and verify your email address so your account can be activated.  
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-slate-100 flex items-center justify-center px-4">
 
+        {/* Card */}
+        <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center animate-fadeIn">
 
+          {/* Loading Animation */}
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <div className="h-16 w-16 rounded-full border-4 border-blue-200 border-t-blue-600 animate-spin"></div>
+              <MailCheck className="absolute inset-0 m-auto h-6 w-6 text-blue-600" />
+            </div>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Verify Your Email to Continue
           </h2>
-          <p className="text-gray-600">
-            If you don’t see a message from Head2Heart, it may have landed in your Spam or Promotions folder. If so, kindly mark it as “Not Spam” to ensure you receive future updates smoothly.
+
+          {/* Description */}
+          <p className="text-gray-600 leading-relaxed mb-4">
+            We’ve sent a verification email to your inbox.
+            Please click the verification link to activate your Head2Heart account.
+          </p>
+
+          <p className="text-sm text-gray-500 leading-relaxed">
+            If you don’t see an email from <strong>Head2Heart</strong>, check your
+            <strong> Spam</strong> or <strong>Promotions</strong> folder and mark it
+            as <em>“Not Spam”</em> so you don’t miss future updates.
           </p>
         </div>
       </div>
 
+      {/* Questionnaire Modal */}
       <QuestionnaireModal
         isOpen={showQuestionnaire}
         onClose={() => {}}
