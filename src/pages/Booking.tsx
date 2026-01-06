@@ -22,25 +22,27 @@ const CALENDLY_LINK = "https://calendly.com/head2heart-info/30min";
 
 const Booking = () => {
   const [step, setStep] = useState(1);
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTime, setSelectedTime] = useState("");
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
   const [showCalendly, setShowCalendly] = useState(false);
- const [user,setUser] = useState<any>(null);
+  const [user, setUser] = useState<any>(null);
+  const [authChecked, setAuthChecked] = useState(false); // 🔑 NEW
   const navigate = useNavigate();
   const toastShownRef = useRef(false);
 
-  /* ================= ACCESS CHECK ================= */
-   useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-          setUser(currentUser);
-        });
-        return () => unsubscribe();
-      }, []);
+  /* ================= AUTH STATE ================= */
   useEffect(() => {
-    const checkAccess = async () => {
-      const user = auth.currentUser;
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setAuthChecked(true); // auth resolved
+    });
+    return () => unsubscribe();
+  }, []);
 
+  /* ================= ACCESS CHECK ================= */
+  useEffect(() => {
+    if (!authChecked) return; // ⛔ wait until auth is ready
+
+    const checkAccess = async () => {
       if (!user) {
         toast.error("Please login first!");
         navigate("/login");
@@ -49,6 +51,7 @@ const Booking = () => {
 
       if (!user.emailVerified) {
         toast.error("Please verify your email before booking a session.");
+        navigate("/verify-waiting");
         return;
       }
 
@@ -68,7 +71,7 @@ const Booking = () => {
     };
 
     checkAccess();
-  }, []);
+  }, [authChecked, user, navigate]);
 
   const handleQuestionnaireComplete = () => {
     toast.success("Thank you! Questionnaire completed.");
@@ -77,7 +80,7 @@ const Booking = () => {
 
   /* ================= CALENDLY EVENT ================= */
   useEffect(() => {
-    const handleCalendlyMessage = async (e) => {
+    const handleCalendlyMessage = async (e: MessageEvent) => {
       if (e.data?.event === "calendly.event_scheduled") {
         setShowCalendly(false);
         await handleConfirmBooking();
@@ -92,15 +95,12 @@ const Booking = () => {
   /* ================= SAVE BOOKING ================= */
   const handleConfirmBooking = async () => {
     try {
-      const user = auth.currentUser;
       if (!user) return;
 
       await setDoc(doc(db, "user_sessions", user.uid), {
         hasBookedFreeSession: true,
         bookedAt: new Date(),
         source: "calendly",
-        selectedDate,
-        selectedTime,
       });
 
       setStep(3);
@@ -132,6 +132,15 @@ const Booking = () => {
       description: "Zero pressure, just conversation",
     },
   ];
+
+  /* ================= LOADING WHILE AUTH CHECKS ================= */
+  if (!authChecked) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="h-10 w-10 border-4 border-blue-300 border-t-blue-600 rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -242,11 +251,11 @@ const Booking = () => {
         </div>
       )}
 
-      {/* ================= QUESTIONNAIRE ================= */}
+      {/* ================= QUESTIONNAIRE (UNCHANGED) ================= */}
       <QuestionnaireModal
         isOpen={showQuestionnaire}
         onClose={() => setShowQuestionnaire(false)}
-        userEmail={auth.currentUser?.email}
+        userEmail={user?.email}
         onComplete={handleQuestionnaireComplete}
       />
     </>
