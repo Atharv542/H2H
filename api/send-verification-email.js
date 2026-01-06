@@ -3,9 +3,12 @@ import SibApiV3Sdk from "sib-api-v3-sdk";
 
 if (!admin.apps.length) {
   admin.initializeApp({
-    credential: admin.credential.applicationDefault(),
+    credential: admin.credential.cert(
+      JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
+    ),
   });
 }
+
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
