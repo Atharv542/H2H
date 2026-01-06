@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       htmlContent: `
         <h2>Your Free Workbook is Ready!</h2>
         <p>Thank you for requesting the free life transformation e-book.</p>
-        <p>You can download your workbook instantly using the file attacched below</p>
+        <p>You can download your workbook instantly using the file attacched below.</p>
         <br><br>
         <p>Warm regards,<br/>The Head2Heart Team</p>
       `,

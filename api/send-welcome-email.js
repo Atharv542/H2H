@@ -16,60 +16,123 @@ export default async function handler(req, res) {
 
     // Email HTML Template
     const htmlContent = `
-      <!DOCTYPE html>
-      <html>
-      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+<!DOCTYPE html>
+<html>
+  <body style="margin:0; padding:0; font-family: Arial, sans-serif; line-height: 1.6; color: #333; background-color:#ffffff;">
 
-        <!-- Preheader (hidden text) -->
-        <span style="display:none; font-size:1px; color:#ffffff; opacity:0;">
-          Your new account is ready. Let’s help you connect with yourself.
-        </span>
+    <!-- Preheader (hidden preview text) -->
+    <span style="display:none; font-size:1px; color:#ffffff; opacity:0;">
+      A warm welcome to Head2Heart — we’re grateful you’re here.
+    </span>
 
-        <div style="max-width: 600px; margin: auto; padding: 20px;">
-          
-          <h2 style="color: #4a4a4a; font-weight: 600;">
-            Welcome to Head2Heart — Your Wellness Journey Begins
-          </h2>
+    <div style="max-width:600px; margin:0 auto; padding:24px;">
 
-          <p>Hi <strong>${name}</strong>,</p>
+      <!-- Logo Header -->
+      <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+        <tr>
+          <td align="center">
+            <table cellpadding="0" cellspacing="0">
+              <tr>
+                <!-- Circular Logo -->
+                <td style="vertical-align: middle; padding-right:10px;">
+                  <img
+                    src="Logo6.png"
+                    alt="Head2Heart Logo"
+                    width="48"
+                    height="48"
+                    style="border-radius:50%; display:block;"
+                  />
+                </td>
 
-          <p>
-            Welcome to <strong>Head2Heart</strong>.
-            <br><br>
-            Your account has been successfully created, and we’re honoured to be a part of your journey toward
-            <strong>clarity, balance, and emotional wellbeing</strong>.
-          </p>
+                <!-- Text Logo -->
+                <td style="vertical-align: middle;">
+                  <img
+                    src="New_Logo_3.png"
+                    alt="Head2Heart"
+                    height="32"
+                    style="display:block;"
+                  />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
 
-          <p>
-            Log in anytime:
-            <br>
-            <a 
-              href="https://www.head2heart.co.nz/login" 
-              style="display:inline-block; padding: 10px 16px; margin-top: 10px; background-color:#4a90e2; 
-                     color:white; text-decoration:none; border-radius:6px;">
-              Log In
-            </a>
-          </p>
+      <!-- Divider -->
+      <hr style="border:none; border-top:1px solid #eee; margin:16px 0 24px;" />
 
-          <br>
+      <!-- Content -->
+      <h2 style="color:#2f2f2f; font-weight:600; margin-bottom:16px;">
+        Welcome to Head2Heart
+      </h2>
 
-          <p>
-            Warmly,<br>
-            <strong>The Head2Heart Team</strong><br>
-            Connect with yourself 🌿
-          </p>
+      <p style="margin:0 0 16px;">
+        Hi <strong>${name}</strong>,
+      </p>
 
-        </div>
+      <p style="margin:0 0 16px;">
+        A warm welcome to <strong>Head2Heart</strong>.<br />
+        We’re truly grateful you’re here.
+      </p>
 
-      </body>
-      </html>
-    `;
+      <p style="margin:0 0 16px;">
+        At Head2Heart, we offer a gentle, supportive space where you can feel
+        truly seen, heard, and understood. People are at the heart of everything
+        we do, and we’re deeply committed to walking with you as you explore and
+        transform your life’s journey.
+      </p>
+
+      <p style="margin:0 0 16px;">
+        We believe that even the smallest step forward can create meaningful and
+        lasting change. It’s an honour to be part of your path toward emotional
+        and mental wellbeing, and we look forward to connecting with you soon.
+      </p>
+
+      <!-- CTA Button -->
+      <div style="text-align:center; margin:28px 0;">
+        <a
+          href="https://www.head2heart.co.nz/booking"
+          style="
+            display:inline-block;
+            padding:14px 26px;
+            background-color:#4a90e2;
+            color:#ffffff;
+            text-decoration:none;
+            border-radius:6px;
+            font-weight:600;
+            font-size:15px;
+          "
+        >
+          Book a Complimentary Session
+        </a>
+      </div>
+
+      <p style="margin:0 0 16px;">
+        If any questions come up, please feel free to reach out to us anytime at
+        <a href="mailto:info@head2heart.co.nz" style="color:#4a90e2;">
+          info@head2heart.co.nz
+        </a>
+        — we’re here for you.
+      </p>
+
+      <p style="margin-top:24px;">
+        Warm regards,<br />
+        <strong>Head2Heart Team</strong><br />
+        <span style="color:#6b7280;">Connect with yourself 🌿</span>
+      </p>
+
+    </div>
+  </body>
+</html>
+`;
+
 
     // Send Email Through Brevo
     await apiInstance.sendTransacEmail({
       sender: { email: "info@head2heart.co.nz", name: "Head2Heart" },
       to: [{ email, name }],
-      subject: "Welcome to Head2Heart — Your Journey Starts Here",
+      subject: "Welcome to Head2Heart",
       htmlContent,
     });
 

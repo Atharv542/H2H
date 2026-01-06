@@ -68,10 +68,12 @@ const VerifyWaiting = () => {
       <div className="min-h-screen flex items-center justify-center text-center">
         <div>
           <h2 className="text-2xl font-semibold mb-2">
-            Waiting for email verification…
+            Please take a moment to check your email inbox and verify your email address so your account can be activated.  
+
+
           </h2>
           <p className="text-gray-600">
-            Please verify your email to continue.
+            If you don’t see a message from Head2Heart, it may have landed in your Spam or Promotions folder. If so, kindly mark it as “Not Spam” to ensure you receive future updates smoothly.
           </p>
         </div>
       </div>

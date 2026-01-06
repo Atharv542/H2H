@@ -22,6 +22,89 @@ export default async function handler(req, res) {
     const customerEmail = session.customer_details.email;
     const productName = session.metadata.productName;
 
+       const htmlContent = `
+<!DOCTYPE html>
+<html>
+  <body style="margin:0; padding:0; font-family: Arial, sans-serif; line-height:1.6; color:#333; background-color:#ffffff;">
+
+   
+
+    <div style="max-width:600px; margin:0 auto; padding:24px;">
+
+      <!-- Logo Header -->
+      <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+        <tr>
+          <td align="center">
+            <table cellpadding="0" cellspacing="0">
+              <tr>
+                <!-- Circular Logo -->
+                <td style="vertical-align:middle; padding-right:10px;">
+                  <img
+                    src="Logo6.png"
+                    alt="Head2Heart Logo"
+                    width="48"
+                    height="48"
+                    style="border-radius:50%; display:block;"
+                  />
+                </td>
+
+                <!-- Text Logo -->
+                <td style="vertical-align:middle;">
+                  <img
+                    src="New_Logo_3.png"
+                    alt="Head2Heart"
+                    height="32"
+                    style="display:block;"
+                  />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Divider -->
+      <hr style="border:none; border-top:1px solid #eee; margin:16px 0 24px;" />
+
+      <!-- Heading -->
+      <h2 style="color:#2f2f2f; font-weight:600; margin-bottom:16px;">
+        head2heart product bought!
+      </h2>
+
+      <!-- Body -->
+      <p style="margin:0 0 16px;">
+        Hi <strong>H2H Team</strong>,
+      </p>
+
+      <p style="margin:0 0 16px;">
+        A new product has been purchased-
+        <strong>${productName}</strong>.
+      </p>
+
+      <p style="margin:0 0 8px;">
+        <strong>Booking Details:</strong>
+      </p>
+
+      <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+        <tr>
+          <td style="padding:6px 0;"><strong>User Email:</strong></td>
+          <td style="padding:6px 0;">${customerEmail}</td>
+        </tr>
+        
+      </table>
+
+
+      <!-- Footer -->
+      <p style="margin-top:24px;">
+        Thank you,<br />
+        <strong>head2heart team</strong>
+        <span style="color:#6b7280;">Connect with yourself 🌿</span>
+      </p>
+
+    </div>
+  </body>
+</html>`;
+
     // 2️⃣ Map productName → PDF file
     const pdfFiles = {
       "Daily Reflection Journal": "H2H Daily Reflection Log Workbook  v0.1.pdf",
@@ -56,7 +139,7 @@ export default async function handler(req, res) {
       sender: { name: "Head2Heart", email: "no-reply@head2heart.co.nz" },
       to: [{ email: customerEmail }],
       subject: "Your eBook Purchase",
-      htmlContent: `<p>Thank you for your purchase!</p>
+      htmlContent: `<p>Thank you for your purchase.The details of your order is given below:</p>
                     <p>You bought: <strong>${productName}</strong></p>
                     <p>Attached is your eBook.</p>`,
       attachment: [
@@ -65,6 +148,14 @@ export default async function handler(req, res) {
           name: pdfFile,
         },
       ],
+    });
+
+    await emailApi.sendTransacEmail({
+      sender: { name: "Head2Heart System", email: "info@head2heart.co.nz" },
+      to: [{ email: "info@head2heart.co.nz" }],
+      subject: `head2heart product purchase -${productName}`,
+      htmlContent
+
     });
 
     return res.status(200).json({ success: true });
