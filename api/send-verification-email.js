@@ -44,7 +44,7 @@ export default async function handler(req, res) {
           
           <td style="vertical-align: middle; padding-right: 10px;">
             <img
-              src="Logo6.png"
+              src="https://www.head2heart.co.nz/Logo6.png"
               alt="Head2Heart Logo"
               width="48"
               height="48"
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
           
           <td style="vertical-align: middle;">
             <img
-              src="New_Logo_3.png"
+              src="https://www.head2heart.co.nz/New_Logo_3.png"
               alt="Head2Heart"
               height="32"
               style="display: block;"

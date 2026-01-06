@@ -46,10 +46,6 @@ export default async function handler(req, res) {
 <html>
   <body style="margin:0; padding:0; font-family: Arial, sans-serif; line-height:1.6; color:#333; background-color:#ffffff;">
 
-    <!-- Preheader -->
-    <span style="display:none; font-size:1px; color:#ffffff; opacity:0;">
-      A new Head2Heart session has been confirmed.
-    </span>
 
     <div style="max-width:600px; margin:0 auto; padding:24px;">
 
@@ -62,7 +58,7 @@ export default async function handler(req, res) {
                 <!-- Circular Logo -->
                 <td style="vertical-align:middle; padding-right:10px;">
                   <img
-                    src="Logo6.png"
+                    src="https://www.head2heart.co.nz/Logo6.png"
                     alt="Head2Heart Logo"
                     width="48"
                     height="48"
@@ -73,7 +69,7 @@ export default async function handler(req, res) {
                 <!-- Text Logo -->
                 <td style="vertical-align:middle;">
                   <img
-                    src="New_Logo_3.png"
+                    src="https://www.head2heart.co.nz/New_Logo_3.png"
                     alt="Head2Heart"
                     height="32"
                     style="display:block;"
