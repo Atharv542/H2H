@@ -27,7 +27,7 @@ const VerifyWaiting = () => {
         });
 
         toast.success("Email verified! Welcome 💙");
-        navigate("/login?verified=true");
+        navigate("/?verified=true");
       }
     }, 4000);
 
