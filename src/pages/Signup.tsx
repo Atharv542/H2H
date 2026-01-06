@@ -51,30 +51,25 @@ try {
   });
 
   // 4️⃣ Send welcome email via Vercel Serverless API
-  await fetch("/api/send-welcome-email", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email,
-      name: firstName
-    }),
-  })
-    .then(res => res.json())
-    .catch(err => console.error("Email error:", err));
+  await fetch("/api/send-verification-email", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    email,
+    name: firstName,
+  }),
+});
 
-  // 5️⃣ Send Firebase email verification
-  await sendEmailVerification(user);
-
-  toast.success('Account created! Please check your inbox to verify your email.', { duration: 4000 });
-  setLoading(false);
-  navigate('/login');
+toast.success("Please verify your email to continue 💙");
+navigate("/verify-waiting");
+    
 } catch (err: any) {
   console.error(err);
   setError(err.message);
   setLoading(false);
 }
 
-  };
+};
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-slate-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">

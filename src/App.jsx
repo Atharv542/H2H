@@ -46,6 +46,7 @@ import StressManagement from './pages/StressManagement';
 import WorkLifeBalance from './pages/WorkLife';
 import { BookIcon } from 'lucide-react';
 import BookingSuccess from './pages/CalenderSuccess';
+import VerifyWaiting from './pages/VerifyWaiting';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -82,7 +83,8 @@ function App() {
               <Route path="/shop-success" element={<ShopSuccess />} />
               <Route path="/services" element={<Services/>} />
               <Route path="/calender-success" element={<BookingSuccess />} />
-
+              <Route path="/verify-waiting" element={<VerifyWaiting />} />
+              
               <Route path="/contact" element={<ContactForm />} />
               <Route path="/connect" element={<Connect />} />
               <Route path="/team-new" element={<Team />} />
