@@ -15,6 +15,7 @@ import { db } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import toast from "react-hot-toast";
+import { onAuthStateChanged } from "firebase/auth";
 import QuestionnaireModal from "../components/QuestionnaireModal";
 
 const CALENDLY_LINK = "https://calendly.com/head2heart-info/30min";
@@ -25,11 +26,17 @@ const Booking = () => {
   const [selectedTime, setSelectedTime] = useState("");
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
   const [showCalendly, setShowCalendly] = useState(false);
-
+ const [user,setUser] = useState<any>(null);
   const navigate = useNavigate();
   const toastShownRef = useRef(false);
 
   /* ================= ACCESS CHECK ================= */
+   useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+          setUser(currentUser);
+        });
+        return () => unsubscribe();
+      }, []);
   useEffect(() => {
     const checkAccess = async () => {
       const user = auth.currentUser;
