@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     // 🔐 Generate Firebase verification link
     const verificationLink =
       await admin.auth().generateEmailVerificationLink(email, {
-        url: "https://www.head2heart.co.nz/",
+        url: "https://www.head2heart.co.nz/verify-waiting",
       });
 
     // 🔑 Brevo Auth
