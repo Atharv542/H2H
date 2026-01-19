@@ -176,40 +176,7 @@ const ClarityCoaching = () => {
           </AnimatedSection>
         </div>
       </section>
-
-      {/* What's Included */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                What's Included
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Complete toolkit for personal transformation and lasting change
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              {included.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start space-x-3 bg-white p-6 rounded-xl shadow-sm"
-                >
-                  <CheckCircle2 className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700 leading-relaxed">{item}</span>
-                </motion.div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-      
-       {/* Who It's For */}
+      {/* Who It's For */}
        <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <AnimatedSection>
@@ -323,13 +290,48 @@ const ClarityCoaching = () => {
               </div>
             </section>
 
+            
+      {/* What's Included */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <h2 className="font-bold text-4xl text-gray-900 mb-4">
+                What's Included
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Complete toolkit for personal transformation and lasting change
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {included.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start space-x-3 bg-white p-6 rounded-xl shadow-sm"
+                >
+                  <CheckCircle2 className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <span className="text-gray-700 leading-relaxed">{item}</span>
+                </motion.div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+      
+       
+
       {/* 8-Week Journey */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
               <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                Your 8-Week Journey
+                Your 8-Weeks Journey
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 From overwhelm to clarity, from anxiety to calm confidence

@@ -149,7 +149,7 @@ const PurposeCoaching = () => {
           >
             <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white mb-6">
               <Target className="h-4 w-4" />
-              <span className="text-sm font-medium">8-Week Transformation Program</span>
+              <span className="text-sm font-medium">8-Weeks Transformation Program</span>
             </div>
 
             <h1 className="font-bold text-5xl md:text-6xl text-white mb-6 leading-tight">
@@ -210,38 +210,7 @@ const PurposeCoaching = () => {
           </AnimatedSection>
         </div>
       </section>
-
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center mb-12">
-              <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                What's Included
-              </h2>
-              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Everything you need for a complete transformation journey
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              {included.map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-start space-x-3 bg-white p-6 rounded-xl shadow-sm"
-                >
-                  <CheckCircle2 className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700 leading-relaxed">{item}</span>
-                </motion.div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
+      
       <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
@@ -317,13 +286,46 @@ const PurposeCoaching = () => {
           </AnimatedSection>
         </div>
       </section>
+      
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <h2 className="font-bold text-4xl text-gray-900 mb-4">
+                What's Included
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Everything you need for a complete transformation journey
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              {included.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start space-x-3 bg-white p-6 rounded-xl shadow-sm"
+                >
+                  <CheckCircle2 className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <span className="text-gray-700 leading-relaxed">{item}</span>
+                </motion.div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
               <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                Your 8-Week Journey
+                Your 8-Weeks Journey
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 A structured path to purpose, peace, and personal transformation
