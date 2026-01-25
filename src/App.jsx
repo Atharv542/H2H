@@ -47,6 +47,8 @@ import WorkLifeBalance from './pages/WorkLife';
 import { BookIcon } from 'lucide-react';
 import BookingSuccess from './pages/CalenderSuccess';
 import VerifyWaiting from './pages/VerifyWaiting';
+import Events from './pages/Events';
+import EventGallery from './pages/EventGallery';
 
 function App() {
   const { showPopup, closePopup } = useEmailPopup();
@@ -98,6 +100,8 @@ function App() {
               <Route path="/transform-program" element={<TransformProgram/>} />
               <Route path="/stress-program" element={<StressManagement/>} />
               <Route path="/work-program" element={<WorkLifeBalance/>} />
+              <Route path="/events" element={<Events/>} />
+              <Route path="/events/:id" element={<EventGallery/>} />
               
             </Routes>
           </AnimatePresence>
