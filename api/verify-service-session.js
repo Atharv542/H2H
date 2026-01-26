@@ -71,7 +71,7 @@ export default async function handler(req, res) {
                   <img
                     src="https://www.head2heart.co.nz/New_Logo_3.png"
                     alt="Head2Heart"
-                    height="32"
+                    height="100"
                     style="display:block;"
                   />
                 </td>

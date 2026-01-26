@@ -45,8 +45,8 @@ export default async function handler(req, res) {
                   <img
                     src="https://www.head2heart.co.nz/Logo6.png"
                     alt="Head2Heart Logo"
-                    width="48"
-                    height="48"
+                    width="100"
+                    height="100"
                     style="border-radius:50%; display:block;"
                   />
                 </td>
@@ -56,7 +56,7 @@ export default async function handler(req, res) {
                   <img
                     src="https://www.head2heart.co.nz/New_Logo_3.png"
                     alt="Head2Heart"
-                    height="32"
+                    height="100"
                     style="display:block;"
                   />
                 </td>
@@ -156,8 +156,8 @@ const htmlContent2 = `
                   <img
                     src="https://www.head2heart.co.nz/Logo6.png"
                     alt="Head2Heart Logo"
-                    width="48"
-                    height="48"
+                    width="100"
+                    height="100"
                     style="border-radius:50%; display:block;"
                   />
                 </td>
@@ -167,8 +167,7 @@ const htmlContent2 = `
                   <img
                     src="https://www.head2heart.co.nz/New_Logo_3.png"
                     alt="Head2Heart"
-                    height="48"
-                    width="48"
+                    height="100"
                     style="display:block;"
                   />
                 </td>
