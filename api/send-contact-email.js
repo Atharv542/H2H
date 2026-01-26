@@ -165,9 +165,10 @@ const htmlContent2 = `
                 <!-- Text Logo -->
                 <td style="vertical-align:middle;">
                   <img
-                    src="https://www.head2heart.co.nz/logo-text.png"
+                    src="https://www.head2heart.co.nz/New_Logo_3.png"
                     alt="Head2Heart"
-                    height="32"
+                    height="48"
+                    width="48"
                     style="display:block;"
                   />
                 </td>
