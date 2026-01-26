@@ -76,7 +76,7 @@ const About = () => {
     <div className="min-h-screen py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">About Head2Heart</h1>
+          <h1 className="text-5xl font-bold text-gray-900 mb-6">About head2heart</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We're passionate about helping people bridge the gap between where they are and where they want to be, connecting both head and heart in the process.
           </p>
@@ -88,10 +88,10 @@ const About = () => {
           transition={{ delay: 0.2 }}
           className="mb-20"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our story</h2>
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Head2Heart was created to meet a quiet but growing need in Aotearoa New Zealand,the need for early, human, emotional support. Not everyone needs therapy. Not everyone is in crisis. But many people need a safe space to be heard, grounded, and supported. Head2Heart offers that space gently, respectfully, and without judgement.
+              head2heart was created to meet a quiet but growing need in Aotearoa New Zealand,the need for early, human, emotional support. Not everyone needs therapy. Not everyone is in crisis. But many people need a safe space to be heard, grounded, and supported. Head2Heart offers that space gently, respectfully, and without judgement.
             </p>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               While we've been supporting individuals in various ways for years, we officially came together as an organization in April 2025 with a shared vision to help people reconnect with themselves through a holistic blend of mindfulness, emotional awareness, and practical growth tools. We have a vision to reach people globally.
@@ -100,7 +100,7 @@ const About = () => {
               There's a kind of magic that unfolds when people align their thoughts with their emotions, their goals with their values, and their minds with their hearts. We believe that true and lasting transformation comes from integrating intellectual insights with emotional intelligence.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              At Head2Heart, we believe that true transformation happens when logic meets emotion, when strategies align with values, and when the mind and heart work together in harmony.
+              At head2heart, we believe that true transformation happens when logic meets emotion, when strategies align with values, and when the mind and heart work together in harmony.
             </p>
           </div>
         </motion.div>
@@ -113,10 +113,10 @@ const About = () => {
 >
   {/* LEFT: Mission & Vision */}
   <div>
-    <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+    <h2 className="text-4xl font-bold text-gray-900 mb-6">Our mission</h2>
 
     <p className="text-lg text-gray-700 mb-6 font-semibold">
-      At Head2Heart, we believe that true transformation happens when logic meets emotions,
+      At head2heart, we believe that true transformation happens when logic meets emotions,
       when strategies align with values, and when the mind and heart work together in harmony.
     </p>
 
@@ -129,7 +129,7 @@ const About = () => {
       We believe emotions are signals — not problems to fix.
     </p>
   {/* OUR VISION */}
-    <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Vision</h3>
+    <h3 className="text-3xl font-bold text-gray-900 mb-4">Our vision</h3>
 
     <p className="text-lg text-gray-700 mb-4 leading-relaxed">
       We want to create a meaningful impact globally
@@ -157,7 +157,7 @@ const About = () => {
           transition={{ delay: 0.4 }}
           className="mb-20"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Approach</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our approach</h2>
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <ul className="space-y-3 mb-6">
               <li className="text-lg text-gray-700 flex items-start">
@@ -177,7 +177,7 @@ const About = () => {
                 <span>Calm, grounded, and heart-led</span>
               </li>
             </ul>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">What Head2Heart Is (and Isn't)</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">What head2heart Is (and Isn't)</h3>
 
             <div className="mb-8">
               <h4 className="text-xl font-semibold text-blue-600 mb-4">We are:</h4>
@@ -220,7 +220,7 @@ const About = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="mb-20">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Our Core Values</h2>
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Our core values</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value) => (
               <div
@@ -238,7 +238,7 @@ const About = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Meet Our Team</h2>
+          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Meet our team</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {team.map((member) => (

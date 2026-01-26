@@ -1,69 +1,95 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { motion, useInView } from 'framer-motion';
+import React, { useRef, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { motion, useInView } from "framer-motion";
 import {
   ArrowRight,
   Brain,
   Heart,
   Eye,
-  BookOpen,
   CheckCircle2,
-  Sparkles,
   Target,
-  Users
-} from 'lucide-react';
+  Users,
+} from "lucide-react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 const AwarenessProgram = () => {
-const [user,setUser] = useState<any>(null);
-   useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-      });
-      return () => unsubscribe();
-    }, []);
-    const navigate=useNavigate();
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const navigate = useNavigate();
 
   const features = [
     {
       icon: Brain,
-      title: 'Deep Self-Understanding',
-      description: 'Uncover hidden patterns and gain profound insights into your thoughts and behaviors.'
+      title: "Deep self-understanding",
+      description:
+        "Uncover hidden patterns and gain profound insights into your thoughts and behaviors.",
     },
     {
       icon: Heart,
-      title: 'Emotional Clarity',
-      description: 'Connect with your emotions and understand what truly drives you.'
+      title: "Emotional clarity",
+      description: "Connect with your emotions and understand what truly drives you.",
     },
     {
       icon: Eye,
-      title: 'Mindful Awareness',
-      description: 'Develop present-moment awareness and learn to ground yourself in any situation.'
+      title: "Mindful awareness",
+      description:
+        "Develop present-moment awareness and learn to ground yourself in any situation.",
     },
     {
       icon: Target,
-      title: 'Clear Direction',
-      description: 'Identify your next steps with confidence and intention.'
-    }
+      title: "Clear direction",
+      description: "Identify your next steps with confidence and intention.",
+    },
   ];
 
   const included = [
-    'Awareness & Intention Workbook to explore your thoughts, emotions, and habits',
-    '60-Minute Deep Awareness Coaching Session to identify emotional patterns, stress triggers, and blocks',
-    'Mindfulness check-in exercises for grounding and inner calm',
-    'Daily reflection prompts to deepen awareness throughout the week',
-    'Personal Awareness Summary with key insights and your recommended next step'
+    "Awareness & intention workbook to explore your thoughts, emotions, and habits",
+    "60-Minute deep awareness coaching session to identify emotional patterns, stress triggers, and blocks",
+    "Mindfulness check-in exercises for grounding and inner calm",
+    "Daily reflection prompts to deepen awareness throughout the week",
+    "Personal awareness summary with key insights and your recommended next step",
   ];
 
   const outcomes = [
-    'A deeper understanding of your emotional and mental patterns',
-    'Clarity about what\'s been holding you back',
-    'Awareness of your triggers, habits, and energy drains',
-    'A stronger connection with yourself and your inner voice',
-    'Renewed calm, confidence, and direction',
-    'A clear intention for the next stage of your personal growth'
+    "A deeper understanding of your emotional and mental patterns",
+    "Clarity about what's been holding you back",
+    "Awareness of your triggers, habits, and energy drains",
+    "A stronger connection with yourself and your inner voice",
+    "Renewed calm, confidence, and direction",
+    "A clear intention for the next stage of your personal growth",
+  ];
+
+  // ✅ Is it for me? (based on your program intro + included + outcomes)
+  const isItForMe = [
+    {
+      title: "Feeling stuck",
+      description: "You feel stuck in life and want a clear reset to move forward.",
+    },
+    {
+      title: "Overwhelmed",
+      description: "You’re overwhelmed mentally/emotionally and need grounding tools.",
+    },
+    {
+      title: "Seeking clarity",
+      description: "You want clarity on what’s holding you back and what to do next.",
+    },
+    {
+      title: "Stress triggers",
+      description: "You want to understand your stress triggers and emotional patterns.",
+    },
+    {
+      title: "Disconnected",
+      description: "You feel disconnected from yourself and want to reconnect inward.",
+    },
   ];
 
   const handleBookNow = async (item: string) => {
@@ -78,30 +104,30 @@ const [user,setUser] = useState<any>(null);
       return;
     }
 
-  try {
-    const res = await fetch("/api/create-checkout-session", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ item }), // item: "service1" or "team"
-    });
+    try {
+      const res = await fetch("/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ item }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (data.url) {
-      // Redirect to Stripe Checkout
-      window.location.href = data.url;
-    } else {
-      console.error("No URL returned from API", data);
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        console.error("No URL returned from API", data);
+      }
+    } catch (err) {
+      console.error("Stripe checkout error:", err);
     }
-  } catch (err) {
-    console.error("Stripe checkout error:", err);
-  }
   };
 
   return (
     <div className="min-h-screen bg-white">
+      {/* ---------------- HERO ---------------- */}
       <section className="relative py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-slate-700 overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
 
@@ -112,20 +138,18 @@ const [user,setUser] = useState<any>(null);
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-           
-
             <h1 className="font-bold text-5xl md:text-6xl text-white mb-4 leading-tight">
               Awareness & Discovery
             </h1>
-            
+
             <div className="flex items-center justify-center space-x-4 text-white">
               <span className="text-lg">60-Minute Deep Dive</span>
-              
             </div>
           </motion.div>
         </div>
       </section>
 
+      {/* ---------------- INTRO ---------------- */}
       <section className="py-12 bg-gradient-to-r from-blue-50 to-purple-50">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <motion.p
@@ -134,7 +158,12 @@ const [user,setUser] = useState<any>(null);
             viewport={{ once: true }}
             className="text-xl md:text-2xl text-gray-700 leading-relaxed"
           >
-            Begin your transformation with a powerful self-awareness reset. This 1-week program helps you pause, reflect, and understand where you are in life emotionally, mentally, and energetically. Through guided mindfulness tools and a personalised coaching session, you'll uncover hidden patterns, gain clarity, and reconnect with your true inner voice.
+            Begin your transformation with a powerful self-awareness reset. This
+            1-week program helps you pause, reflect, and understand where you are
+            in life emotionally, mentally, and energetically. Through guided
+            mindfulness tools and a personalised coaching session, you'll uncover
+            hidden patterns, gain clarity, and reconnect with your true inner
+            voice.
           </motion.p>
           <motion.p
             initial={{ opacity: 0 }}
@@ -148,12 +177,13 @@ const [user,setUser] = useState<any>(null);
         </div>
       </section>
 
+      {/* ---------------- WHY CHOOSE ---------------- */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
               <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                Why Choose This Program
+                Why choose this program
               </h2>
             </div>
 
@@ -170,8 +200,12 @@ const [user,setUser] = useState<any>(null);
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-slate-700 rounded-xl flex items-center justify-center mb-4">
                     <feature.icon className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                  <h3 className="font-bold text-lg text-gray-900 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -179,12 +213,69 @@ const [user,setUser] = useState<any>(null);
         </div>
       </section>
 
+      {/* ---------------- IS IT FOR ME? (NEW) ---------------- */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-16">
+              <h2 className="font-bold text-4xl md:text-5xl text-gray-900 mb-4">
+                Is It For Me?
+              </h2>
+              <p className="text-xl text-gray-600 font-medium">If you are…</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto mb-12">
+              {isItForMe.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group relative"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+
+                  <div className="relative bg-white border-2 border-transparent hover:border-blue-300 p-6 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-slate-700 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                      <span className="text-white font-bold text-lg">✓</span>
+                    </div>
+
+                    <h3 className="font-bold text-lg text-gray-900 mb-3 text-center">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed text-center">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="inline-block bg-gradient-to-r from-blue-600 to-slate-700 px-8 py-4 rounded-full">
+                <p className="text-white font-bold text-2xl">
+                  Then this program is for You
+                </p>
+              </div>
+            </motion.div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ---------------- WHAT'S INCLUDED ---------------- */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
               <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                What's Included
+                What's included
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Everything you need for a powerful week of self-discovery
@@ -210,12 +301,13 @@ const [user,setUser] = useState<any>(null);
         </div>
       </section>
 
+      {/* ---------------- OUTCOMES ---------------- */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
               <h2 className="font-bold text-4xl text-gray-900 mb-4">
-                What You'll Walk Away With
+                What you'll walk away with
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                 Transformative insights and practical tools for your journey
@@ -244,111 +336,108 @@ const [user,setUser] = useState<any>(null);
       </section>
 
       {/* ---------------- INVESTMENT ---------------- */}
-  <section className="py-20 bg-white">
-  <div className="max-w-7xl mx-auto px-4">
-    <AnimatedSection>
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold">Investment</h2>
-        <p className="text-gray-600 text-lg">
-          Choose how you want to grow with this program
-        </p>
-      </div>
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold">Investment</h2>
+              <p className="text-gray-600 text-lg">
+                Choose how you want to grow with this program
+              </p>
+            </div>
 
-      <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+              {/* ---- LEFT: PRICE CARD ---- */}
+              <div className="bg-gradient-to-br from-blue-600 to-slate-700 p-8 rounded-3xl text-white shadow-xl">
+                <h3 className="text-xl font-semibold text-blue-100 mb-2">
+                  1:1 Coaching Program
+                </h3>
+                <div className="text-5xl font-bold mb-6">$149</div>
 
-        {/* ---- LEFT: PRICE CARD ---- */}
-        <div className="bg-gradient-to-br from-blue-600 to-slate-700 p-8 rounded-3xl text-white shadow-xl">
-          <h3 className="text-xl font-semibold text-blue-100 mb-2">
-      1:1 Coaching Program
-    </h3>
-          <div className="text-5xl font-bold mb-6">$149</div>
-        
+                <ul className="space-y-3 mb-8  text-blue-100">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <span className="leading-relaxed">
+                      60-minute deep awareness coaching session.
+                    </span>
+                  </li>
 
-       <ul className="space-y-3 mb-8  text-blue-100">
-  <li className="flex items-start gap-2">
-    <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
-    <span className="leading-relaxed">
-      60-minute deep awareness coaching session.
-    </span>
-  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <span className="leading-relaxed">
+                      Guided mindfulness tools to identify stress patterns.
+                    </span>
+                  </li>
 
-  <li className="flex items-start gap-2">
-    <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
-    <span className="leading-relaxed">
-      Guided mindfulness tools to identify stress patterns.
-    </span>
-  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <span className="leading-relaxed">
+                      Personalized awareness summary with clear next-step guidance
+                    </span>
+                  </li>
+                </ul>
 
-  <li className="flex items-start gap-2">
-    <CheckCircle2 className="h-4 w-4 mt-0.5 flex-shrink-0" />
-    <span className="leading-relaxed">
-      Personalized awareness summary with clear next-step guidance
-    </span>
-  </li>
-</ul>
+                <button
+                  onClick={() => handleBookNow("service6")}
+                  className="w-full cursor-pointer bg-white text-blue-700 py-4 rounded-full font-semibold hover:bg-gray-100 transition flex justify-center items-center gap-2"
+                >
+                  Book Now <ArrowRight />
+                </button>
+              </div>
 
+              {/* ---- RIGHT: CUSTOM QUOTE ---- */}
+              <div className="bg-white border-2 border-gray-200 p-8 rounded-3xl shadow-lg">
+                <div className="flex items-center gap-2 mb-4">
+                  <Users className="h-6 w-6 text-blue-600" />
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Corporate / Team
+                  </h3>
+                </div>
 
-          <button
-            onClick={() => handleBookNow("service6")}
-            className="w-full cursor-pointer bg-white text-blue-700 py-4 rounded-full font-semibold hover:bg-gray-100 transition flex justify-center items-center gap-2"
-          >
-            Book Now <ArrowRight />
-          </button>
+                <p className="text-gray-600 mb-6">
+                  Custom coaching options tailored for teams or groups
+                </p>
+
+                <ul className="space-y-5 py-4 mb-8 text-gray-700">
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-blue-600" />
+                    Tailored coaching program for your team
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-blue-600" />
+                    Interactive group materials & workbooks
+                  </li>
+                  <li className="flex gap-2">
+                    <CheckCircle2 className="text-blue-600" />
+                    Engaging team activities & discussions
+                  </li>
+                </ul>
+
+                <Link
+                  to={user ? "/contact" : "/login"}
+                  className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center py-4 rounded-full font-semibold hover:opacity-90 transition"
+                >
+                  Request Quote
+                </Link>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
+      </section>
 
-        {/* ---- RIGHT: CUSTOM QUOTE ---- */}
-        <div className="bg-white border-2 border-gray-200 p-8 rounded-3xl shadow-lg">
-          <div className="flex items-center gap-2 mb-4">
-            <Users className="h-6 w-6 text-blue-600" />
-            <h3 className="text-2xl font-bold text-gray-900">
-              Corporate / Team
-            </h3>
-          </div>
-
-          <p className="text-gray-600 mb-6">
-            Custom coaching options tailored for teams or groups
-          </p>
-
-          <ul className="space-y-5 py-4 mb-8 text-gray-700">
-            <li className="flex gap-2">
-              <CheckCircle2 className="text-blue-600" />
-              Tailored Coaching Program for Your Team
-            </li>
-            <li className="flex gap-2">
-              <CheckCircle2 className="text-blue-600" />
-              Interactive Group Materials & Workbooks
-            </li>
-            <li className="flex gap-2">
-              <CheckCircle2 className="text-blue-600" />
-              Engaging Team Activities & Discussions
-            </li>
-          </ul>
-
-          <Link
-            to={user ? "/contact" : "/login"}
-            className="block w-full bg-gradient-to-r from-blue-600 to-slate-700 text-white text-center py-4 rounded-full font-semibold hover:opacity-90 transition"
-          >
-            Request Quote
-          </Link>
-        </div>
-
-      </div>
-    </AnimatedSection>
-  </div>
-</section>
-
-
+      {/* ---------------- CTA ---------------- */}
       <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-slate-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h2 className="font-bold text-4xl md:text-5xl text-white mb-6">
-              Start Your Journey with Awareness
+              Start your journey with awareness
             </h2>
             <p className="text-xl text-blue-100 mb-2">
               The first step toward a transformed life.
             </p>
             <p className="text-lg text-blue-200 italic">
-              When you understand yourself deeply, everything else begins to fall into place.
+              When you understand yourself deeply, everything else begins to fall
+              into place.
             </p>
           </AnimatedSection>
         </div>
@@ -362,7 +451,7 @@ const AnimatedSection: React.FC<{ children: React.ReactNode; delay?: number }> =
   delay = 0,
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
     <motion.div

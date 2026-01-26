@@ -12,7 +12,7 @@ import {
 const services = [
 
   {
-    title: "Awareness & Discovery",
+    title: "Awareness & discovery",
     duration: "60 min",
     description:
       "Begin your transformation with a powerful self-awareness reset.",
@@ -22,7 +22,7 @@ const services = [
     price: "$99",
   },
   {
-    title: "Transform Your Life",
+    title: "Transform your life",
     duration: "60 min",
     description:
       "A mindfulness-based inner connection and life clarity experience.",
@@ -32,7 +32,7 @@ const services = [
     price: "$399",
   },
   {
-    title: "Burnout Recovery",
+    title: "Burnout recovery",
     duration: "60 min",
     description:
       "Burnout is not a sign of weakness—it’s a signal that something in your life needs care and boundaries.",
@@ -41,7 +41,7 @@ const services = [
     price: "$699",
   },
   {
-    title: "Stress Awareness & Management",
+    title: "Stress awareness & management",
     duration: "60 min",
     description:
       "Learn practical tools to manage stress and regain emotional balance.",
@@ -50,7 +50,7 @@ const services = [
     price: "$899",
   },
   {
-    title: "Releasing Limiting Beliefs",
+    title: "Releasing limiting beliefs",
     duration: "60 min",
     description:
       "Transform thought patterns that hold you back from growth and fulfillment.",
@@ -60,7 +60,7 @@ const services = [
     price: "$599",
   },
   {
-    title: "Confidence Building",
+    title: "Confidence building",
     duration: "60 min",
     description:
       "Build unshakable confidence and trust yourself in every area of life.",
@@ -69,7 +69,7 @@ const services = [
     price: "$1,299",
   },
   {
-    title: "Work–Life Balance",
+    title: "Work–life balance",
     duration: "60 min",
     description: "Create harmony between your professional and personal life.",
     image:
@@ -87,7 +87,7 @@ const services = [
     price: "$1,799",
   },
   {
-    title: "Boosting Self Esteem",
+    title: "Boosting self esteem",
     duration: "60 min",
     description: "Develop self-worth, confidence, and a positive self-image.",
     image:
@@ -96,7 +96,7 @@ const services = [
     price: "$1,799",
   },
     {
-    title: "Discover Your Purpose",
+    title: "Discover your purpose",
     duration: "8 weeks",
     description:
       "Discover your true calling and create a life aligned with your deepest values and passions.",
@@ -105,7 +105,7 @@ const services = [
     price: "$499",
   },
   {
-    title: "Find Your Clarity & Focus",
+    title: "Find your clarity & focus",
     duration: "8 weeks",
     description:
       "Unlock your full potential with personalized strategies for sustainable growth and success.",
@@ -114,7 +114,7 @@ const services = [
     price: "$499",
   },
   {
-    title: "Experience Mindfulness",
+    title: "Experience mindfulness",
     duration: "8 weeks",
     description:
       "Cultivate inner peace and present-moment awareness to enhance your surroundings.",
@@ -131,7 +131,7 @@ function Services() {
         <section>
           <div className="text-center mb-16">
             <h2 className="font-bold text-4xl md:text-5xl text-gray-900 mb-4">
-              Our Programs & Services
+              Our programs & services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Discover our comprehensive range of services designed to support
@@ -173,7 +173,7 @@ function Services() {
                     to={service.link}
                     className="block w-full text-center bg-gradient-to-r from-blue-600 to-slate-700 text-white py-3 rounded-lg font-semibold hover:opacity-90 transition-all duration-200"
                   >
-                    Learn More
+                    Learn more
                   </Link>
                 </div>
               </div>

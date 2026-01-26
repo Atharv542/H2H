@@ -1,15 +1,11 @@
 import { Heart, Sparkles, Brain, ShieldCheck } from "lucide-react";
 import ServiceTemplate from "../components/ServiceTemplate";
-import { useNavigate } from "react-router-dom";
 
 export default function BoostingSelfEsteem() {
-  const navigate = useNavigate();
-
   return (
     <ServiceTemplate
       badge="Self-Worth Session"
       title="Boosting Self-Esteem"
-      subtitle="Strengthen Self-Worth. Build a Healthier Inner Relationship."
       duration="60 Minutes"
       price="$149"
       stripeItemId="service14"
@@ -18,24 +14,47 @@ export default function BoostingSelfEsteem() {
       features={[
         {
           icon: Heart,
-          title: "Self-Worth Awareness",
-          description: "Understand how you relate to yourself."
+          title: "Self-worth awareness",
+          description: "Understand how you relate to yourself.",
         },
         {
           icon: Brain,
-          title: "Inner Dialogue Reset",
-          description: "Reduce negative self-talk."
+          title: "Inner dialogue reset",
+          description: "Reduce negative self-talk.",
         },
         {
           icon: Sparkles,
-          title: "Self-Acceptance",
-          description: "Build kindness toward yourself."
+          title: "Self-acceptance",
+          description: "Build kindness toward yourself.",
         },
         {
           icon: ShieldCheck,
-          title: "Emotional Resilience",
-          description: "Strengthen emotional stability."
-        }
+          title: "Emotional resilience",
+          description: "Strengthen emotional stability.",
+        },
+      ]}
+      // ✅ Is it for me?
+      isItForMeItems={[
+        {
+          title: "Harsh self-criticism",
+          description: "Your inner voice is tough on you and it affects your confidence.",
+        },
+        {
+          title: "Comparing yourself",
+          description: "You often compare yourself to others and feel “less than.”",
+        },
+        {
+          title: "People-pleasing",
+          description: "You struggle to say no and depend on approval to feel okay.",
+        },
+        {
+          title: "Low self-worth",
+          description: "Deep down, you don’t fully feel good enough or deserving.",
+        },
+        {
+          title: "Self-compassion",
+          description: "You want to build a kinder, healthier relationship with yourself.",
+        },
       ]}
       included={[
         "Self-esteem assessment",
@@ -43,7 +62,7 @@ export default function BoostingSelfEsteem() {
         "Self-compassion practices",
         "Belief and identity reframing",
         "Emotional grounding techniques",
-        "Self-esteem action plan"
+        "Self-esteem action plan",
       ]}
       outcomes={[
         "Improved self-worth",
@@ -51,9 +70,8 @@ export default function BoostingSelfEsteem() {
         "Healthier emotional boundaries",
         "Greater emotional resilience",
         "Increased self-acceptance",
-        "Stronger inner confidence"
+        "Stronger inner confidence",
       ]}
-
     />
   );
 }

@@ -29,7 +29,7 @@ const Home = () => {
   const sections = [
     {
       icon: Heart,
-      title: "Connect With Your Inner Self",
+      title: "Connect with your inner self",
       description:
         "Discover the power of aligning your thoughts and emotions. Our holistic approach helps you build a deeper connection between your mind and heart, creating lasting transformation from within.",
       image:
@@ -38,7 +38,7 @@ const Home = () => {
     },
     {
       icon: Target,
-      title: "Achieve Your Life Goals",
+      title: "Achieve your life goals",
       description:
         "Transform your dreams into reality with personalized coaching strategies. We work together to identify your goals, overcome obstacles, and create actionable plans that lead to meaningful success.",
       image:
@@ -47,7 +47,7 @@ const Home = () => {
     },
     {
       icon: Lightbulb,
-      title: "Unlock Your True Potential",
+      title: "Unlock your true potential",
       description:
         "Break through limiting beliefs and discover the limitless possibilities within you. Our proven methodologies help you tap into your strengths and develop the confidence to pursue your passions.",
       image:
@@ -56,7 +56,7 @@ const Home = () => {
     },
     {
       icon: Users,
-      title: "Build Meaningful Relationships",
+      title: "Build meaningful relationships",
       description:
         "Strengthen your connections with others by first understanding yourself. Learn communication techniques and emotional intelligence skills that transform your personal and professional relationships.",
       image:
@@ -65,7 +65,7 @@ const Home = () => {
     },
     {
       icon: Sparkles,
-      title: "Create Lasting Change",
+      title: "Create lasting change",
       description:
         "Experience sustainable transformation that goes beyond temporary fixes. Our comprehensive approach ensures you develop habits, mindsets, and practices that support your growth for years to come.",
       image:
@@ -123,12 +123,12 @@ const Home = () => {
                 onClick={handleStartJourney}
                 className="inline-flex cursor-pointer items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-200 transform hover:scale-105 shadow-xl"
               >
-                <span>Book Your Free Session</span>
+                <span>Book your free session</span>
                 <ArrowRight className="h-5 w-5" />
               </button>
               <Link to="/email">
                 <button className="inline-flex cursor-pointer items-center ml-5 md:ml-0 justify-center space-x-2 bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg border-2 border-gray-200 hover:border-gray-300">
-                  <span>Download Free E-Book</span>
+                  <span>Download free e-book</span>
                   <ArrowRight className="h-5 w-5" />
                 </button>
               </Link>

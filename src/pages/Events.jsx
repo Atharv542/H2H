@@ -38,7 +38,7 @@ export default function Events() {
 
           <div className="relative p-8 sm:p-10">
             <p className="text-xs font-semibold tracking-wider text-white/80">
-              HEAD2HEART • EVENTS & WORKSHOPS
+              head2heart • EVENTS & WORKSHOPS
             </p>
 
             <h1 className="mt-3 text-3xl font-bold sm:text-4xl">
@@ -73,7 +73,7 @@ export default function Events() {
                 }}
                 className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-slate-900 hover:bg-white/90"
               >
-                View Latest Gallery
+                View latest gallery
               </button>
 
           
@@ -86,7 +86,7 @@ export default function Events() {
           <div className="mt-10">
             <div className="mb-4 flex items-end justify-between gap-4">
               <div>
-                <h2 className="text-xl font-bold text-slate-900">Featured Event</h2>
+                <h2 className="text-xl font-bold text-slate-900">Featured event</h2>
                 <p className="mt-1 text-sm text-slate-600">
                   A quick highlight of the most recent workshop.
                 </p>

@@ -85,11 +85,11 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-            Client Success Stories
+            Client success stories
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Read what our clients have to say about their transformational journeys
-            with Head2Heart coaching services.
+            with head2heart coaching services.
           </p>
         </div>
 

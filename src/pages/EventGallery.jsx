@@ -54,7 +54,7 @@ export default function EventGallery() {
 
             <h1 className="mt-4 text-2xl font-bold text-slate-900">{workshop.title}</h1>
             <p className="mt-1 text-slate-600">
-              {workshop.date}  {/*workshop.location*/} • {workshop.photos.length} photos
+              {workshop.date} • {workshop.location} • {workshop.photos.length} photos
             </p>
           </div>
 

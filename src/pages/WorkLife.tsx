@@ -1,41 +1,60 @@
 import { Clock, Heart, Layers, Shield } from "lucide-react";
 import ServiceTemplate from "../components/ServiceTemplate";
-import { useNavigate } from "react-router-dom";
 
 export default function WorkLifeBalance() {
-  const navigate = useNavigate();
-
   return (
     <ServiceTemplate
       badge="Clarity & Alignment"
       title="Work–Life Balance"
-      subtitle="Reset Priorities. Restore Balance. Live Intentionally."
       duration="60 Minutes"
-       stripeItemId="service12"
+      stripeItemId="service12"
       price="$149"
       gradient="from-purple-600 via-blue-600 to-slate-700"
       description="This session helps you identify imbalance, understand what’s draining you, and create practical boundaries and habits for sustainable balance without guilt."
       features={[
         {
           icon: Layers,
-          title: "Life Balance Awareness",
-          description: "See where imbalance exists across life areas."
+          title: "Life balance awareness",
+          description: "See where imbalance exists across life areas.",
         },
         {
           icon: Clock,
-          title: "Time & Energy Audit",
-          description: "Understand what drains and restores you."
+          title: "Time & energy audit",
+          description: "Understand what drains and restores you.",
         },
         {
           icon: Shield,
-          title: "Healthy Boundaries",
-          description: "Protect your time and energy."
+          title: "Healthy boundaries",
+          description: "Protect your time and energy.",
         },
         {
           icon: Heart,
-          title: "Values Alignment",
-          description: "Reconnect with what truly matters."
-        }
+          title: "Values alignment",
+          description: "Reconnect with what truly matters.",
+        },
+      ]}
+      // ✅ Is it for me?
+      isItForMeItems={[
+        {
+          title: "Always “on”",
+          description: "Work follows you everywhere and switching off feels hard.",
+        },
+        {
+          title: "Drained after work",
+          description: "You’re left with little energy for yourself, family, or friends.",
+        },
+        {
+          title: "Guilt when resting",
+          description: "You feel guilty taking breaks or saying no to extra tasks.",
+        },
+        {
+          title: "Weak boundaries",
+          description: "Your time gets taken up by others and you struggle to protect it.",
+        },
+        {
+          title: "Want balance",
+          description: "You want practical habits and boundaries for sustainable balance.",
+        },
       ]}
       included={[
         "Work–life balance assessment",
@@ -43,7 +62,7 @@ export default function WorkLifeBalance() {
         "Energy drain vs restore mapping",
         "Boundary-setting reflection",
         "Values & priorities alignment",
-        "Simple balance action plan"
+        "Simple balance action plan",
       ]}
       outcomes={[
         "Clear awareness of imbalance",
@@ -51,9 +70,8 @@ export default function WorkLifeBalance() {
         "Improved boundaries",
         "More intentional daily life",
         "Better energy management",
-        "Sustainable work–life harmony"
+        "Sustainable work–life harmony",
       ]}
-
     />
   );
 }
