@@ -19,13 +19,13 @@ import QuestionnaireModal from "../components/QuestionnaireModal";
 /* ================= MICROSOFT 365 LINKS ================= */
 const SACHIN_BOOKING_LINK =
   "https://outlook.office.com/bookwithme/user/ef3d9319f5204e72b6464edb93e5e413@head2heart.co.nz/meetingtype/LmCOb-Nbd0eHqcZSgZi4ng2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile";
+
 const SANDEEP_BOOKING_LINK =
   "https://outlook.office.com/bookwithme/user/937d65fff67440498fe207b001f9aa8b@head2heart.co.nz/meetingtype/2_0DiyAjgkWFd-bpB_PUHA2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile";
 
 const Booking = () => {
   const [step, setStep] = useState(1);
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
-  const [showCalendar, setShowCalendar] = useState(false);
   const [showConfirmPopup, setShowConfirmPopup] = useState(false);
   const [confirmChecked, setConfirmChecked] = useState(false);
   const [selectedCoach, setSelectedCoach] = useState(null);
@@ -177,7 +177,7 @@ const Booking = () => {
 
                 <button
                   onClick={() => setStep(2)}
-                  className="bg-gradient-to-r from-blue-600 cursor-pointer to-cyan-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:scale-105 transition"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:scale-105 transition"
                 >
                   Book session
                 </button>
@@ -197,8 +197,8 @@ const Booking = () => {
 
                 <div className="grid md:grid-cols-2 gap-8">
                   {[
-                    { name: "Sachin", img: "/Sachin.png" },
-                    { name: "Sandeep", img: "/Sandeep.jpg" },
+                    { name: "Sachin", img: "/Sachin.png", link: SACHIN_BOOKING_LINK },
+                    { name: "Sandeep", img: "/Sandeep.jpg", link: SANDEEP_BOOKING_LINK },
                   ].map((coach) => (
                     <div
                       key={coach.name}
@@ -212,12 +212,14 @@ const Booking = () => {
                       <h3 className="text-xl font-semibold mb-2">
                         {coach.name}
                       </h3>
+
                       <button
                         onClick={() => {
                           setSelectedCoach(coach.name);
-                          setShowCalendar(true);
+                          window.open(coach.link, "_blank");
+                          setShowConfirmPopup(true);
                         }}
-                        className="bg-blue-600  cursor-pointer text-white px-6 py-3 rounded-full mt-4"
+                        className="bg-blue-600 text-white px-6 py-3 rounded-full mt-4"
                       >
                         Book session with {coach.name}
                       </button>
@@ -255,34 +257,6 @@ const Booking = () => {
         </div>
       </div>
 
-      {/* ================= MICROSOFT 365 CALENDAR ================= */}
-      {showCalendar && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center">
-          <div className="relative bg-white w-full max-w-4xl h-[85vh] rounded-2xl overflow-hidden shadow-2xl">
-            <button
-              onClick={() => {
-                setShowCalendar(false);
-                setShowConfirmPopup(true);
-                setConfirmChecked(false);
-              }}
-              className="absolute top-4 right-4 z-10 text-2xl font-bold"
-            >
-              ✕
-            </button>
-
-            <iframe
-              src={
-                selectedCoach === "Sachin"
-                  ? SACHIN_BOOKING_LINK
-                  : SANDEEP_BOOKING_LINK
-              }
-              className="w-full h-full border-0"
-              allow="camera; microphone; fullscreen"
-            />
-          </div>
-        </div>
-      )}
-
       {/* ================= CONFIRM POPUP ================= */}
       {showConfirmPopup && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
@@ -290,6 +264,10 @@ const Booking = () => {
             <h3 className="text-xl font-bold mb-4">
               Booking confirmation
             </h3>
+
+            <p className="text-sm text-gray-600 mb-4">
+              After completing the booking in the new tab, return here and confirm.
+            </p>
 
             <label className="flex items-start gap-3 mb-6">
               <input
