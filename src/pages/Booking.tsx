@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
-  Calendar,
-  Clock,
   CheckCircle,
   Video,
   Users,
@@ -18,14 +16,22 @@ import toast from "react-hot-toast";
 import { onAuthStateChanged } from "firebase/auth";
 import QuestionnaireModal from "../components/QuestionnaireModal";
 
-const CALENDLY_LINK = "https://calendly.com/head2heart-info/30min";
+/* ================= MICROSOFT 365 LINKS ================= */
+const SACHIN_BOOKING_LINK =
+  "https://outlook.office.com/bookwithme/user/ef3d9319f5204e72b6464edb93e5e413@head2heart.co.nz/meetingtype/LmCOb-Nbd0eHqcZSgZi4ng2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile";
+const SANDEEP_BOOKING_LINK =
+  "https://outlook.office.com/bookwithme/user/937d65fff67440498fe207b001f9aa8b@head2heart.co.nz/meetingtype/2_0DiyAjgkWFd-bpB_PUHA2?anonymous&ismsaljsauthenabled&ep=mLinkFromTile";
 
 const Booking = () => {
   const [step, setStep] = useState(1);
   const [showQuestionnaire, setShowQuestionnaire] = useState(false);
-  const [showCalendly, setShowCalendly] = useState(false);
-  const [user, setUser] = useState<any>(null);
-  const [authChecked, setAuthChecked] = useState(false); // 🔑 NEW
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [showConfirmPopup, setShowConfirmPopup] = useState(false);
+  const [confirmChecked, setConfirmChecked] = useState(false);
+  const [selectedCoach, setSelectedCoach] = useState(null);
+  const [user, setUser] = useState(null);
+  const [authChecked, setAuthChecked] = useState(false);
+
   const navigate = useNavigate();
   const toastShownRef = useRef(false);
 
@@ -33,14 +39,14 @@ const Booking = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setAuthChecked(true); // auth resolved
+      setAuthChecked(true);
     });
     return () => unsubscribe();
   }, []);
 
   /* ================= ACCESS CHECK ================= */
   useEffect(() => {
-    if (!authChecked) return; // ⛔ wait until auth is ready
+    if (!authChecked) return;
 
     const checkAccess = async () => {
       if (!user) {
@@ -78,31 +84,23 @@ const Booking = () => {
     setShowQuestionnaire(false);
   };
 
-  /* ================= CALENDLY EVENT ================= */
-  useEffect(() => {
-    const handleCalendlyMessage = async (e: MessageEvent) => {
-      if (e.data?.event === "calendly.event_scheduled") {
-        setShowCalendly(false);
-        await handleConfirmBooking();
-      }
-    };
-
-    window.addEventListener("message", handleCalendlyMessage);
-    return () =>
-      window.removeEventListener("message", handleCalendlyMessage);
-  }, []);
-
   /* ================= SAVE BOOKING ================= */
   const handleConfirmBooking = async () => {
-    try {
-      if (!user) return;
+    if (!confirmChecked) {
+      toast.error("Please confirm the checkbox first");
+      return;
+    }
 
+    try {
       await setDoc(doc(db, "user_sessions", user.uid), {
         hasBookedFreeSession: true,
         bookedAt: new Date(),
-        source: "calendly",
+        coach: selectedCoach,
+        source: "microsoft-365",
       });
 
+      toast.success("Booking confirmed!");
+      setShowConfirmPopup(false);
       setStep(3);
     } catch (error) {
       console.error(error);
@@ -113,7 +111,7 @@ const Booking = () => {
   const features = [
     {
       icon: Video,
-      title: "Virtual Session",
+      title: "Virtual session",
       description: "Connect from anywhere via video call",
     },
     {
@@ -123,17 +121,16 @@ const Booking = () => {
     },
     {
       icon: Target,
-      title: "Goal Focused",
+      title: "Goal focused",
       description: "Discuss your specific objectives",
     },
     {
       icon: Sparkles,
-      title: "No Commitment",
+      title: "No commitment",
       description: "Zero pressure, just conversation",
     },
   ];
 
-  /* ================= LOADING WHILE AUTH CHECKS ================= */
   if (!authChecked) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -156,7 +153,7 @@ const Booking = () => {
                 className="p-10 text-center"
               >
                 <h1 className="text-4xl font-bold mb-6">
-                  Free 30-Minute Discovery Call
+                  Free 30-minute discovery call
                 </h1>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-10">
@@ -179,24 +176,54 @@ const Booking = () => {
                 </div>
 
                 <button
-                  type="button"
-                  onClick={() => setShowCalendly(true)}
-                  className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:scale-105 transition"
+                  onClick={() => setStep(2)}
+                  className="bg-gradient-to-r from-blue-600 cursor-pointer to-cyan-600 text-white px-12 py-4 rounded-full text-lg font-semibold hover:scale-105 transition"
                 >
-                  Continue to Schedule
+                  Book session
                 </button>
+              </motion.div>
+            )}
 
-                <p className="mt-4 text-sm text-gray-500">
-                  Having issues?{" "}
-                  <a
-                    href={CALENDLY_LINK}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 underline"
-                  >
-                    Open Calendly in new tab
-                  </a>
-                </p>
+            {/* ================= STEP 2 ================= */}
+            {step === 2 && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-10 text-center"
+              >
+                <h2 className="text-3xl font-bold mb-8">
+                  Choose your coach
+                </h2>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  {[
+                    { name: "Sachin", img: "/Sachin.png" },
+                    { name: "Sandeep", img: "/Sandeep.jpg" },
+                  ].map((coach) => (
+                    <div
+                      key={coach.name}
+                      className="bg-slate-50 p-8 rounded-2xl shadow"
+                    >
+                      <img
+                        src={coach.img}
+                        alt={coach.name}
+                        className="w-32 h-32 mx-auto rounded-full object-cover mb-4"
+                      />
+                      <h3 className="text-xl font-semibold mb-2">
+                        {coach.name}
+                      </h3>
+                      <button
+                        onClick={() => {
+                          setSelectedCoach(coach.name);
+                          setShowCalendar(true);
+                        }}
+                        className="bg-blue-600  cursor-pointer text-white px-6 py-3 rounded-full mt-4"
+                      >
+                        Book session with {coach.name}
+                      </button>
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             )}
 
@@ -210,20 +237,17 @@ const Booking = () => {
                 <div className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle className="text-white w-12 h-12" />
                 </div>
-
                 <h2 className="text-3xl font-bold mb-4">
-                  You're All Set!
+                  You're all set!
                 </h2>
-
                 <p className="text-gray-600 mb-8">
-                  Your discovery call is booked. Check your email for details.
+                  Your session is booked. Check your email for details.
                 </p>
-
                 <button
                   onClick={() => navigate("/")}
                   className="bg-blue-600 text-white px-10 py-3 rounded-full"
                 >
-                  Return Home
+                  Return home
                 </button>
               </motion.div>
             )}
@@ -231,19 +255,27 @@ const Booking = () => {
         </div>
       </div>
 
-      {/* ================= CALENDLY MODAL ================= */}
-      {showCalendly && (
+      {/* ================= MICROSOFT 365 CALENDAR ================= */}
+      {showCalendar && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center">
           <div className="relative bg-white w-full max-w-4xl h-[85vh] rounded-2xl overflow-hidden shadow-2xl">
             <button
-              onClick={() => setShowCalendly(false)}
-              className="absolute top-4 right-4 z-10 text-2xl font-bold text-gray-600 hover:text-black"
+              onClick={() => {
+                setShowCalendar(false);
+                setShowConfirmPopup(true);
+                setConfirmChecked(false);
+              }}
+              className="absolute top-4 right-4 z-10 text-2xl font-bold"
             >
               ✕
             </button>
 
             <iframe
-              src={CALENDLY_LINK}
+              src={
+                selectedCoach === "Sachin"
+                  ? SACHIN_BOOKING_LINK
+                  : SANDEEP_BOOKING_LINK
+              }
               className="w-full h-full border-0"
               allow="camera; microphone; fullscreen"
             />
@@ -251,7 +283,45 @@ const Booking = () => {
         </div>
       )}
 
-      {/* ================= QUESTIONNAIRE (UNCHANGED) ================= */}
+      {/* ================= CONFIRM POPUP ================= */}
+      {showConfirmPopup && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+          <div className="bg-white max-w-md w-full p-8 rounded-2xl shadow-xl">
+            <h3 className="text-xl font-bold mb-4">
+              Booking confirmation
+            </h3>
+
+            <label className="flex items-start gap-3 mb-6">
+              <input
+                type="checkbox"
+                checked={confirmChecked}
+                onChange={(e) => setConfirmChecked(e.target.checked)}
+                className="mt-1"
+              />
+              <span className="text-gray-700">
+                I have completed the booking and received the confirmation email.
+              </span>
+            </label>
+
+            <div className="flex gap-4">
+              <button
+                onClick={handleConfirmBooking}
+                className="flex-1 bg-green-600 text-white py-3 rounded-lg font-semibold"
+              >
+                Yes
+              </button>
+              <button
+                onClick={() => setShowConfirmPopup(false)}
+                className="flex-1 bg-gray-200 py-3 rounded-lg font-semibold"
+              >
+                No
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ================= QUESTIONNAIRE ================= */}
       <QuestionnaireModal
         isOpen={showQuestionnaire}
         onClose={() => setShowQuestionnaire(false)}

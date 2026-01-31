@@ -373,7 +373,7 @@ const Terms = () => {
                   <Mail className="h-6 w-6 text-blue-600" />
                   <div>
                   
-                    <p className="text-md -mt-1 text-gray-600">legal@head2heart.com</p>
+                    <p className="text-md -mt-1 text-gray-600">info@head2heart.co.nz</p>
                   </div>
                 </div>
                 
