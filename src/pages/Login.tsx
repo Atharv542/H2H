@@ -130,6 +130,7 @@ const Login = () => {
                   type="email"
                   required
                   value={email}
+                  placeholder="Enter your email"
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border rounded-lg"
                 />
@@ -147,6 +148,7 @@ const Login = () => {
                   type="password"
                   required
                   value={password}
+                  placeholder="Enter your password"
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 border rounded-lg"
                 />
